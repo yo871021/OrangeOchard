@@ -1,11 +1,9 @@
-// ::ng-deep p-menubar {
-//     padding-top: 100px !important; /* 調整上間距 */
-//     padding-bottom: 150px !important; /* 調整下間距 */
-// }
 ::ng-deep .p-menubar.p-component {
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
 }
-// ::ng-deep .p-menubar {
-//     --p-menubar-padding: 100px 0 150px 0 !important; /* 上 100px，下 150px */
-// }
+
+::ng-deep p-menubarsub {
+    justify-items: center !important;
+    flex: auto !important;
+}

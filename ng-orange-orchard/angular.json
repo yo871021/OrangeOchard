@@ -29,7 +29,8 @@
               {
                 "glob": "**/*",
                 "input": "src/assets"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -105,6 +106,9 @@
     }
   },
   "cli": {
-    "analytics": "f9598d93-20d8-4346-ad19-0f7f780d87c1"
+    "analytics": "f9598d93-20d8-4346-ad19-0f7f780d87c1",
+    "cache": {
+      "enabled": false
+    }
   }
 }

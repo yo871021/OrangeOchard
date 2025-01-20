@@ -1,58 +1,65 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { BadgeModule } from 'primeng/badge';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-topbar',
-  imports: [MenubarModule],
+  imports: [MenubarModule, CommonModule, BadgeModule],
   templateUrl: './topbar.component.html',
   styleUrl: './topbar.component.scss'
 })
 export class TopbarComponent {
   items: MenuItem[] | undefined = [
     {
-      label: 'Home',
-      icon: 'pi pi-home'
+      label: '商品',
+      icon: 'pi pi-home',
+      // style: {
+      //   'margin-left': '50px'
+      // }
     },
     {
-      label: 'Features',
+      label: '自採預約',
       icon: 'pi pi-star'
     },
     {
-      label: 'Projects',
+      label: '環境介紹',
+      icon: 'pi pi-bolt'
+    },
+    {
+      label: '購物車',
+      icon: 'pi pi-envelope'
+    },
+    {
+      label: '關於我們',
       icon: 'pi pi-search',
+      badge: '1',
       items: [
+
         {
-          label: 'Components',
-          icon: 'pi pi-bolt'
-        },
-        {
-          label: 'Blocks',
+          label: '位置資訊',
           icon: 'pi pi-server'
         },
         {
-          label: 'UI Kit',
+          label: '聯繫我們',
           icon: 'pi pi-pencil'
         },
         {
-          label: 'Templates',
+          separator: true,
+        },
+        {
+          label: '人員募集',
           icon: 'pi pi-palette',
+          badge: '1',
           items: [
             {
-              label: 'Apollo',
-              icon: 'pi pi-palette'
-            },
-            {
-              label: 'Ultima',
+              label: '採集員/兼職',
               icon: 'pi pi-palette'
             }
           ]
         }
       ]
-    },
-    {
-      label: 'Contact',
-      icon: 'pi pi-envelope'
     }
   ];
 }
