@@ -1,17 +1,18 @@
 <div class="card">
     <p-menubar [model]="items">
-
         <ng-template #start>
-            <img src="../assets/TopbarLogo.png" alt="Logo" style="max-width: 450px; height: auto;">
+            <!-- <div class="bg-cover bg-no-repeat w-10rem h-10rem bg-primary border-round m-3"
+                style="background-image: url('../assets/TopbarBackground.png'); background-size: 5rem;"></div> -->
+            <!-- <img src="../assets/TopbarLogo.png" alt="Logo" style="max-width: 150px; width: auto; height: auto;"> -->
         </ng-template>
 
         <ng-template #item let-item let-root="root">
             <a pRipple class="flex items-center p-menubar-item-link">
-                <!-- <div *ngIf="item.class" [ngClass]="[item.class]" ></div>
-                <div *ngIf="item.style" [style]="item.style" ></div> -->
-                <i [ngClass]="['pi', item.icon]"></i>
-                <span>{{ item.label }}</span>
-                <p-badge *ngIf="item.badge" [ngClass]="{ 'ml-auto': !root, 'ml-2': root }" [value]="item.badge" />
+                <i [ngClass]="['pi', item.icon, isItmTitle&&root ? 'text-white' : '']"></i>
+                <span [ngClass]="{ 'text-white font-bold':isItmTitle&&root,'text-2xl': !root, 'text-3xl': root }">
+                    {{ item.label }}
+                </span>
+                <p-badge *ngIf="item.badge" class="ml-2" [value]="item.badge" />
                 <span *ngIf="item.shortcut"
                     class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">
                     {{ item.shortcut }}</span>
@@ -20,7 +21,7 @@
         </ng-template>
 
         <ng-template #end>
-            <a pRipple class="flex items-center p-menubar-item-link">
+            <a pRipple class="flex items-center p-menubar-item-link text-white">
                 <i class="pi pi-user"></i>
                 <span>{{ '登入/註冊' }}</span>
             </a>

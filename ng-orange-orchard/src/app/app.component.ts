@@ -9,5 +9,4 @@ import { TopbarComponent } from "./topbar/topbar.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'ng-orange-orchard';
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { BadgeModule } from 'primeng/badge';
@@ -11,10 +11,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './topbar.component.scss'
 })
 export class TopbarComponent {
+  isItmTitle: boolean = true;
   items: MenuItem[] | undefined = [
     {
       label: '商品',
-      icon: 'pi pi-home',
+      icon: 'pi pi-shop',
       // style: {
       //   'margin-left': '50px'
       // }
@@ -25,41 +26,53 @@ export class TopbarComponent {
     },
     {
       label: '環境介紹',
-      icon: 'pi pi-bolt'
+      icon: 'pi pi-image'
     },
     {
       label: '購物車',
-      icon: 'pi pi-envelope'
+      icon: 'pi pi-shopping-cart'
     },
     {
-      label: '關於我們',
-      icon: 'pi pi-search',
+      label: '關於果園',
+      icon: 'pi pi-info-circle',
       badge: '1',
       items: [
 
         {
           label: '位置資訊',
-          icon: 'pi pi-server'
+          icon: 'pi pi-map-marker'
         },
         {
           label: '聯繫我們',
-          icon: 'pi pi-pencil'
+          icon: 'pi pi-envelope'
         },
         {
           separator: true,
         },
         {
           label: '人員募集',
-          icon: 'pi pi-palette',
+          icon: 'pi pi-address-book',
           badge: '1',
           items: [
             {
               label: '採集員/兼職',
-              icon: 'pi pi-palette'
+              icon: 'pi '
             }
           ]
         }
       ]
     }
   ];
+
+  ngOnInit() {
+    this.checkViewport();
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.checkViewport();
+  }
+  private checkViewport() {
+    this.isItmTitle = window.innerWidth > 960;
+  }
 }
