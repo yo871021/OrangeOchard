@@ -12,13 +12,18 @@
 }
 
 ::ng-deep .p-menubar-item-link:hover {
-    background-color: var(--p-orange-300); /* 設定您的背景色 */
-    transition: background-color 0.3s ease; /* 添加平滑過渡效果 */
+    background-color: var(--p-orange-300);
+    /* 設定您的背景色 */
+    transition: background-color 0.3s ease;
+    /* 添加平滑過渡效果 */
     overflow: hidden;
     border-radius: var(--p-menubar-border-radius);
 }
-// ::ng-deep .p-menubar-item-link {
-//     background-color: var(--p-amber-600); /* 設定您的背景色 */
-//     overflow: hidden;
-//     border-radius: var(--p-menubar-border-radius);
-// }
+
+::ng-deep .p-menubar-item-link:active {
+    background-color: var(--p-orange-200) !important;
+}
+
+::ng-deep .p-menubar-item.p-focus > .p-menubar-item-content {
+    background: var(--p-orange-200) !important;
+}

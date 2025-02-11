@@ -10,6 +10,7 @@ import Aura from '@primeng/themes/aura';
 import Material from '@primeng/themes/material';
 import Lara from '@primeng/themes/lara';
 import nora from '@primeng/themes/nora';
+import Preset from './preset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,7 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: Preset,
         options: {
           darkModeSelector: false
         }
