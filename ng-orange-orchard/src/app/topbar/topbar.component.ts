@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { BadgeModule } from 'primeng/badge';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -16,21 +17,25 @@ export class TopbarComponent {
     {
       label: '商品',
       icon: 'pi pi-shop',
+      url: '/store'
       // style: {
       //   'margin-left': '50px'
       // }
     },
     {
       label: '自採預約',
-      icon: 'pi pi-star'
+      icon: 'pi pi-star',
+      url: '/selfpick'
     },
     {
       label: '環境介紹',
-      icon: 'pi pi-image'
+      icon: 'pi pi-image',
+      url: '/environment'
     },
     {
       label: '購物車',
-      icon: 'pi pi-shopping-cart'
+      icon: 'pi pi-shopping-cart',
+      url: '/shoppingcart'
     },
     {
       label: '關於果園',
@@ -40,11 +45,13 @@ export class TopbarComponent {
 
         {
           label: '位置資訊',
-          icon: 'pi pi-map-marker'
+          icon: 'pi pi-map-marker',
+          url: '/location'
         },
         {
           label: '聯繫我們',
-          icon: 'pi pi-envelope'
+          icon: 'pi pi-envelope',
+          url: '/contact'
         },
         {
           separator: true,
@@ -56,13 +63,16 @@ export class TopbarComponent {
           items: [
             {
               label: '採集員/兼職',
-              icon: 'pi '
+              icon: 'pi ',
+              url: '/recruit/pick'
             }
           ]
         }
       ]
     }
   ];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.checkViewport();
@@ -74,5 +84,11 @@ export class TopbarComponent {
   }
   private checkViewport() {
     this.isItmTitle = window.innerWidth > 960;
+  }
+
+  menuItm_Click(url: string) {
+    if (!!url) {
+      this.router.navigate([url])
+    }
   }
 }

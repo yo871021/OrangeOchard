@@ -7,7 +7,7 @@
         </ng-template>
 
         <ng-template #item let-item let-root="root">
-            <a pRipple class="flex items-center p-menubar-item-link">
+            <a pRipple class="flex items-center p-menubar-item-link" (click)="menuItm_Click(item.url)">
                 <i [ngClass]="['pi', item.icon, isItmTitle&&root ? 'text-white' : '']"></i>
                 <span [ngClass]="{ 'text-white font-bold':isItmTitle&&root,'text-2xl': !root, 'text-3xl': root }">
                     {{ item.label }}
