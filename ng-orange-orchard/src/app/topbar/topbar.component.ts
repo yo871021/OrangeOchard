@@ -91,4 +91,8 @@ export class TopbarComponent {
       this.router.navigate([url])
     }
   }
+
+  login(){
+    this.router.navigate(['/login'])
+  }
 }

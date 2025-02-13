@@ -7,6 +7,7 @@ import { MapComponent } from './page/map/map.component';
 import { LocationComponent } from './page/location/location.component';
 import { ContactComponent } from './page/contact/contact.component';
 import { RecruitComponent } from './page/recruit/recruit.component';
+import { LoginComponent } from './page/login/login.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'store', pathMatch: 'full' },
@@ -18,5 +19,6 @@ export const routes: Routes = [
     { path: 'location', component: LocationComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'recruit', component: RecruitComponent },
+    { path: 'login', component: LoginComponent },
     { path: '**', redirectTo: 'store' },
 ];
