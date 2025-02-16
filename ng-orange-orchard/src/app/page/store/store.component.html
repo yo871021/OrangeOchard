@@ -20,6 +20,11 @@
                                 <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)"
                                     class="absolute" styleClass="dark:!bg-surface-900" [style.left.px]="4"
                                     [style.top.px]="4" />
+
+                                <div class="block sm:hidden">
+                                    <ng-container *ngTemplateOutlet="shoppingcartBtn; context: { $implicit: product }">
+                                    </ng-container>
+                                </div>
                             </div>
                         </ng-template>
 
@@ -51,31 +56,9 @@
                                 </label>
                             </div>
 
-                            <div
-                                class="absolute bottom-0 right-0 flex align-items-end justify-content-end justify-content-end">
-
-                                <p-button *ngIf="!product.isModify && !product.quantity" class="mr-2" icon="pi pi-cart-arrow-down"
-                                    [rounded]="true" severity="success" (onClick)="shopCartClick(product)" />
-
-                                <p-overlaybadge *ngIf="!product.isModify && !!product.quantity" class="mr-2" 
-                                    [value]="product.quantity/10">
-                                    <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="warn"
-                                        (onClick)="shopCartClick(product)" />
-                                </p-overlaybadge>
-
-                                <p-inputgroup *ngIf="product.isModify" class="flipright w-8rem sm:w-10rem">
-                                    <p-inputgroup-addon>
-                                        <p-button icon="pi pi-minus" severity="secondary"
-                                            (onClick)="qtyChange(product,-10)" />
-                                    </p-inputgroup-addon>
-                                    <p-inputnumber [(ngModel)]="product.quantity" spinnerMode="horizontal" [step]="10"
-                                        [min]="0" mode="decimal" />
-                                    <p-inputgroup-addon>
-                                        <p-button icon="pi pi-plus" severity="secondary"
-                                            (onClick)="qtyChange(product,10)" />
-                                    </p-inputgroup-addon>
-                                </p-inputgroup>
-
+                            <div class="hidden sm:block">
+                                <ng-container *ngTemplateOutlet="shoppingcartBtn; context: { $implicit: product }">
+                                </ng-container>
                             </div>
 
                         </div>
@@ -87,3 +70,28 @@
 
     </p-dataview>
 </div>
+
+
+<ng-template #shoppingcartBtn let-product>
+    <div class="absolute bottom-0 right-0 flex align-items-end justify-content-end justify-content-end">
+
+        <p-button *ngIf="!product.isModify && !product.quantity" class="mr-3 sm:mr-2" icon="pi pi-cart-arrow-down"
+            [rounded]="true" severity="success" (onClick)="shopCartClick(product)" />
+
+        <p-overlaybadge *ngIf="!product.isModify && !!product.quantity" class="mr-3 sm:mr-2" [value]="product.quantity/10">
+            <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="warn" (onClick)="shopCartClick(product)" />
+        </p-overlaybadge>
+
+        <p-inputgroup *ngIf="product.isModify" class="flipright w-8rem sm:w-10rem">
+            <p-inputgroup-addon>
+                <p-button icon="pi pi-minus" severity="secondary" (onClick)="qtyChange(product,-10)" />
+            </p-inputgroup-addon>
+            <p-inputnumber [(ngModel)]="product.quantity" spinnerMode="horizontal" [step]="10" [min]="0"
+                mode="decimal" />
+            <p-inputgroup-addon>
+                <p-button icon="pi pi-plus" severity="secondary" (onClick)="qtyChange(product,10)" />
+            </p-inputgroup-addon>
+        </p-inputgroup>
+
+    </div>
+</ng-template>
