@@ -22,16 +22,24 @@
                                     [style.top.px]="4" />
                             </div>
                         </ng-template>
-                        <div class="flex justify-content-end mr-2">
-                            <label class="text-2xl font-semibold">{{ product.name }}</label>
-                            <label class="flex align-items-end text-lg font-semibold">{{ product.subname }}</label>
-                        </div>
-                        <div class="flex justify-content-end mt-1 mr-2 gap-2">
-                            <label class="text-sm font-light">{{ product.size }}</label>
-                            <label class="text-sm font-light">cm</label>
-                        </div>
-                        <div class="grid">
-                            <div class="col-6 flex gap-2">
+
+                        <ng-template #title>
+                            <div class="flex justify-content-end">
+                                <label class="text-2xl font-semibold">{{ product.name }}</label>
+                                <label class="flex align-items-end text-lg font-semibold">{{ product.subname }}</label>
+                            </div>
+                        </ng-template>
+
+                        <ng-template #subtitle>
+                            <div class="flex justify-content-end gap-2">
+                                <label class="text-sm font-light">{{ product.size }}</label>
+                                <label class="text-sm font-light">cm</label>
+                            </div>
+                        </ng-template>
+
+                        <div class="relative">
+
+                            <div class="flex gap-2">
                                 <label class="flex justify-content-start align-items-end mb-1 text-4xl font-bold">
                                     $
                                 </label>
@@ -42,31 +50,36 @@
                                     /每斤
                                 </label>
                             </div>
-                            <div class="col-6 flex align-items-end justify-content-end">
 
-                                <p-button *ngIf="!product.isModify && !product.quantity" icon="pi pi-cart-arrow-down"
+                            <div
+                                class="absolute bottom-0 right-0 flex align-items-end justify-content-end justify-content-end">
+
+                                <p-button *ngIf="!product.isModify && !product.quantity" class="mr-2" icon="pi pi-cart-arrow-down"
                                     [rounded]="true" severity="success" (onClick)="shopCartClick(product)" />
 
-                                <p-overlaybadge *ngIf="!product.isModify && !!product.quantity"
+                                <p-overlaybadge *ngIf="!product.isModify && !!product.quantity" class="mr-2" 
                                     [value]="product.quantity/10">
                                     <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="warn"
                                         (onClick)="shopCartClick(product)" />
                                 </p-overlaybadge>
 
-                                <p-inputnumber *ngIf="product.isModify" class="flipright " size="small"
-                                    [(ngModel)]="product.quantity" (ngModelChange)="qtyChange(product)"
-                                    [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" [step]="10"
-                                    [min]="0" mode="decimal">
-                                    <ng-template #incrementbuttonicon>
-                                        <span class="pi pi-plus"></span>
-                                    </ng-template>
-                                    <ng-template #decrementbuttonicon>
-                                        <span class="pi pi-minus"></span>
-                                    </ng-template>
-                                </p-inputnumber>
+                                <p-inputgroup *ngIf="product.isModify" class="flipright w-8rem sm:w-10rem">
+                                    <p-inputgroup-addon>
+                                        <p-button icon="pi pi-minus" severity="secondary"
+                                            (onClick)="qtyChange(product,-10)" />
+                                    </p-inputgroup-addon>
+                                    <p-inputnumber [(ngModel)]="product.quantity" spinnerMode="horizontal" [step]="10"
+                                        [min]="0" mode="decimal" />
+                                    <p-inputgroup-addon>
+                                        <p-button icon="pi pi-plus" severity="secondary"
+                                            (onClick)="qtyChange(product,10)" />
+                                    </p-inputgroup-addon>
+                                </p-inputgroup>
 
                             </div>
+
                         </div>
+
                     </p-card>
                 </div>
             </div>

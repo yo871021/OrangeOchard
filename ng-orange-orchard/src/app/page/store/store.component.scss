@@ -3,3 +3,7 @@
     border-radius: 0;
     max-width: 50px;
 }
+
+::ng-deep .p-card-body {
+    padding: 2% 5% 5% 2% !important;
+}

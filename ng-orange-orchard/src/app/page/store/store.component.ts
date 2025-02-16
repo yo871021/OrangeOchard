@@ -8,10 +8,14 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
+import { InputGroup } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @Component({
   selector: 'app-store',
-  imports: [DataViewModule, ButtonModule, Tag, CommonModule, DropdownModule, InputNumberModule, CardModule, FormsModule, OverlayBadgeModule],
+  imports: [DataViewModule, ButtonModule, Tag, CommonModule, DropdownModule,
+    InputNumberModule, CardModule, FormsModule, OverlayBadgeModule, InputGroup,
+    InputGroupAddonModule],
   templateUrl: './store.component.html',
   styleUrl: './store.component.scss'
 })
@@ -174,8 +178,11 @@ export class StoreComponent {
     this.resetTimer(product);
   }
 
-  qtyChange(product: any) {
+  qtyChange(product: any, qty: number) {
     // 使用者在 p-inputnumber 修改了數量
+    if (product.quantity + qty >= 0) {
+      product.quantity += qty;
+    }
     product.isModify = true;
 
     // 同樣要重置計時器
