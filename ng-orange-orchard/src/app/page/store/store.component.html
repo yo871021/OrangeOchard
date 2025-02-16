@@ -1,65 +1,76 @@
-<p-dataview #dv [value]="products" [layout]="'grid'" [rows]="5" [paginator]="true">
+<div class="grid">
+    <p-dataview class="col-12 xl:col-6 xl:col-offset-3 lg:col-8 lg:col-offset-2 md:col-10 md:col-offset-1" #dv
+        [value]="products" [layout]="'grid'" [rows]="8" [paginator]="true">
 
-    <ng-template #header>
-        <div class="flex flex-col md:flex-row md:justify-between">
-            <p-dropdown [options]="[]" placeholder="Sort By Price" styleClass="mb-2 md:mb-0" />
-        </div>
-    </ng-template>
-
-    <ng-template #grid let-items>
-        <div class="grid">
-            <div *ngFor="let product of items" class="col-6">
-                <p-card>
-                    <div class="flex justify-content-center">
-                        <div class="relative">
-                            <img class="w-full"
-                                [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
-                                [alt]="product.name" style="max-width: 300px;" />
-                            <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)" class="absolute"
-                                styleClass="dark:!bg-surface-900" [style.left.px]="4" [style.top.px]="4" />
-                        </div>
-                    </div>
-                    <div class="flex justify-content-end mr-2">
-                        <label class="text-2xl font-semibold">{{ product.name }}</label>
-                        <label class="flex align-items-end text-lg font-semibold">{{ product.subname }}</label>
-                    </div>
-                    <div class="flex justify-content-end mt-1 mr-2 gap-2">
-                        <label class="text-sm font-light">{{ product.size }}</label>
-                        <label class="text-sm font-light">cm</label>
-                    </div>
-                    <div class="grid">
-                        <div class="col-6 flex gap-2">
-                            <label class="flex justify-content-start align-items-end mb-1 text-4xl font-bold">$</label>
-                            <label class="flex justify-content-start text-6xl font-bold">{{ product.price }}</label>
-                            <label class="flex justify-content-start align-items-end text-base font-bold">/每斤</label>
-                        </div>
-                        <div class="col-6 flex align-items-end justify-content-end">
-
-                            <p-button *ngIf="!product.isModify && product.quantity === 0" icon="pi pi-cart-arrow-down"
-                                [rounded]="true" severity="success" (onClick)="shopCartClick(product)" />
-
-                            <p-overlaybadge *ngIf="!product.isModify && product.quantity !== 0"
-                                [value]="product.quantity/10">
-                                <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="warn"
-                                    (onClick)="shopCartClick(product)" />
-                            </p-overlaybadge>
-
-                            <p-inputnumber *ngIf="product.isModify" class="flipright " size="small"
-                                [(ngModel)]="product.quantity" (ngModelChange)="qtyChange(product)" [showButtons]="true" buttonLayout="horizontal"
-                                spinnerMode="horizontal" [step]="10" [min]="0" mode="decimal">
-                                <ng-template #incrementbuttonicon>
-                                    <span class="pi pi-plus"></span>
-                                </ng-template>
-                                <ng-template #decrementbuttonicon>
-                                    <span class="pi pi-minus"></span>
-                                </ng-template>
-                            </p-inputnumber>
-
-                        </div>
-                    </div>
-                </p-card>
+        <ng-template #header>
+            <div class="flex">
+                <p-dropdown class="w-5 sm:w-3" [options]="[]" placeholder="排序" />
             </div>
-        </div>
-    </ng-template>
+        </ng-template>
 
-</p-dataview>
+        <ng-template #grid let-items>
+            <div class="grid">
+                <div *ngFor="let product of items" class="col-6">
+                    <p-card [style]="{ overflow: 'hidden' }">
+                        <ng-template #header>
+                            <div class="relative">
+                                <img class="w-full"
+                                    [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
+                                    alt="Card" />
+                                <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)"
+                                    class="absolute" styleClass="dark:!bg-surface-900" [style.left.px]="4"
+                                    [style.top.px]="4" />
+                            </div>
+                        </ng-template>
+                        <div class="flex justify-content-end mr-2">
+                            <label class="text-2xl font-semibold">{{ product.name }}</label>
+                            <label class="flex align-items-end text-lg font-semibold">{{ product.subname }}</label>
+                        </div>
+                        <div class="flex justify-content-end mt-1 mr-2 gap-2">
+                            <label class="text-sm font-light">{{ product.size }}</label>
+                            <label class="text-sm font-light">cm</label>
+                        </div>
+                        <div class="grid">
+                            <div class="col-6 flex gap-2">
+                                <label class="flex justify-content-start align-items-end mb-1 text-4xl font-bold">
+                                    $
+                                </label>
+                                <label class="flex justify-content-start text-6xl font-bold">
+                                    {{ product.price }}
+                                </label>
+                                <label class="flex justify-content-start align-items-end text-base font-bold">
+                                    /每斤
+                                </label>
+                            </div>
+                            <div class="col-6 flex align-items-end justify-content-end">
+
+                                <p-button *ngIf="!product.isModify && !product.quantity" icon="pi pi-cart-arrow-down"
+                                    [rounded]="true" severity="success" (onClick)="shopCartClick(product)" />
+
+                                <p-overlaybadge *ngIf="!product.isModify && !!product.quantity"
+                                    [value]="product.quantity/10">
+                                    <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="warn"
+                                        (onClick)="shopCartClick(product)" />
+                                </p-overlaybadge>
+
+                                <p-inputnumber *ngIf="product.isModify" class="flipright " size="small"
+                                    [(ngModel)]="product.quantity" (ngModelChange)="qtyChange(product)"
+                                    [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" [step]="10"
+                                    [min]="0" mode="decimal">
+                                    <ng-template #incrementbuttonicon>
+                                        <span class="pi pi-plus"></span>
+                                    </ng-template>
+                                    <ng-template #decrementbuttonicon>
+                                        <span class="pi pi-minus"></span>
+                                    </ng-template>
+                                </p-inputnumber>
+
+                            </div>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+        </ng-template>
+
+    </p-dataview>
+</div>
