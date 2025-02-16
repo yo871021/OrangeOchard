@@ -44,9 +44,9 @@
                                     (onClick)="shopCartClick(product)" />
                             </p-overlaybadge>
 
-                            <p-inputnumber *ngIf="product.isModify" size="small" [(ngModel)]="product.quantity"
-                                [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" [step]="10"
-                                [min]="0" mode="decimal">
+                            <p-inputnumber *ngIf="product.isModify" class="flipright " size="small"
+                                [(ngModel)]="product.quantity" (ngModelChange)="qtyChange(product)" [showButtons]="true" buttonLayout="horizontal"
+                                spinnerMode="horizontal" [step]="10" [min]="0" mode="decimal">
                                 <ng-template #incrementbuttonicon>
                                     <span class="pi pi-plus"></span>
                                 </ng-template>

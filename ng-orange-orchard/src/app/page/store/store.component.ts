@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { ButtonModule } from 'primeng/button';
 import { Tag } from 'primeng/tag';
@@ -164,17 +164,35 @@ export class StoreComponent {
   };
 
   shopCartClick(product: any) {
-    product.quantity = product.quantity + 10;
+    // 如果 quantity 是 falsy（undefined、0 等），先加 10
+    if (!product.quantity) {
+      product.quantity += 10;
+    }
     product.isModify = true;
 
-    let curQTY = product.quantity;
-    let checkQuantity = setInterval(() => {
-      if (product.quantity === curQTY) {
-        product.isModify = false;
-        clearInterval(checkQuantity);
-      } else {
-        curQTY = product.quantity;
-      }
+    // 每次呼叫都「重置」計時器
+    this.resetTimer(product);
+  }
+
+  qtyChange(product: any) {
+    // 使用者在 p-inputnumber 修改了數量
+    product.isModify = true;
+
+    // 同樣要重置計時器
+    this.resetTimer(product);
+  }
+
+  resetTimer(product: any) {
+    // 如果先前已存在計時器，先清除它
+    if (product._changeTimer) {
+      clearTimeout(product._changeTimer);
+    }
+
+    // 重新設定一個 2 秒後執行的 Timeout
+    product._changeTimer = setTimeout(() => {
+      // 2 秒內沒有再次被 reset => 表示使用者已停止操作
+      product.isModify = false;
+      // 若需要後續處理，可在這裡進行（例如呼叫 API 等）
     }, 2000);
   }
 
