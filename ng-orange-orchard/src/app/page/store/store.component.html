@@ -7,15 +7,17 @@
     </ng-template>
 
     <ng-template #grid let-items>
-        <div class="grid gap-2">
-            <div *ngFor="let product of items" class="">
+        <div class="grid">
+            <div *ngFor="let product of items" class="col-6">
                 <p-card>
-                    <div class="relative">
-                        <img class="w-full"
-                            [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
-                            [alt]="product.name" style="max-width: 300px" />
-                        <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)" class="absolute"
-                            styleClass="dark:!bg-surface-900" [style.left.px]="4" [style.top.px]="4" />
+                    <div class="flex justify-content-center">
+                        <div class="relative">
+                            <img class="w-full"
+                                [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
+                                [alt]="product.name" style="max-width: 300px;" />
+                            <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)" class="absolute"
+                                styleClass="dark:!bg-surface-900" [style.left.px]="4" [style.top.px]="4" />
+                        </div>
                     </div>
                     <div class="flex justify-content-end mr-2">
                         <label class="text-2xl font-semibold">{{ product.name }}</label>
@@ -31,7 +33,27 @@
                             <label class="flex justify-content-start text-6xl font-bold">{{ product.price }}</label>
                             <label class="flex justify-content-start align-items-end text-base font-bold">/每斤</label>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 flex align-items-end justify-content-end">
+
+                            <p-button *ngIf="!product.isModify && product.quantity === 0" icon="pi pi-cart-arrow-down"
+                                [rounded]="true" severity="success" (onClick)="shopCartClick(product)" />
+
+                            <p-overlaybadge *ngIf="!product.isModify && product.quantity !== 0"
+                                [value]="product.quantity/10">
+                                <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="warn"
+                                    (onClick)="shopCartClick(product)" />
+                            </p-overlaybadge>
+
+                            <p-inputnumber *ngIf="product.isModify" size="small" [(ngModel)]="product.quantity"
+                                [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" [step]="10"
+                                [min]="0" mode="decimal">
+                                <ng-template #incrementbuttonicon>
+                                    <span class="pi pi-plus"></span>
+                                </ng-template>
+                                <ng-template #decrementbuttonicon>
+                                    <span class="pi pi-minus"></span>
+                                </ng-template>
+                            </p-inputnumber>
 
                         </div>
                     </div>

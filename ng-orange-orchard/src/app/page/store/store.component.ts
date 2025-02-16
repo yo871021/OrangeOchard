@@ -4,17 +4,20 @@ import { ButtonModule } from 'primeng/button';
 import { Tag } from 'primeng/tag';
 import { DropdownModule } from 'primeng/dropdown';
 import { CardModule } from 'primeng/card';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { OverlayBadgeModule } from 'primeng/overlaybadge';
 
 @Component({
   selector: 'app-store',
-  imports: [DataViewModule, ButtonModule, Tag, CommonModule, DropdownModule, CardModule],
+  imports: [DataViewModule, ButtonModule, Tag, CommonModule, DropdownModule, InputNumberModule, CardModule, FormsModule, OverlayBadgeModule],
   templateUrl: './store.component.html',
   styleUrl: './store.component.scss'
 })
 export class StoreComponent {
 
-  products: any = [
+  products: any[] = [
     {
       id: '1000',
       code: 'f230fh0g3',
@@ -24,7 +27,7 @@ export class StoreComponent {
       image: 'bamboo-watch.jpg',
       price: 30,
       size: '23 ~ 25',
-      quantity: 24,
+      quantity: 0,
       inventoryStatus: 'INSTOCK',
       rating: 5
     },
@@ -37,7 +40,7 @@ export class StoreComponent {
       image: 'black-watch.jpg',
       price: 35,
       size: '27 ~ 29',
-      quantity: 61,
+      quantity: 0,
       inventoryStatus: 'OUTOFSTOCK',
       rating: 4
     },
@@ -50,7 +53,7 @@ export class StoreComponent {
       image: 'bamboo-watch.jpg',
       price: 30,
       size: '23 ~ 25',
-      quantity: 24,
+      quantity: 0,
       inventoryStatus: 'INSTOCK',
       rating: 5
     },
@@ -63,7 +66,7 @@ export class StoreComponent {
       image: 'black-watch.jpg',
       price: 35,
       size: '27 ~ 29',
-      quantity: 61,
+      quantity: 0,
       inventoryStatus: 'OUTOFSTOCK',
       rating: 4
     },
@@ -75,7 +78,7 @@ export class StoreComponent {
       image: 'blue-band.jpg',
       price: 50,
       size: 'Fitness',
-      quantity: 2,
+      quantity: 0,
       inventoryStatus: 'LOWSTOCK',
       rating: 3
     },
@@ -87,7 +90,7 @@ export class StoreComponent {
       image: 'blue-t-shirt.jpg',
       price: 50,
       size: 'Clothing',
-      quantity: 25,
+      quantity: 0,
       inventoryStatus: 'INSTOCK',
       rating: 5
     },
@@ -99,7 +102,7 @@ export class StoreComponent {
       image: 'bracelet.jpg',
       price: 50,
       size: 'Accessories',
-      quantity: 73,
+      quantity: 0,
       inventoryStatus: 'INSTOCK',
       rating: 4
     },
@@ -123,7 +126,7 @@ export class StoreComponent {
       image: 'chakra-bracelet.jpg',
       price: 50,
       size: 'Accessories',
-      quantity: 5,
+      quantity: 0,
       inventoryStatus: 'LOWSTOCK',
       rating: 3
     },
@@ -135,7 +138,7 @@ export class StoreComponent {
       image: 'galaxy-earrings.jpg',
       price: 50,
       size: 'Accessories',
-      quantity: 23,
+      quantity: 0,
       inventoryStatus: 'INSTOCK',
       rating: 5
     }
@@ -159,4 +162,20 @@ export class StoreComponent {
         return undefined;
     }
   };
+
+  shopCartClick(product: any) {
+    product.quantity = product.quantity + 10;
+    product.isModify = true;
+
+    let curQTY = product.quantity;
+    let checkQuantity = setInterval(() => {
+      if (product.quantity === curQTY) {
+        product.isModify = false;
+        clearInterval(checkQuantity);
+      } else {
+        curQTY = product.quantity;
+      }
+    }, 2000);
+  }
+
 }
