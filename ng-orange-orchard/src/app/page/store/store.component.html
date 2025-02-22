@@ -31,8 +31,9 @@
                         <ng-template #title>
                             <div class="flex justify-content-end">
                                 <label class="text-xl sm:text-2xl font-semibold">{{ product.name }}</label>
-                                <label class="flex align-items-end text-base sm:text-lg font-semibold">{{
-                                    product.subname }}</label>
+                                <label class="flex align-items-end text-base sm:text-lg font-semibold">
+                                    {{ product.subname }}
+                                </label>
                             </div>
                         </ng-template>
 
@@ -88,14 +89,14 @@
 
         <div *ngIf="product.isModify" class="flipright flex border-round-3xl bg-white border-1 border-0 h-2rem "
             [style]="{ overflow: 'hidden' }">
-            <p-button *ngIf="product.quantity === 10" class="flipright flex align-items-center" icon="pi pi-trash" [rounded]="true" size="small" [text]="true"
-                severity="contrast" (onClick)="qtyChange(product,-10)" />
-            <p-button *ngIf="product.quantity !== 10" class="flipright flex align-items-center" icon="pi pi-minus" [rounded]="true" size="small" [text]="true"
-                severity="contrast" (onClick)="qtyChange(product,-10)" />
+            <p-button *ngIf="product.quantity === 10" class="flipright flex align-items-center" icon="pi pi-trash"
+                [rounded]="true" size="small" [text]="true" severity="contrast" (onClick)="qtyChange(product,-10)" />
+            <p-button *ngIf="product.quantity !== 10" class="flipright flex align-items-center" icon="pi pi-minus"
+                [rounded]="true" size="small" [text]="true" severity="contrast" (onClick)="qtyChange(product,-10)" />
             <input class="border-none max-w-3rem text-xl text-center" type="text" inputmode="numeric"
-                [(ngModel)]="product.quantity" (input)="onQTYInput(product,$event)" />
-            <p-button class="flipright flex align-items-center" icon="pi pi-plus" [rounded]="true" size="small" [text]="true"
-                severity="contrast" (onClick)="qtyChange(product,10)" />
+                [(ngModel)]="product.quantity" (input)="qtyInput(product,$event)" />
+            <p-button class="flipright flex align-items-center" icon="pi pi-plus" [rounded]="true" size="small"
+                [text]="true" severity="contrast" (onClick)="qtyChange(product,10)" />
         </div>
     </div>
 </ng-template>
