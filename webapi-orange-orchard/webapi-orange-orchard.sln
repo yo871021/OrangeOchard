@@ -5,7 +5,15 @@ VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{AA8BBFA8-4662-45B3-9EA0-E63E0E803596}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{B9846061-B17A-4631-B662-51530EBD2EA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{B9846061-B17A-4631-B662-51530EBD2EA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tool", "Tool\Tool.csproj", "{44FD3B8E-0FC3-49F6-8827-6E01136DED41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{3F1AD93F-22E3-491A-B1C3-4BF310666374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{C1CB0136-1B88-4BA8-9DCF-9D93C1D29FDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dao", "Dao\Dao.csproj", "{8EED2EEE-61D0-4F41-BA48-F1CE62AAC9E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,18 @@ Global
 		{B9846061-B17A-4631-B662-51530EBD2EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9846061-B17A-4631-B662-51530EBD2EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9846061-B17A-4631-B662-51530EBD2EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FD3B8E-0FC3-49F6-8827-6E01136DED41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FD3B8E-0FC3-49F6-8827-6E01136DED41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FD3B8E-0FC3-49F6-8827-6E01136DED41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FD3B8E-0FC3-49F6-8827-6E01136DED41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F1AD93F-22E3-491A-B1C3-4BF310666374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1AD93F-22E3-491A-B1C3-4BF310666374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1AD93F-22E3-491A-B1C3-4BF310666374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1AD93F-22E3-491A-B1C3-4BF310666374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EED2EEE-61D0-4F41-BA48-F1CE62AAC9E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EED2EEE-61D0-4F41-BA48-F1CE62AAC9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EED2EEE-61D0-4F41-BA48-F1CE62AAC9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EED2EEE-61D0-4F41-BA48-F1CE62AAC9E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
