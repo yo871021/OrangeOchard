@@ -1,2 +1,7 @@
 /ng-orange-orchard/.vscode
 /ng-orange-orchard/package-lock.json
+
+**/obj/
+**/bin/
+**/.vs/
+*.user
