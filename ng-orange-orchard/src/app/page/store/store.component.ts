@@ -8,14 +8,11 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
-import { InputGroup } from 'primeng/inputgroup';
-import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @Component({
   selector: 'app-store',
   imports: [DataViewModule, ButtonModule, Tag, CommonModule, DropdownModule,
-    InputNumberModule, CardModule, FormsModule, OverlayBadgeModule, InputGroup,
-    InputGroupAddonModule],
+    InputNumberModule, CardModule, FormsModule, OverlayBadgeModule],
   templateUrl: './store.component.html',
   styleUrl: './store.component.scss'
 })
@@ -178,15 +175,27 @@ export class StoreComponent {
     this.resetTimer(product);
   }
 
-  qtyChange(product: any, qty: number) {
-    // 使用者在 p-inputnumber 修改了數量
-    if (product.quantity + qty >= 0) {
-      product.quantity += qty;
-    }
-    product.isModify = true;
-
-    // 同樣要重置計時器
+  onQTYInput(product: any, event: any) {
+    const inputElem = event.target as HTMLInputElement;
+    // 只允許數字，並排除開頭的 '0' (若想允許 '0' 就移除 ^0+)
+    // 若只想阻擋非數字，可以先替換 /[^0-9]/g
+    inputElem.value = inputElem.value.replace(/^0+/, '');    // 去掉前導零
+    inputElem.value = inputElem.value.replace(/[^\d]/g, ''); // 去掉非數字
     this.resetTimer(product);
+  }
+
+  qtyChange(product: any, qty: number) {
+    product.quantity += qty;
+    // 使用者在 p-inputnumber 修改了數量
+    if (product.quantity >= 10) {
+      product.isModify = true;
+
+      // 同樣要重置計時器
+      this.resetTimer(product);
+    } else {
+      clearTimeout(product._changeTimer);
+      product.isModify = false;
+    }
   }
 
   resetTimer(product: any) {
@@ -198,6 +207,7 @@ export class StoreComponent {
     // 重新設定一個 2 秒後執行的 Timeout
     product._changeTimer = setTimeout(() => {
       // 2 秒內沒有再次被 reset => 表示使用者已停止操作
+      product.quantity = Math.floor(product.quantity / 10) * 10;
       product.isModify = false;
       // 若需要後續處理，可在這裡進行（例如呼叫 API 等）
     }, 2000);

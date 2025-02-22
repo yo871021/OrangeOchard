@@ -24,6 +24,18 @@
     background-color: var(--p-orange-400) !important;
 }
 
-::ng-deep .p-menubar-item.p-focus > .p-menubar-item-content {
+::ng-deep .p-menubar-item.p-focus>.p-menubar-item-content {
     background: var(--p-orange-200) !important;
+}
+
+::ng-deep .p-menubar-mobile .p-menubar-button {
+    display: flex;
+    font-weight: 600 !important;
+    color: var(--p-stone-50) !important;
+    background-color: var(--p-orange-300) !important;
+}
+
+::ng-deep .p-menubar-button:hover {
+    color: var(--p-stone-50) !important;
+    background-color: var(--p-orange-300) !important;
 }
