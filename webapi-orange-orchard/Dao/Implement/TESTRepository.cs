@@ -8,7 +8,7 @@ using Tool.DataBase;
 
 namespace Dao.Implement
 {
-    public class TESTRepository : ITESTRepository
+    public class TESTRepository : GenericRepository, ITESTRepository
     {
         public void TEST()
         {
