@@ -1,4 +1,5 @@
-﻿using Dao.Interface;
+﻿using Dao.Implement;
+using Dao.Interface;
 using Microsoft.Extensions.Options;
 using Model.ViewModel.CommonSettings;
 using Service.Interface;
@@ -14,8 +15,8 @@ namespace Service.Implement
 {
     public class TESTService : DBServiceBase, ITESTService
     {
-        private readonly IRepository bbb;
-        public TESTService(IOptions<CommonSettings> commonSettings, IRepository bbbb) : base(commonSettings)
+        private readonly ITESTRepository bbb;
+        public TESTService(IOptions<CommonSettings> commonSettings, ITESTRepository bbbb) : base(commonSettings)
         {
             bbb = bbbb;
         }

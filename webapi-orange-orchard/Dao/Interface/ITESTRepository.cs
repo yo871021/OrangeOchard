@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dao.Interface
 {
-    internal interface ITESTRepository
+    public interface ITESTRepository : IRepository
     {
         void TEST();
     }
