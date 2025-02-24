@@ -1,15 +1,8 @@
-﻿using Dao.Implement;
-using Dao.Interface;
+﻿using Dao.Interface;
 using Microsoft.Extensions.Options;
 using Model.ViewModel.CommonSettings;
 using Service.Interface;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tool.DataBase;
+using Tool.DataBase.Service;
 
 namespace Service.Implement
 {

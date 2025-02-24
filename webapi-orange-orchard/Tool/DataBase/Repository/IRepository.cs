@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dao.Interface
+namespace Tool.DataBase.Repository
 {
     public interface IRepository
     {

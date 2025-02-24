@@ -2,7 +2,7 @@ using Dao.Interface;
 using Model.ViewModel.CommonSettings;
 using Service.Implement;
 using Service.Interface;
-using Tool.DataBase;
+using Tool.DataBase.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 

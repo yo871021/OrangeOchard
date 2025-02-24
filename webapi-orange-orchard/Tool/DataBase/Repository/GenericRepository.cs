@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dao.Implement
+namespace Tool.DataBase.Repository
 {
     public class GenericRepository : IRepository
     {

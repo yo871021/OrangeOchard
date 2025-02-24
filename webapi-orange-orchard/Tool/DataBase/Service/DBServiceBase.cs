@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tool.DataBase
+namespace Tool.DataBase.Service
 {
     public class DBServiceBase
     {
