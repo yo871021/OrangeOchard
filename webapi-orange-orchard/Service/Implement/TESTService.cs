@@ -1,5 +1,6 @@
 ﻿using Dao.Interface;
 using Microsoft.Extensions.Options;
+using Model.Common;
 using Model.ViewModel.CommonSettings;
 using Service.Interface;
 using Tool.DataBase.Service;
@@ -19,7 +20,8 @@ namespace Service.Implement
             var db = GetDBInstance();
             //db.Begin();
             bbb.SetDB(db);
-            var a = bbb.SELECT("SELECT * FROM Letter_Info");
+            //var a = bbb.SELECT("SELECT * FROM Letter_Info");
+            //var a = bbb.SELECT(new Letter_Info());
 
             db.Close();
         }

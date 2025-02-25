@@ -1,11 +1,5 @@
-﻿using Dao.Interface;
-using Model.Enum;
-using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Model.Enum;
+using Model.Common;
 
 namespace Tool.DataBase.Repository
 {
@@ -17,9 +11,23 @@ namespace Tool.DataBase.Repository
             _dbInstance = dbInstance;
         }
 
-        public CommonResult SELECT(string sql)
-        {
-            return _dbInstance.ExecuteSqlCommand(EDBCmdType.SELECT, sql);
-        }
+        //public CommonResult SELECT(params object[] conditions)
+        //{
+        //    if (conditions.Any(x=>x is EntityBase))
+        //    {
+
+        //    }
+
+        //    return _dbInstance.ExecuteSqlCommand(EDBCmdType.SELECT, "");
+        //}
+        //public CommonResult INSERT(string sql)
+        //{ 
+        //}
+        //public CommonResult UPDATE(string sql)
+        //{
+        //}
+        //public CommonResult DELETE(string sql)
+        //{
+        //}
     }
 }

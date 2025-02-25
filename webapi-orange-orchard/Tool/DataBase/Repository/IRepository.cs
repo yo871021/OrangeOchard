@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using Model.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace Tool.DataBase.Repository
     public interface IRepository
     {
         void SetDB(DBInstance dbInstance);
-        CommonResult SELECT(string sql);
+        //CommonResult SELECT(params object[] conditions);
     }
 }

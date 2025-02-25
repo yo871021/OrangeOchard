@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Model.Common
 {
     public class SqlParameters
     {
@@ -13,7 +13,7 @@ namespace Model
 
         public void Add(string value)
         {
-            _parameters.Add(string.Format("@WD_{0:0000}", this._parameters.Count), value);
+            _parameters.Add(string.Format("@WD_{0:0000}", _parameters.Count), value);
         }
     }
 }

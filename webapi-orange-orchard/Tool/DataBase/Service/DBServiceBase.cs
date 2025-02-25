@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
-using Model;
+using Model.Common;
 using Model.Enum;
 using Model.ViewModel.CommonSettings;
 using Model.ViewModel.DataBase;

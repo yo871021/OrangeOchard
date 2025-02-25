@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Model.Common
 {
     public class DBInstance
     {
@@ -15,7 +15,7 @@ namespace Model
         private SqlTransaction? _transaction;
         public SqlConnection? Conection { get { return _conection; } }
         public SqlTransaction? Transaction { get { return _transaction; } }
-        public DBInstance(SqlConnection connection) 
+        public DBInstance(SqlConnection connection)
         {
             _conection = connection;
             _conection.Open();
