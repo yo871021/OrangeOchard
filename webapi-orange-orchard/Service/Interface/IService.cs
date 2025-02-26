@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tool.DataBase.Service
+namespace Service.Interface
 {
     public interface IService
     {

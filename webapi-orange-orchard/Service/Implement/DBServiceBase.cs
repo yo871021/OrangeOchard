@@ -1,16 +1,15 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
 using Model.Common;
+using Model.DataBase;
 using Model.Enum;
-using Model.ViewModel.CommonSettings;
-using Model.ViewModel.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tool.DataBase.Service
+namespace Service.Implement
 {
     public class DBServiceBase
     {
@@ -23,15 +22,7 @@ namespace Tool.DataBase.Service
 
         public DBInstance GetDBInstance(EDB db = EDB.Main)
         {
-            var dbOptions = _dbOptionsDict?[db.ToString()];
-            var connection = new SqlConnection($"Server={dbOptions?.DBServer};" +
-                $"Database={dbOptions?.DBName};" +
-                $"User Id={dbOptions?.DBUser};" +
-                $"Password={dbOptions?.DBPassword};" +
-                $"Connection Timeout={dbOptions?.ConnectTimeOut};" +
-                $"TrustServerCertificate=True;");
-
-            return new DBInstance(connection);
+            return new DBInstance(_dbOptionsDict?[db.ToString()]);
         }
     }
 }

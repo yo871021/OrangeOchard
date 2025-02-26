@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Service.Interface
 {
     public interface ITESTService
     {
-        void TEST();
+        CommonResult TEST();
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Model.Common
+namespace Model.DataBase
 {
     public class EntityBase
     {
@@ -15,7 +15,7 @@ namespace Model.Common
 
         [JsonIgnore]
         public HashSet<string> Dirty { get; set; } = new HashSet<string>();
-        
+
         [JsonIgnore]
         public int TotalCount { get; set; }
 
@@ -35,7 +35,7 @@ namespace Model.Common
         public object? GetValue(string propertyName)
         {
             object? result = null;
-            PropertyInfo? propertyInfo = this.GetType().GetProperty(propertyName);
+            PropertyInfo? propertyInfo = GetType().GetProperty(propertyName);
             if (propertyInfo != null)
             {
                 result = propertyInfo.GetValue(this, null);
@@ -49,7 +49,7 @@ namespace Model.Common
             if (propertiesMapper.TryGetValue(propertyName, out PropertyInfo? propertyinfo))
             {
                 var type = Nullable.GetUnderlyingType(propertyinfo.PropertyType) ?? propertyinfo.PropertyType;
-                var safeValue = (value == null) ? null : Convert.ChangeType(value, type);
+                var safeValue = value == null ? null : Convert.ChangeType(value, type);
                 propertyinfo.SetValue(this, safeValue);
             }
         }
@@ -61,7 +61,7 @@ namespace Model.Common
             {
                 if (propertiesMapper.ContainsKey(propertyName))
                 {
-                    this.Dirty.Add(propertyName);
+                    Dirty.Add(propertyName);
                 }
             }
             return this;
@@ -71,14 +71,14 @@ namespace Model.Common
         {
             foreach (var propertyName in GetAllProperties())
             {
-                this.Dirty.Add(propertyName.Name);
+                Dirty.Add(propertyName.Name);
             }
         }
 
         public object? GetConstValue(string propertyName)
         {
             object? result = null;
-            FieldInfo? fieldInfo = this.GetType().GetField(propertyName);
+            FieldInfo? fieldInfo = GetType().GetField(propertyName);
             if (fieldInfo != null)
             {
                 result = fieldInfo.GetRawConstantValue();
@@ -96,12 +96,12 @@ namespace Model.Common
             foreach (var sKey in GetAllPropertiesName())
             {
                 if (
-                    (isCoverbyTarget || !this.Dirty.Contains(sKey)) &&
-                    (target.Dirty.Contains(sKey)) &&
+                    (isCoverbyTarget || !Dirty.Contains(sKey)) &&
+                    target.Dirty.Contains(sKey) &&
                     (notCopyColumns == null || notCopyColumns.All(col => col != sKey))
                    )
                 {
-                    this.SetValue(sKey, target.GetValue(sKey) ?? DBNull.Value);
+                    SetValue(sKey, target.GetValue(sKey) ?? DBNull.Value);
                 }
             }
 
@@ -144,13 +144,31 @@ namespace Model.Common
                         }
                         else
                         {
-                            object? safeValue = (value == null) ? null : Convert.ChangeType(value, t);
+                            object? safeValue = value == null ? null : Convert.ChangeType(value, t);
 
                             property.SetValue(this, safeValue, null);
                         }
                     }
                 }
             }
+        }
+
+        public void FillData(dynamic data)
+        {
+            FillData((IDictionary<string, object>)data);
+        }
+
+        public Dictionary<string, string> GetDirtyDictionory()
+        {
+            var dictData = new Dictionary<string, string>();
+            foreach (var property in GetAllProperties())
+            {
+                if (this.Dirty.Contains(property.Name))
+                {
+                    dictData.Add(property.Name, property.GetValue(this, null)?.ToString() ?? "=");
+                }
+            }
+            return dictData;
         }
     }
 }

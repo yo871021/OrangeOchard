@@ -1,6 +1,7 @@
-﻿namespace Model.Common
+﻿namespace Model.DataBase
 {
     using System.Collections.Generic;
+
     ///////////////////////// API_Request_Log BEGIN /////////////////////////
     // API_NAME varchar(100)
     // LOG_DATE varchar(30)
@@ -15,44 +16,44 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@API_Request_Log";
 
 
-        public string? @Api_Name { get { return _Api_Name; } set { @_Api_Name = value; SetDirty(@API_Request_Log.CN_API_NAME); } }
+        public string? @Api_Name { get { return _Api_Name; } set { @_Api_Name = value; SetDirty(CN_API_NAME); } }
         public const string CN_API_NAME = "Api_Name";
         public const string DT_API_NAME = "varchar(100)";
         private string? @_Api_Name;
 
-        public string? @Log_Date { get { return _Log_Date; } set { @_Log_Date = value; SetDirty(@API_Request_Log.CN_LOG_DATE); } }
+        public string? @Log_Date { get { return _Log_Date; } set { @_Log_Date = value; SetDirty(CN_LOG_DATE); } }
         public const string CN_LOG_DATE = "Log_Date";
         public const string DT_LOG_DATE = "varchar(30)";
         private string? @_Log_Date;
 
-        public string? @Request_Json { get { return _Request_Json; } set { @_Request_Json = value; SetDirty(@API_Request_Log.CN_REQUEST_JSON); } }
+        public string? @Request_Json { get { return _Request_Json; } set { @_Request_Json = value; SetDirty(CN_REQUEST_JSON); } }
         public const string CN_REQUEST_JSON = "Request_Json";
         public const string DT_REQUEST_JSON = "nvarchar(-1)";
         private string? @_Request_Json;
 
-        public string? @Response_Json { get { return _Response_Json; } set { @_Response_Json = value; SetDirty(@API_Request_Log.CN_RESPONSE_JSON); } }
+        public string? @Response_Json { get { return _Response_Json; } set { @_Response_Json = value; SetDirty(CN_RESPONSE_JSON); } }
         public const string CN_RESPONSE_JSON = "Response_Json";
         public const string DT_RESPONSE_JSON = "nvarchar(-1)";
         private string? @_Response_Json;
 
-        public string? @UID { get { return _UID; } set { @_UID = value; SetDirty(@API_Request_Log.CN_UID); } }
+        public string? @UID { get { return _UID; } set { @_UID = value; SetDirty(CN_UID); } }
         public const string CN_UID = "UID";
         public const string DT_UID = "varchar(100)";
         private string? @_UID;
 
-        public string? @Upload_Flag { get { return _Upload_Flag; } set { @_Upload_Flag = value; SetDirty(@API_Request_Log.CN_UPLOAD_FLAG); } }
+        public string? @Upload_Flag { get { return _Upload_Flag; } set { @_Upload_Flag = value; SetDirty(CN_UPLOAD_FLAG); } }
         public const string CN_UPLOAD_FLAG = "Upload_Flag";
         public const string DT_UPLOAD_FLAG = "varchar(1)";
         private string? @_Upload_Flag;
 
-        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(@API_Request_Log.CN_USER_ID); } }
+        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(CN_USER_ID); } }
         public const string CN_USER_ID = "User_ID";
         public const string DT_USER_ID = "varchar(30)";
         private string? @_User_ID;
 
         public @API_Request_Log() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_UID
             });
         }
@@ -73,44 +74,44 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@API_Response_Log";
 
 
-        public string? @Api_Name { get { return _Api_Name; } set { @_Api_Name = value; SetDirty(@API_Response_Log.CN_API_NAME); } }
+        public string? @Api_Name { get { return _Api_Name; } set { @_Api_Name = value; SetDirty(CN_API_NAME); } }
         public const string CN_API_NAME = "Api_Name";
         public const string DT_API_NAME = "varchar(100)";
         private string? @_Api_Name;
 
-        public string? @Log_Date { get { return _Log_Date; } set { @_Log_Date = value; SetDirty(@API_Response_Log.CN_LOG_DATE); } }
+        public string? @Log_Date { get { return _Log_Date; } set { @_Log_Date = value; SetDirty(CN_LOG_DATE); } }
         public const string CN_LOG_DATE = "Log_Date";
         public const string DT_LOG_DATE = "varchar(30)";
         private string? @_Log_Date;
 
-        public string? @Request_Json { get { return _Request_Json; } set { @_Request_Json = value; SetDirty(@API_Response_Log.CN_REQUEST_JSON); } }
+        public string? @Request_Json { get { return _Request_Json; } set { @_Request_Json = value; SetDirty(CN_REQUEST_JSON); } }
         public const string CN_REQUEST_JSON = "Request_Json";
         public const string DT_REQUEST_JSON = "nvarchar(-1)";
         private string? @_Request_Json;
 
-        public string? @Response_Json { get { return _Response_Json; } set { @_Response_Json = value; SetDirty(@API_Response_Log.CN_RESPONSE_JSON); } }
+        public string? @Response_Json { get { return _Response_Json; } set { @_Response_Json = value; SetDirty(CN_RESPONSE_JSON); } }
         public const string CN_RESPONSE_JSON = "Response_Json";
         public const string DT_RESPONSE_JSON = "nvarchar(-1)";
         private string? @_Response_Json;
 
-        public string? @UID { get { return _UID; } set { @_UID = value; SetDirty(@API_Response_Log.CN_UID); } }
+        public string? @UID { get { return _UID; } set { @_UID = value; SetDirty(CN_UID); } }
         public const string CN_UID = "UID";
         public const string DT_UID = "varchar(100)";
         private string? @_UID;
 
-        public string? @Upload_Flag { get { return _Upload_Flag; } set { @_Upload_Flag = value; SetDirty(@API_Response_Log.CN_UPLOAD_FLAG); } }
+        public string? @Upload_Flag { get { return _Upload_Flag; } set { @_Upload_Flag = value; SetDirty(CN_UPLOAD_FLAG); } }
         public const string CN_UPLOAD_FLAG = "Upload_Flag";
         public const string DT_UPLOAD_FLAG = "varchar(1)";
         private string? @_Upload_Flag;
 
-        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(@API_Response_Log.CN_USER_ID); } }
+        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(CN_USER_ID); } }
         public const string CN_USER_ID = "User_ID";
         public const string DT_USER_ID = "varchar(30)";
         private string? @_User_ID;
 
         public @API_Response_Log() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_UID
             });
         }
@@ -128,29 +129,29 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@APLog";
 
 
-        public string? @Action_Log { get { return _Action_Log; } set { @_Action_Log = value; SetDirty(@APLog.CN_ACTION_LOG); } }
+        public string? @Action_Log { get { return _Action_Log; } set { @_Action_Log = value; SetDirty(CN_ACTION_LOG); } }
         public const string CN_ACTION_LOG = "Action_Log";
         public const string DT_ACTION_LOG = "varchar(50)";
         private string? @_Action_Log;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@APLog.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@APLog.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Log_ID { get { return _Log_ID; } set { @_Log_ID = value; SetDirty(@APLog.CN_LOG_ID); } }
+        public string? @Log_ID { get { return _Log_ID; } set { @_Log_ID = value; SetDirty(CN_LOG_ID); } }
         public const string CN_LOG_ID = "Log_ID";
         public const string DT_LOG_ID = "varchar(50)";
         private string? @_Log_ID;
 
         public @APLog() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_LOG_ID
             });
         }
@@ -173,54 +174,54 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Argument_Class";
 
 
-        public string? @Argument_Class_ID { get { return _Argument_Class_ID; } set { @_Argument_Class_ID = value; SetDirty(@Argument_Class.CN_ARGUMENT_CLASS_ID); } }
+        public string? @Argument_Class_ID { get { return _Argument_Class_ID; } set { @_Argument_Class_ID = value; SetDirty(CN_ARGUMENT_CLASS_ID); } }
         public const string CN_ARGUMENT_CLASS_ID = "Argument_Class_ID";
         public const string DT_ARGUMENT_CLASS_ID = "varchar(50)";
         private string? @_Argument_Class_ID;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Argument_Class.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Argument_Class.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Effective { get { return _Effective; } set { @_Effective = value; SetDirty(@Argument_Class.CN_EFFECTIVE); } }
+        public string? @Effective { get { return _Effective; } set { @_Effective = value; SetDirty(CN_EFFECTIVE); } }
         public const string CN_EFFECTIVE = "Effective";
         public const string DT_EFFECTIVE = "char(1)";
         private string? @_Effective;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Argument_Class.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Argument_Class.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Argument_Class.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(@Argument_Class.CN_ORDER_BY); } }
+        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(CN_ORDER_BY); } }
         public const string CN_ORDER_BY = "Order_By";
         public const string DT_ORDER_BY = "int";
         private int? @_Order_By;
 
-        public string? @SYS_Argument_Class_Name { get { return _SYS_Argument_Class_Name; } set { @_SYS_Argument_Class_Name = value; SetDirty(@Argument_Class.CN_SYS_ARGUMENT_CLASS_NAME); } }
+        public string? @SYS_Argument_Class_Name { get { return _SYS_Argument_Class_Name; } set { @_SYS_Argument_Class_Name = value; SetDirty(CN_SYS_ARGUMENT_CLASS_NAME); } }
         public const string CN_SYS_ARGUMENT_CLASS_NAME = "SYS_Argument_Class_Name";
         public const string DT_SYS_ARGUMENT_CLASS_NAME = "nvarchar(50)";
         private string? @_SYS_Argument_Class_Name;
 
         public @Argument_Class() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_ARGUMENT_CLASS_ID
             });
         }
@@ -243,54 +244,54 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Arguments";
 
 
-        public string? @Argument_Class_ID { get { return _Argument_Class_ID; } set { @_Argument_Class_ID = value; SetDirty(@Arguments.CN_ARGUMENT_CLASS_ID); } }
+        public string? @Argument_Class_ID { get { return _Argument_Class_ID; } set { @_Argument_Class_ID = value; SetDirty(CN_ARGUMENT_CLASS_ID); } }
         public const string CN_ARGUMENT_CLASS_ID = "Argument_Class_ID";
         public const string DT_ARGUMENT_CLASS_ID = "varchar(50)";
         private string? @_Argument_Class_ID;
 
-        public string? @Argument_ID { get { return _Argument_ID; } set { @_Argument_ID = value; SetDirty(@Arguments.CN_ARGUMENT_ID); } }
+        public string? @Argument_ID { get { return _Argument_ID; } set { @_Argument_ID = value; SetDirty(CN_ARGUMENT_ID); } }
         public const string CN_ARGUMENT_ID = "Argument_ID";
         public const string DT_ARGUMENT_ID = "varchar(50)";
         private string? @_Argument_ID;
 
-        public string? @Argument_Value { get { return _Argument_Value; } set { @_Argument_Value = value; SetDirty(@Arguments.CN_ARGUMENT_VALUE); } }
+        public string? @Argument_Value { get { return _Argument_Value; } set { @_Argument_Value = value; SetDirty(CN_ARGUMENT_VALUE); } }
         public const string CN_ARGUMENT_VALUE = "Argument_Value";
         public const string DT_ARGUMENT_VALUE = "nvarchar(50)";
         private string? @_Argument_Value;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Arguments.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Arguments.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Arguments.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Arguments.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Arguments.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(@Arguments.CN_ORDER_BY); } }
+        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(CN_ORDER_BY); } }
         public const string CN_ORDER_BY = "Order_By";
         public const string DT_ORDER_BY = "int";
         private int? @_Order_By;
 
         public @Arguments() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_ARGUMENT_CLASS_ID
                 ,CN_ARGUMENT_ID
             });
@@ -313,49 +314,49 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Authorize_By_Dep";
 
 
-        public string? @Allow_Action { get { return _Allow_Action; } set { @_Allow_Action = value; SetDirty(@Authorize_By_Dep.CN_ALLOW_ACTION); } }
+        public string? @Allow_Action { get { return _Allow_Action; } set { @_Allow_Action = value; SetDirty(CN_ALLOW_ACTION); } }
         public const string CN_ALLOW_ACTION = "Allow_Action";
         public const string DT_ALLOW_ACTION = "varchar(200)";
         private string? @_Allow_Action;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Authorize_By_Dep.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Authorize_By_Dep.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Authorize_By_Dep.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Authorize_By_Dep.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Authorize_By_Dep.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Authorize_By_Dep.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Program_ID { get { return _Program_ID; } set { @_Program_ID = value; SetDirty(@Authorize_By_Dep.CN_PROGRAM_ID); } }
+        public string? @Program_ID { get { return _Program_ID; } set { @_Program_ID = value; SetDirty(CN_PROGRAM_ID); } }
         public const string CN_PROGRAM_ID = "Program_ID";
         public const string DT_PROGRAM_ID = "varchar(50)";
         private string? @_Program_ID;
 
         public @Authorize_By_Dep() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_DEPARTMENT_ID
                 ,CN_PROGRAM_ID
             });
@@ -378,49 +379,49 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Authorize_By_Role";
 
 
-        public string? @Allow_Action { get { return _Allow_Action; } set { @_Allow_Action = value; SetDirty(@Authorize_By_Role.CN_ALLOW_ACTION); } }
+        public string? @Allow_Action { get { return _Allow_Action; } set { @_Allow_Action = value; SetDirty(CN_ALLOW_ACTION); } }
         public const string CN_ALLOW_ACTION = "Allow_Action";
         public const string DT_ALLOW_ACTION = "varchar(200)";
         private string? @_Allow_Action;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Authorize_By_Role.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Authorize_By_Role.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Authorize_By_Role.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Authorize_By_Role.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Authorize_By_Role.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Program_ID { get { return _Program_ID; } set { @_Program_ID = value; SetDirty(@Authorize_By_Role.CN_PROGRAM_ID); } }
+        public string? @Program_ID { get { return _Program_ID; } set { @_Program_ID = value; SetDirty(CN_PROGRAM_ID); } }
         public const string CN_PROGRAM_ID = "Program_ID";
         public const string DT_PROGRAM_ID = "varchar(50)";
         private string? @_Program_ID;
 
-        public string? @Role_ID { get { return _Role_ID; } set { @_Role_ID = value; SetDirty(@Authorize_By_Role.CN_ROLE_ID); } }
+        public string? @Role_ID { get { return _Role_ID; } set { @_Role_ID = value; SetDirty(CN_ROLE_ID); } }
         public const string CN_ROLE_ID = "Role_ID";
         public const string DT_ROLE_ID = "varchar(20)";
         private string? @_Role_ID;
 
         public @Authorize_By_Role() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_PROGRAM_ID
                 ,CN_ROLE_ID
             });
@@ -442,44 +443,44 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Counties";
 
 
-        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(@Counties.CN_COUNTY_ID); } }
+        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(CN_COUNTY_ID); } }
         public const string CN_COUNTY_ID = "County_ID";
         public const string DT_COUNTY_ID = "varchar(50)";
         private string? @_County_ID;
 
-        public string? @County_Name { get { return _County_Name; } set { @_County_Name = value; SetDirty(@Counties.CN_COUNTY_NAME); } }
+        public string? @County_Name { get { return _County_Name; } set { @_County_Name = value; SetDirty(CN_COUNTY_NAME); } }
         public const string CN_COUNTY_NAME = "County_Name";
         public const string DT_COUNTY_NAME = "nvarchar(50)";
         private string? @_County_Name;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Counties.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Counties.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Counties.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Counties.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(@Counties.CN_ORDER_BY); } }
+        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(CN_ORDER_BY); } }
         public const string CN_ORDER_BY = "Order_By";
         public const string DT_ORDER_BY = "int";
         private int? @_Order_By;
 
         public @Counties() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_COUNTY_ID
             });
         }
@@ -505,69 +506,69 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Departments";
 
 
-        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(@Departments.CN_ADDRESS); } }
+        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(CN_ADDRESS); } }
         public const string CN_ADDRESS = "Address";
         public const string DT_ADDRESS = "nvarchar(100)";
         private string? @_Address;
 
-        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(@Departments.CN_COUNTY_ID); } }
+        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(CN_COUNTY_ID); } }
         public const string CN_COUNTY_ID = "County_ID";
         public const string DT_COUNTY_ID = "varchar(50)";
         private string? @_County_ID;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Departments.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Departments.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Departments.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public string? @Department_Name { get { return _Department_Name; } set { @_Department_Name = value; SetDirty(@Departments.CN_DEPARTMENT_NAME); } }
+        public string? @Department_Name { get { return _Department_Name; } set { @_Department_Name = value; SetDirty(CN_DEPARTMENT_NAME); } }
         public const string CN_DEPARTMENT_NAME = "Department_Name";
         public const string DT_DEPARTMENT_NAME = "nvarchar(50)";
         private string? @_Department_Name;
 
-        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(@Departments.CN_DISTRICT_ID); } }
+        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(CN_DISTRICT_ID); } }
         public const string CN_DISTRICT_ID = "District_ID";
         public const string DT_DISTRICT_ID = "varchar(50)";
         private string? @_District_ID;
 
-        public string? @IO_Department_ID { get { return _IO_Department_ID; } set { @_IO_Department_ID = value; SetDirty(@Departments.CN_IO_DEPARTMENT_ID); } }
+        public string? @IO_Department_ID { get { return _IO_Department_ID; } set { @_IO_Department_ID = value; SetDirty(CN_IO_DEPARTMENT_ID); } }
         public const string CN_IO_DEPARTMENT_ID = "IO_Department_ID";
         public const string DT_IO_DEPARTMENT_ID = "varchar(10)";
         private string? @_IO_Department_ID;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Departments.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Departments.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(@Departments.CN_ORDER_BY); } }
+        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(CN_ORDER_BY); } }
         public const string CN_ORDER_BY = "Order_By";
         public const string DT_ORDER_BY = "int";
         private int? @_Order_By;
 
-        public string? @Parent_ID { get { return _Parent_ID; } set { @_Parent_ID = value; SetDirty(@Departments.CN_PARENT_ID); } }
+        public string? @Parent_ID { get { return _Parent_ID; } set { @_Parent_ID = value; SetDirty(CN_PARENT_ID); } }
         public const string CN_PARENT_ID = "Parent_ID";
         public const string DT_PARENT_ID = "varchar(10)";
         private string? @_Parent_ID;
 
         public @Departments() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_DEPARTMENT_ID
             });
         }
@@ -588,44 +589,44 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Departments_Permission";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Departments_Permission.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Departments_Permission.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Departments_Permission.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Departments_Permission.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Departments_Permission.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Permission_Dep { get { return _Permission_Dep; } set { @_Permission_Dep = value; SetDirty(@Departments_Permission.CN_PERMISSION_DEP); } }
+        public string? @Permission_Dep { get { return _Permission_Dep; } set { @_Permission_Dep = value; SetDirty(CN_PERMISSION_DEP); } }
         public const string CN_PERMISSION_DEP = "Permission_Dep";
         public const string DT_PERMISSION_DEP = "varchar(10)";
         private string? @_Permission_Dep;
 
-        public string? @Permission_Type { get { return _Permission_Type; } set { @_Permission_Type = value; SetDirty(@Departments_Permission.CN_PERMISSION_TYPE); } }
+        public string? @Permission_Type { get { return _Permission_Type; } set { @_Permission_Type = value; SetDirty(CN_PERMISSION_TYPE); } }
         public const string CN_PERMISSION_TYPE = "Permission_Type";
         public const string DT_PERMISSION_TYPE = "varchar(10)";
         private string? @_Permission_Type;
 
         public @Departments_Permission() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_DEPARTMENT_ID
                 ,CN_PERMISSION_DEP
                 ,CN_PERMISSION_TYPE
@@ -648,44 +649,44 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Departments_Update";
 
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Departments_Update.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public string? @Department_Name { get { return _Department_Name; } set { @_Department_Name = value; SetDirty(@Departments_Update.CN_DEPARTMENT_NAME); } }
+        public string? @Department_Name { get { return _Department_Name; } set { @_Department_Name = value; SetDirty(CN_DEPARTMENT_NAME); } }
         public const string CN_DEPARTMENT_NAME = "Department_Name";
         public const string DT_DEPARTMENT_NAME = "nvarchar(50)";
         private string? @_Department_Name;
 
-        public string? @DownLoad_Date { get { return _DownLoad_Date; } set { @_DownLoad_Date = value; SetDirty(@Departments_Update.CN_DOWNLOAD_DATE); } }
+        public string? @DownLoad_Date { get { return _DownLoad_Date; } set { @_DownLoad_Date = value; SetDirty(CN_DOWNLOAD_DATE); } }
         public const string CN_DOWNLOAD_DATE = "DownLoad_Date";
         public const string DT_DOWNLOAD_DATE = "varchar(30)";
         private string? @_DownLoad_Date;
 
-        public string? @IO_Department_Name { get { return _IO_Department_Name; } set { @_IO_Department_Name = value; SetDirty(@Departments_Update.CN_IO_DEPARTMENT_NAME); } }
+        public string? @IO_Department_Name { get { return _IO_Department_Name; } set { @_IO_Department_Name = value; SetDirty(CN_IO_DEPARTMENT_NAME); } }
         public const string CN_IO_DEPARTMENT_NAME = "IO_Department_Name";
         public const string DT_IO_DEPARTMENT_NAME = "varchar(10)";
         private string? @_IO_Department_Name;
 
-        public string? @Parent_ID { get { return _Parent_ID; } set { @_Parent_ID = value; SetDirty(@Departments_Update.CN_PARENT_ID); } }
+        public string? @Parent_ID { get { return _Parent_ID; } set { @_Parent_ID = value; SetDirty(CN_PARENT_ID); } }
         public const string CN_PARENT_ID = "Parent_ID";
         public const string DT_PARENT_ID = "varchar(10)";
         private string? @_Parent_ID;
 
-        public string? @Unit_Attribute { get { return _Unit_Attribute; } set { @_Unit_Attribute = value; SetDirty(@Departments_Update.CN_UNIT_ATTRIBUTE); } }
+        public string? @Unit_Attribute { get { return _Unit_Attribute; } set { @_Unit_Attribute = value; SetDirty(CN_UNIT_ATTRIBUTE); } }
         public const string CN_UNIT_ATTRIBUTE = "Unit_Attribute";
         public const string DT_UNIT_ATTRIBUTE = "varchar(5)";
         private string? @_Unit_Attribute;
 
-        public string? @UpLoad_Date { get { return _UpLoad_Date; } set { @_UpLoad_Date = value; SetDirty(@Departments_Update.CN_UPLOAD_DATE); } }
+        public string? @UpLoad_Date { get { return _UpLoad_Date; } set { @_UpLoad_Date = value; SetDirty(CN_UPLOAD_DATE); } }
         public const string CN_UPLOAD_DATE = "UpLoad_Date";
         public const string DT_UPLOAD_DATE = "varchar(30)";
         private string? @_UpLoad_Date;
 
         public @Departments_Update() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_DEPARTMENT_ID
             });
         }
@@ -707,49 +708,49 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Districts";
 
 
-        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(@Districts.CN_COUNTY_ID); } }
+        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(CN_COUNTY_ID); } }
         public const string CN_COUNTY_ID = "County_ID";
         public const string DT_COUNTY_ID = "varchar(50)";
         private string? @_County_ID;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Districts.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Districts.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public int? @District_Code { get { return _District_Code; } set { @_District_Code = value; SetDirty(@Districts.CN_DISTRICT_CODE); } }
+        public int? @District_Code { get { return _District_Code; } set { @_District_Code = value; SetDirty(CN_DISTRICT_CODE); } }
         public const string CN_DISTRICT_CODE = "District_Code";
         public const string DT_DISTRICT_CODE = "int";
         private int? @_District_Code;
 
-        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(@Districts.CN_DISTRICT_ID); } }
+        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(CN_DISTRICT_ID); } }
         public const string CN_DISTRICT_ID = "District_ID";
         public const string DT_DISTRICT_ID = "varchar(50)";
         private string? @_District_ID;
 
-        public string? @District_Name { get { return _District_Name; } set { @_District_Name = value; SetDirty(@Districts.CN_DISTRICT_NAME); } }
+        public string? @District_Name { get { return _District_Name; } set { @_District_Name = value; SetDirty(CN_DISTRICT_NAME); } }
         public const string CN_DISTRICT_NAME = "District_Name";
         public const string DT_DISTRICT_NAME = "nvarchar(50)";
         private string? @_District_Name;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Districts.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Districts.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
         public @Districts() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_COUNTY_ID
                 ,CN_DISTRICT_ID
             });
@@ -801,194 +802,194 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Letter_Info";
 
 
-        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(@Letter_Info.CN_ADDRESS); } }
+        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(CN_ADDRESS); } }
         public const string CN_ADDRESS = "Address";
         public const string DT_ADDRESS = "nvarchar(100)";
         private string? @_Address;
 
-        public string? @Back_Date { get { return _Back_Date; } set { @_Back_Date = value; SetDirty(@Letter_Info.CN_BACK_DATE); } }
+        public string? @Back_Date { get { return _Back_Date; } set { @_Back_Date = value; SetDirty(CN_BACK_DATE); } }
         public const string CN_BACK_DATE = "Back_Date";
         public const string DT_BACK_DATE = "varchar(30)";
         private string? @_Back_Date;
 
-        public string? @Back_To_Address { get { return _Back_To_Address; } set { @_Back_To_Address = value; SetDirty(@Letter_Info.CN_BACK_TO_ADDRESS); } }
+        public string? @Back_To_Address { get { return _Back_To_Address; } set { @_Back_To_Address = value; SetDirty(CN_BACK_TO_ADDRESS); } }
         public const string CN_BACK_TO_ADDRESS = "Back_To_Address";
         public const string DT_BACK_TO_ADDRESS = "nvarchar(200)";
         private string? @_Back_To_Address;
 
-        public string? @Back_To_Dep { get { return _Back_To_Dep; } set { @_Back_To_Dep = value; SetDirty(@Letter_Info.CN_BACK_TO_DEP); } }
+        public string? @Back_To_Dep { get { return _Back_To_Dep; } set { @_Back_To_Dep = value; SetDirty(CN_BACK_TO_DEP); } }
         public const string CN_BACK_TO_DEP = "Back_To_Dep";
         public const string DT_BACK_TO_DEP = "varchar(10)";
         private string? @_Back_To_Dep;
 
-        public string? @BulkRegist_Number { get { return _BulkRegist_Number; } set { @_BulkRegist_Number = value; SetDirty(@Letter_Info.CN_BULKREGIST_NUMBER); } }
+        public string? @BulkRegist_Number { get { return _BulkRegist_Number; } set { @_BulkRegist_Number = value; SetDirty(CN_BULKREGIST_NUMBER); } }
         public const string CN_BULKREGIST_NUMBER = "BulkRegist_Number";
         public const string DT_BULKREGIST_NUMBER = "varchar(50)";
         private string? @_BulkRegist_Number;
 
-        public string? @Cheque_Number { get { return _Cheque_Number; } set { @_Cheque_Number = value; SetDirty(@Letter_Info.CN_CHEQUE_NUMBER); } }
+        public string? @Cheque_Number { get { return _Cheque_Number; } set { @_Cheque_Number = value; SetDirty(CN_CHEQUE_NUMBER); } }
         public const string CN_CHEQUE_NUMBER = "Cheque_Number";
         public const string DT_CHEQUE_NUMBER = "varchar(50)";
         private string? @_Cheque_Number;
 
-        public string? @Cost_Dep { get { return _Cost_Dep; } set { @_Cost_Dep = value; SetDirty(@Letter_Info.CN_COST_DEP); } }
+        public string? @Cost_Dep { get { return _Cost_Dep; } set { @_Cost_Dep = value; SetDirty(CN_COST_DEP); } }
         public const string CN_COST_DEP = "Cost_Dep";
         public const string DT_COST_DEP = "varchar(10)";
         private string? @_Cost_Dep;
 
-        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(@Letter_Info.CN_COUNTY_ID); } }
+        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(CN_COUNTY_ID); } }
         public const string CN_COUNTY_ID = "County_ID";
         public const string DT_COUNTY_ID = "nvarchar(50)";
         private string? @_County_ID;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Letter_Info.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Letter_Info.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(@Letter_Info.CN_DISTRICT_ID); } }
+        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(CN_DISTRICT_ID); } }
         public const string CN_DISTRICT_ID = "District_ID";
         public const string DT_DISTRICT_ID = "nvarchar(50)";
         private string? @_District_ID;
 
-        public string? @Important { get { return _Important; } set { @_Important = value; SetDirty(@Letter_Info.CN_IMPORTANT); } }
+        public string? @Important { get { return _Important; } set { @_Important = value; SetDirty(CN_IMPORTANT); } }
         public const string CN_IMPORTANT = "Important";
         public const string DT_IMPORTANT = "char(1)";
         private string? @_Important;
 
-        public string? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(@Letter_Info.CN_ITEM_ID); } }
+        public string? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(CN_ITEM_ID); } }
         public const string CN_ITEM_ID = "Item_ID";
         public const string DT_ITEM_ID = "varchar(50)";
         private string? @_Item_ID;
 
-        public string? @Item_Name { get { return _Item_Name; } set { @_Item_Name = value; SetDirty(@Letter_Info.CN_ITEM_NAME); } }
+        public string? @Item_Name { get { return _Item_Name; } set { @_Item_Name = value; SetDirty(CN_ITEM_NAME); } }
         public const string CN_ITEM_NAME = "Item_Name";
         public const string DT_ITEM_NAME = "varchar(50)";
         private string? @_Item_Name;
 
-        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(@Letter_Info.CN_LETTER_CLASS); } }
+        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(CN_LETTER_CLASS); } }
         public const string CN_LETTER_CLASS = "Letter_Class";
         public const string DT_LETTER_CLASS = "char(1)";
         private string? @_Letter_Class;
 
-        public int? @Letter_Cost { get { return _Letter_Cost; } set { @_Letter_Cost = value; SetDirty(@Letter_Info.CN_LETTER_COST); } }
+        public int? @Letter_Cost { get { return _Letter_Cost; } set { @_Letter_Cost = value; SetDirty(CN_LETTER_COST); } }
         public const string CN_LETTER_COST = "Letter_Cost";
         public const string DT_LETTER_COST = "int";
         private int? @_Letter_Cost;
 
-        public string? @Letter_ID { get { return _Letter_ID; } set { @_Letter_ID = value; SetDirty(@Letter_Info.CN_LETTER_ID); } }
+        public string? @Letter_ID { get { return _Letter_ID; } set { @_Letter_ID = value; SetDirty(CN_LETTER_ID); } }
         public const string CN_LETTER_ID = "Letter_ID";
         public const string DT_LETTER_ID = "varchar(100)";
         private string? @_Letter_ID;
 
-        public string? @Letter_IO { get { return _Letter_IO; } set { @_Letter_IO = value; SetDirty(@Letter_Info.CN_LETTER_IO); } }
+        public string? @Letter_IO { get { return _Letter_IO; } set { @_Letter_IO = value; SetDirty(CN_LETTER_IO); } }
         public const string CN_LETTER_IO = "Letter_IO";
         public const string DT_LETTER_IO = "char(1)";
         private string? @_Letter_IO;
 
-        public string? @Loan_Account { get { return _Loan_Account; } set { @_Loan_Account = value; SetDirty(@Letter_Info.CN_LOAN_ACCOUNT); } }
+        public string? @Loan_Account { get { return _Loan_Account; } set { @_Loan_Account = value; SetDirty(CN_LOAN_ACCOUNT); } }
         public const string CN_LOAN_ACCOUNT = "Loan_Account";
         public const string DT_LOAN_ACCOUNT = "varchar(50)";
         private string? @_Loan_Account;
 
-        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(@Letter_Info.CN_LOC_ID); } }
+        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(CN_LOC_ID); } }
         public const string CN_LOC_ID = "Loc_ID";
         public const string DT_LOC_ID = "varchar(64)";
         private string? @_Loc_ID;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Letter_Info.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Letter_Info.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Letter_Info.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Now_Dep { get { return _Now_Dep; } set { @_Now_Dep = value; SetDirty(@Letter_Info.CN_NOW_DEP); } }
+        public string? @Now_Dep { get { return _Now_Dep; } set { @_Now_Dep = value; SetDirty(CN_NOW_DEP); } }
         public const string CN_NOW_DEP = "Now_Dep";
         public const string DT_NOW_DEP = "varchar(10)";
         private string? @_Now_Dep;
 
-        public string? @Outsite_Tracing_Code { get { return _Outsite_Tracing_Code; } set { @_Outsite_Tracing_Code = value; SetDirty(@Letter_Info.CN_OUTSITE_TRACING_CODE); } }
+        public string? @Outsite_Tracing_Code { get { return _Outsite_Tracing_Code; } set { @_Outsite_Tracing_Code = value; SetDirty(CN_OUTSITE_TRACING_CODE); } }
         public const string CN_OUTSITE_TRACING_CODE = "Outsite_Tracing_Code";
         public const string DT_OUTSITE_TRACING_CODE = "varchar(50)";
         private string? @_Outsite_Tracing_Code;
 
-        public string? @Policy_Number { get { return _Policy_Number; } set { @_Policy_Number = value; SetDirty(@Letter_Info.CN_POLICY_NUMBER); } }
+        public string? @Policy_Number { get { return _Policy_Number; } set { @_Policy_Number = value; SetDirty(CN_POLICY_NUMBER); } }
         public const string CN_POLICY_NUMBER = "Policy_Number";
         public const string DT_POLICY_NUMBER = "varchar(50)";
         private string? @_Policy_Number;
 
-        public string? @Receive_Date { get { return _Receive_Date; } set { @_Receive_Date = value; SetDirty(@Letter_Info.CN_RECEIVE_DATE); } }
+        public string? @Receive_Date { get { return _Receive_Date; } set { @_Receive_Date = value; SetDirty(CN_RECEIVE_DATE); } }
         public const string CN_RECEIVE_DATE = "Receive_Date";
         public const string DT_RECEIVE_DATE = "varchar(30)";
         private string? @_Receive_Date;
 
-        public string? @Receiver_Name { get { return _Receiver_Name; } set { @_Receiver_Name = value; SetDirty(@Letter_Info.CN_RECEIVER_NAME); } }
+        public string? @Receiver_Name { get { return _Receiver_Name; } set { @_Receiver_Name = value; SetDirty(CN_RECEIVER_NAME); } }
         public const string CN_RECEIVER_NAME = "Receiver_Name";
         public const string DT_RECEIVER_NAME = "nvarchar(50)";
         private string? @_Receiver_Name;
 
-        public string? @Rtn_Flag { get { return _Rtn_Flag; } set { @_Rtn_Flag = value; SetDirty(@Letter_Info.CN_RTN_FLAG); } }
+        public string? @Rtn_Flag { get { return _Rtn_Flag; } set { @_Rtn_Flag = value; SetDirty(CN_RTN_FLAG); } }
         public const string CN_RTN_FLAG = "Rtn_Flag";
         public const string DT_RTN_FLAG = "char(1)";
         private string? @_Rtn_Flag;
 
-        public string? @Send_Date { get { return _Send_Date; } set { @_Send_Date = value; SetDirty(@Letter_Info.CN_SEND_DATE); } }
+        public string? @Send_Date { get { return _Send_Date; } set { @_Send_Date = value; SetDirty(CN_SEND_DATE); } }
         public const string CN_SEND_DATE = "Send_Date";
         public const string DT_SEND_DATE = "varchar(30)";
         private string? @_Send_Date;
 
-        public string? @Sender_Name { get { return _Sender_Name; } set { @_Sender_Name = value; SetDirty(@Letter_Info.CN_SENDER_NAME); } }
+        public string? @Sender_Name { get { return _Sender_Name; } set { @_Sender_Name = value; SetDirty(CN_SENDER_NAME); } }
         public const string CN_SENDER_NAME = "Sender_Name";
         public const string DT_SENDER_NAME = "nvarchar(50)";
         private string? @_Sender_Name;
 
-        public string? @Source_Address { get { return _Source_Address; } set { @_Source_Address = value; SetDirty(@Letter_Info.CN_SOURCE_ADDRESS); } }
+        public string? @Source_Address { get { return _Source_Address; } set { @_Source_Address = value; SetDirty(CN_SOURCE_ADDRESS); } }
         public const string CN_SOURCE_ADDRESS = "Source_Address";
         public const string DT_SOURCE_ADDRESS = "nvarchar(100)";
         private string? @_Source_Address;
 
-        public string? @Source_County_ID { get { return _Source_County_ID; } set { @_Source_County_ID = value; SetDirty(@Letter_Info.CN_SOURCE_COUNTY_ID); } }
+        public string? @Source_County_ID { get { return _Source_County_ID; } set { @_Source_County_ID = value; SetDirty(CN_SOURCE_COUNTY_ID); } }
         public const string CN_SOURCE_COUNTY_ID = "Source_County_ID";
         public const string DT_SOURCE_COUNTY_ID = "nvarchar(50)";
         private string? @_Source_County_ID;
 
-        public string? @Source_Dep { get { return _Source_Dep; } set { @_Source_Dep = value; SetDirty(@Letter_Info.CN_SOURCE_DEP); } }
+        public string? @Source_Dep { get { return _Source_Dep; } set { @_Source_Dep = value; SetDirty(CN_SOURCE_DEP); } }
         public const string CN_SOURCE_DEP = "Source_Dep";
         public const string DT_SOURCE_DEP = "varchar(10)";
         private string? @_Source_Dep;
 
-        public string? @Source_District_ID { get { return _Source_District_ID; } set { @_Source_District_ID = value; SetDirty(@Letter_Info.CN_SOURCE_DISTRICT_ID); } }
+        public string? @Source_District_ID { get { return _Source_District_ID; } set { @_Source_District_ID = value; SetDirty(CN_SOURCE_DISTRICT_ID); } }
         public const string CN_SOURCE_DISTRICT_ID = "Source_District_ID";
         public const string DT_SOURCE_DISTRICT_ID = "nvarchar(50)";
         private string? @_Source_District_ID;
 
-        public string? @Target_Dep { get { return _Target_Dep; } set { @_Target_Dep = value; SetDirty(@Letter_Info.CN_TARGET_DEP); } }
+        public string? @Target_Dep { get { return _Target_Dep; } set { @_Target_Dep = value; SetDirty(CN_TARGET_DEP); } }
         public const string CN_TARGET_DEP = "Target_Dep";
         public const string DT_TARGET_DEP = "varchar(10)";
         private string? @_Target_Dep;
 
-        public float? @Weight { get { return _Weight; } set { @_Weight = value; SetDirty(@Letter_Info.CN_WEIGHT); } }
+        public float? @Weight { get { return _Weight; } set { @_Weight = value; SetDirty(CN_WEIGHT); } }
         public const string CN_WEIGHT = "Weight";
         public const string DT_WEIGHT = "float(53.0)";
         private float? @_Weight;
 
         public @Letter_Info() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_LETTER_ID
             });
         }
@@ -1038,189 +1039,189 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Letter_Info_History";
 
 
-        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(@Letter_Info_History.CN_ADDRESS); } }
+        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(CN_ADDRESS); } }
         public const string CN_ADDRESS = "Address";
         public const string DT_ADDRESS = "nvarchar(100)";
         private string? @_Address;
 
-        public string? @Back_Date { get { return _Back_Date; } set { @_Back_Date = value; SetDirty(@Letter_Info_History.CN_BACK_DATE); } }
+        public string? @Back_Date { get { return _Back_Date; } set { @_Back_Date = value; SetDirty(CN_BACK_DATE); } }
         public const string CN_BACK_DATE = "Back_Date";
         public const string DT_BACK_DATE = "varchar(30)";
         private string? @_Back_Date;
 
-        public string? @Back_To_Address { get { return _Back_To_Address; } set { @_Back_To_Address = value; SetDirty(@Letter_Info_History.CN_BACK_TO_ADDRESS); } }
+        public string? @Back_To_Address { get { return _Back_To_Address; } set { @_Back_To_Address = value; SetDirty(CN_BACK_TO_ADDRESS); } }
         public const string CN_BACK_TO_ADDRESS = "Back_To_Address";
         public const string DT_BACK_TO_ADDRESS = "nvarchar(200)";
         private string? @_Back_To_Address;
 
-        public string? @Back_To_Dep { get { return _Back_To_Dep; } set { @_Back_To_Dep = value; SetDirty(@Letter_Info_History.CN_BACK_TO_DEP); } }
+        public string? @Back_To_Dep { get { return _Back_To_Dep; } set { @_Back_To_Dep = value; SetDirty(CN_BACK_TO_DEP); } }
         public const string CN_BACK_TO_DEP = "Back_To_Dep";
         public const string DT_BACK_TO_DEP = "varchar(10)";
         private string? @_Back_To_Dep;
 
-        public string? @BulkRegist_Number { get { return _BulkRegist_Number; } set { @_BulkRegist_Number = value; SetDirty(@Letter_Info_History.CN_BULKREGIST_NUMBER); } }
+        public string? @BulkRegist_Number { get { return _BulkRegist_Number; } set { @_BulkRegist_Number = value; SetDirty(CN_BULKREGIST_NUMBER); } }
         public const string CN_BULKREGIST_NUMBER = "BulkRegist_Number";
         public const string DT_BULKREGIST_NUMBER = "varchar(50)";
         private string? @_BulkRegist_Number;
 
-        public string? @Cheque_Number { get { return _Cheque_Number; } set { @_Cheque_Number = value; SetDirty(@Letter_Info_History.CN_CHEQUE_NUMBER); } }
+        public string? @Cheque_Number { get { return _Cheque_Number; } set { @_Cheque_Number = value; SetDirty(CN_CHEQUE_NUMBER); } }
         public const string CN_CHEQUE_NUMBER = "Cheque_Number";
         public const string DT_CHEQUE_NUMBER = "varchar(50)";
         private string? @_Cheque_Number;
 
-        public string? @Cost_Dep { get { return _Cost_Dep; } set { @_Cost_Dep = value; SetDirty(@Letter_Info_History.CN_COST_DEP); } }
+        public string? @Cost_Dep { get { return _Cost_Dep; } set { @_Cost_Dep = value; SetDirty(CN_COST_DEP); } }
         public const string CN_COST_DEP = "Cost_Dep";
         public const string DT_COST_DEP = "varchar(10)";
         private string? @_Cost_Dep;
 
-        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(@Letter_Info_History.CN_COUNTY_ID); } }
+        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(CN_COUNTY_ID); } }
         public const string CN_COUNTY_ID = "County_ID";
         public const string DT_COUNTY_ID = "nvarchar(50)";
         private string? @_County_ID;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Letter_Info_History.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Letter_Info_History.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(@Letter_Info_History.CN_DISTRICT_ID); } }
+        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(CN_DISTRICT_ID); } }
         public const string CN_DISTRICT_ID = "District_ID";
         public const string DT_DISTRICT_ID = "nvarchar(50)";
         private string? @_District_ID;
 
-        public string? @Important { get { return _Important; } set { @_Important = value; SetDirty(@Letter_Info_History.CN_IMPORTANT); } }
+        public string? @Important { get { return _Important; } set { @_Important = value; SetDirty(CN_IMPORTANT); } }
         public const string CN_IMPORTANT = "Important";
         public const string DT_IMPORTANT = "char(1)";
         private string? @_Important;
 
-        public string? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(@Letter_Info_History.CN_ITEM_ID); } }
+        public string? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(CN_ITEM_ID); } }
         public const string CN_ITEM_ID = "Item_ID";
         public const string DT_ITEM_ID = "varchar(50)";
         private string? @_Item_ID;
 
-        public string? @Item_Name { get { return _Item_Name; } set { @_Item_Name = value; SetDirty(@Letter_Info_History.CN_ITEM_NAME); } }
+        public string? @Item_Name { get { return _Item_Name; } set { @_Item_Name = value; SetDirty(CN_ITEM_NAME); } }
         public const string CN_ITEM_NAME = "Item_Name";
         public const string DT_ITEM_NAME = "varchar(50)";
         private string? @_Item_Name;
 
-        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(@Letter_Info_History.CN_LETTER_CLASS); } }
+        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(CN_LETTER_CLASS); } }
         public const string CN_LETTER_CLASS = "Letter_Class";
         public const string DT_LETTER_CLASS = "char(1)";
         private string? @_Letter_Class;
 
-        public int? @Letter_Cost { get { return _Letter_Cost; } set { @_Letter_Cost = value; SetDirty(@Letter_Info_History.CN_LETTER_COST); } }
+        public int? @Letter_Cost { get { return _Letter_Cost; } set { @_Letter_Cost = value; SetDirty(CN_LETTER_COST); } }
         public const string CN_LETTER_COST = "Letter_Cost";
         public const string DT_LETTER_COST = "int";
         private int? @_Letter_Cost;
 
-        public string? @Letter_ID { get { return _Letter_ID; } set { @_Letter_ID = value; SetDirty(@Letter_Info_History.CN_LETTER_ID); } }
+        public string? @Letter_ID { get { return _Letter_ID; } set { @_Letter_ID = value; SetDirty(CN_LETTER_ID); } }
         public const string CN_LETTER_ID = "Letter_ID";
         public const string DT_LETTER_ID = "varchar(100)";
         private string? @_Letter_ID;
 
-        public string? @Letter_IO { get { return _Letter_IO; } set { @_Letter_IO = value; SetDirty(@Letter_Info_History.CN_LETTER_IO); } }
+        public string? @Letter_IO { get { return _Letter_IO; } set { @_Letter_IO = value; SetDirty(CN_LETTER_IO); } }
         public const string CN_LETTER_IO = "Letter_IO";
         public const string DT_LETTER_IO = "char(1)";
         private string? @_Letter_IO;
 
-        public string? @Loan_Account { get { return _Loan_Account; } set { @_Loan_Account = value; SetDirty(@Letter_Info_History.CN_LOAN_ACCOUNT); } }
+        public string? @Loan_Account { get { return _Loan_Account; } set { @_Loan_Account = value; SetDirty(CN_LOAN_ACCOUNT); } }
         public const string CN_LOAN_ACCOUNT = "Loan_Account";
         public const string DT_LOAN_ACCOUNT = "varchar(50)";
         private string? @_Loan_Account;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Letter_Info_History.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Letter_Info_History.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Letter_Info_History.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Now_Dep { get { return _Now_Dep; } set { @_Now_Dep = value; SetDirty(@Letter_Info_History.CN_NOW_DEP); } }
+        public string? @Now_Dep { get { return _Now_Dep; } set { @_Now_Dep = value; SetDirty(CN_NOW_DEP); } }
         public const string CN_NOW_DEP = "Now_Dep";
         public const string DT_NOW_DEP = "varchar(10)";
         private string? @_Now_Dep;
 
-        public string? @Outsite_Tracing_Code { get { return _Outsite_Tracing_Code; } set { @_Outsite_Tracing_Code = value; SetDirty(@Letter_Info_History.CN_OUTSITE_TRACING_CODE); } }
+        public string? @Outsite_Tracing_Code { get { return _Outsite_Tracing_Code; } set { @_Outsite_Tracing_Code = value; SetDirty(CN_OUTSITE_TRACING_CODE); } }
         public const string CN_OUTSITE_TRACING_CODE = "Outsite_Tracing_Code";
         public const string DT_OUTSITE_TRACING_CODE = "varchar(50)";
         private string? @_Outsite_Tracing_Code;
 
-        public string? @Policy_Number { get { return _Policy_Number; } set { @_Policy_Number = value; SetDirty(@Letter_Info_History.CN_POLICY_NUMBER); } }
+        public string? @Policy_Number { get { return _Policy_Number; } set { @_Policy_Number = value; SetDirty(CN_POLICY_NUMBER); } }
         public const string CN_POLICY_NUMBER = "Policy_Number";
         public const string DT_POLICY_NUMBER = "varchar(50)";
         private string? @_Policy_Number;
 
-        public string? @Receive_Date { get { return _Receive_Date; } set { @_Receive_Date = value; SetDirty(@Letter_Info_History.CN_RECEIVE_DATE); } }
+        public string? @Receive_Date { get { return _Receive_Date; } set { @_Receive_Date = value; SetDirty(CN_RECEIVE_DATE); } }
         public const string CN_RECEIVE_DATE = "Receive_Date";
         public const string DT_RECEIVE_DATE = "varchar(30)";
         private string? @_Receive_Date;
 
-        public string? @Receiver_Name { get { return _Receiver_Name; } set { @_Receiver_Name = value; SetDirty(@Letter_Info_History.CN_RECEIVER_NAME); } }
+        public string? @Receiver_Name { get { return _Receiver_Name; } set { @_Receiver_Name = value; SetDirty(CN_RECEIVER_NAME); } }
         public const string CN_RECEIVER_NAME = "Receiver_Name";
         public const string DT_RECEIVER_NAME = "nvarchar(50)";
         private string? @_Receiver_Name;
 
-        public string? @Rtn_Flag { get { return _Rtn_Flag; } set { @_Rtn_Flag = value; SetDirty(@Letter_Info_History.CN_RTN_FLAG); } }
+        public string? @Rtn_Flag { get { return _Rtn_Flag; } set { @_Rtn_Flag = value; SetDirty(CN_RTN_FLAG); } }
         public const string CN_RTN_FLAG = "Rtn_Flag";
         public const string DT_RTN_FLAG = "char(1)";
         private string? @_Rtn_Flag;
 
-        public string? @Send_Date { get { return _Send_Date; } set { @_Send_Date = value; SetDirty(@Letter_Info_History.CN_SEND_DATE); } }
+        public string? @Send_Date { get { return _Send_Date; } set { @_Send_Date = value; SetDirty(CN_SEND_DATE); } }
         public const string CN_SEND_DATE = "Send_Date";
         public const string DT_SEND_DATE = "varchar(30)";
         private string? @_Send_Date;
 
-        public string? @Sender_Name { get { return _Sender_Name; } set { @_Sender_Name = value; SetDirty(@Letter_Info_History.CN_SENDER_NAME); } }
+        public string? @Sender_Name { get { return _Sender_Name; } set { @_Sender_Name = value; SetDirty(CN_SENDER_NAME); } }
         public const string CN_SENDER_NAME = "Sender_Name";
         public const string DT_SENDER_NAME = "nvarchar(50)";
         private string? @_Sender_Name;
 
-        public string? @Source_Address { get { return _Source_Address; } set { @_Source_Address = value; SetDirty(@Letter_Info_History.CN_SOURCE_ADDRESS); } }
+        public string? @Source_Address { get { return _Source_Address; } set { @_Source_Address = value; SetDirty(CN_SOURCE_ADDRESS); } }
         public const string CN_SOURCE_ADDRESS = "Source_Address";
         public const string DT_SOURCE_ADDRESS = "nvarchar(100)";
         private string? @_Source_Address;
 
-        public string? @Source_County_ID { get { return _Source_County_ID; } set { @_Source_County_ID = value; SetDirty(@Letter_Info_History.CN_SOURCE_COUNTY_ID); } }
+        public string? @Source_County_ID { get { return _Source_County_ID; } set { @_Source_County_ID = value; SetDirty(CN_SOURCE_COUNTY_ID); } }
         public const string CN_SOURCE_COUNTY_ID = "Source_County_ID";
         public const string DT_SOURCE_COUNTY_ID = "nvarchar(50)";
         private string? @_Source_County_ID;
 
-        public string? @Source_Dep { get { return _Source_Dep; } set { @_Source_Dep = value; SetDirty(@Letter_Info_History.CN_SOURCE_DEP); } }
+        public string? @Source_Dep { get { return _Source_Dep; } set { @_Source_Dep = value; SetDirty(CN_SOURCE_DEP); } }
         public const string CN_SOURCE_DEP = "Source_Dep";
         public const string DT_SOURCE_DEP = "varchar(10)";
         private string? @_Source_Dep;
 
-        public string? @Source_District_ID { get { return _Source_District_ID; } set { @_Source_District_ID = value; SetDirty(@Letter_Info_History.CN_SOURCE_DISTRICT_ID); } }
+        public string? @Source_District_ID { get { return _Source_District_ID; } set { @_Source_District_ID = value; SetDirty(CN_SOURCE_DISTRICT_ID); } }
         public const string CN_SOURCE_DISTRICT_ID = "Source_District_ID";
         public const string DT_SOURCE_DISTRICT_ID = "nvarchar(50)";
         private string? @_Source_District_ID;
 
-        public string? @Target_Dep { get { return _Target_Dep; } set { @_Target_Dep = value; SetDirty(@Letter_Info_History.CN_TARGET_DEP); } }
+        public string? @Target_Dep { get { return _Target_Dep; } set { @_Target_Dep = value; SetDirty(CN_TARGET_DEP); } }
         public const string CN_TARGET_DEP = "Target_Dep";
         public const string DT_TARGET_DEP = "varchar(10)";
         private string? @_Target_Dep;
 
-        public float? @Weight { get { return _Weight; } set { @_Weight = value; SetDirty(@Letter_Info_History.CN_WEIGHT); } }
+        public float? @Weight { get { return _Weight; } set { @_Weight = value; SetDirty(CN_WEIGHT); } }
         public const string CN_WEIGHT = "Weight";
         public const string DT_WEIGHT = "float(53.0)";
         private float? @_Weight;
 
         public @Letter_Info_History() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_LETTER_ID
             });
         }
@@ -1245,64 +1246,64 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Letter_Sequence";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Letter_Sequence.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Letter_Sequence.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @IO_Type { get { return _IO_Type; } set { @_IO_Type = value; SetDirty(@Letter_Sequence.CN_IO_TYPE); } }
+        public string? @IO_Type { get { return _IO_Type; } set { @_IO_Type = value; SetDirty(CN_IO_TYPE); } }
         public const string CN_IO_TYPE = "IO_Type";
         public const string DT_IO_TYPE = "varchar(3)";
         private string? @_IO_Type;
 
-        public string? @Letter_ID { get { return _Letter_ID; } set { @_Letter_ID = value; SetDirty(@Letter_Sequence.CN_LETTER_ID); } }
+        public string? @Letter_ID { get { return _Letter_ID; } set { @_Letter_ID = value; SetDirty(CN_LETTER_ID); } }
         public const string CN_LETTER_ID = "Letter_ID";
         public const string DT_LETTER_ID = "varchar(100)";
         private string? @_Letter_ID;
 
-        public int? @Letter_Seq { get { return _Letter_Seq; } set { @_Letter_Seq = value; SetDirty(@Letter_Sequence.CN_LETTER_SEQ); } }
+        public int? @Letter_Seq { get { return _Letter_Seq; } set { @_Letter_Seq = value; SetDirty(CN_LETTER_SEQ); } }
         public const string CN_LETTER_SEQ = "Letter_Seq";
         public const string DT_LETTER_SEQ = "int";
         private int? @_Letter_Seq;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Letter_Sequence.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Letter_Sequence.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Next_Dep { get { return _Next_Dep; } set { @_Next_Dep = value; SetDirty(@Letter_Sequence.CN_NEXT_DEP); } }
+        public string? @Next_Dep { get { return _Next_Dep; } set { @_Next_Dep = value; SetDirty(CN_NEXT_DEP); } }
         public const string CN_NEXT_DEP = "Next_Dep";
         public const string DT_NEXT_DEP = "varchar(10)";
         private string? @_Next_Dep;
 
-        public string? @Now_Dep { get { return _Now_Dep; } set { @_Now_Dep = value; SetDirty(@Letter_Sequence.CN_NOW_DEP); } }
+        public string? @Now_Dep { get { return _Now_Dep; } set { @_Now_Dep = value; SetDirty(CN_NOW_DEP); } }
         public const string CN_NOW_DEP = "Now_Dep";
         public const string DT_NOW_DEP = "varchar(10)";
         private string? @_Now_Dep;
 
-        public string? @Receive_User { get { return _Receive_User; } set { @_Receive_User = value; SetDirty(@Letter_Sequence.CN_RECEIVE_USER); } }
+        public string? @Receive_User { get { return _Receive_User; } set { @_Receive_User = value; SetDirty(CN_RECEIVE_USER); } }
         public const string CN_RECEIVE_USER = "Receive_User";
         public const string DT_RECEIVE_USER = "varchar(50)";
         private string? @_Receive_User;
 
-        public string? @Send_User { get { return _Send_User; } set { @_Send_User = value; SetDirty(@Letter_Sequence.CN_SEND_USER); } }
+        public string? @Send_User { get { return _Send_User; } set { @_Send_User = value; SetDirty(CN_SEND_USER); } }
         public const string CN_SEND_USER = "Send_User";
         public const string DT_SEND_USER = "varchar(50)";
         private string? @_Send_User;
 
         public @Letter_Sequence() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_LETTER_ID
                 ,CN_LETTER_SEQ
             });
@@ -1336,104 +1337,104 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Letter_Shelf";
 
 
-        public string? @Area { get { return _Area; } set { @_Area = value; SetDirty(@Letter_Shelf.CN_AREA); } }
+        public string? @Area { get { return _Area; } set { @_Area = value; SetDirty(CN_AREA); } }
         public const string CN_AREA = "Area";
         public const string DT_AREA = "varchar(30)";
         private string? @_Area;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Letter_Shelf.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Letter_Shelf.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Cur_Letter_ID { get { return _Cur_Letter_ID; } set { @_Cur_Letter_ID = value; SetDirty(@Letter_Shelf.CN_CUR_LETTER_ID); } }
+        public string? @Cur_Letter_ID { get { return _Cur_Letter_ID; } set { @_Cur_Letter_ID = value; SetDirty(CN_CUR_LETTER_ID); } }
         public const string CN_CUR_LETTER_ID = "Cur_Letter_ID";
         public const string DT_CUR_LETTER_ID = "varchar(100)";
         private string? @_Cur_Letter_ID;
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Letter_Shelf.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public decimal? @IBS_Address { get { return _IBS_Address; } set { @_IBS_Address = value; SetDirty(@Letter_Shelf.CN_IBS_ADDRESS); } }
+        public decimal? @IBS_Address { get { return _IBS_Address; } set { @_IBS_Address = value; SetDirty(CN_IBS_ADDRESS); } }
         public const string CN_IBS_ADDRESS = "IBS_Address";
         public const string DT_IBS_ADDRESS = "numeric(20.0)";
         private decimal? @_IBS_Address;
 
-        public decimal? @IBS_Index { get { return _IBS_Index; } set { @_IBS_Index = value; SetDirty(@Letter_Shelf.CN_IBS_INDEX); } }
+        public decimal? @IBS_Index { get { return _IBS_Index; } set { @_IBS_Index = value; SetDirty(CN_IBS_INDEX); } }
         public const string CN_IBS_INDEX = "IBS_Index";
         public const string DT_IBS_INDEX = "numeric(20.0)";
         private decimal? @_IBS_Index;
 
-        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(@Letter_Shelf.CN_LOC_ID); } }
+        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(CN_LOC_ID); } }
         public const string CN_LOC_ID = "Loc_ID";
         public const string DT_LOC_ID = "varchar(64)";
         private string? @_Loc_ID;
 
-        public string? @Loc_IP { get { return _Loc_IP; } set { @_Loc_IP = value; SetDirty(@Letter_Shelf.CN_LOC_IP); } }
+        public string? @Loc_IP { get { return _Loc_IP; } set { @_Loc_IP = value; SetDirty(CN_LOC_IP); } }
         public const string CN_LOC_IP = "Loc_IP";
         public const string DT_LOC_IP = "varchar(30)";
         private string? @_Loc_IP;
 
-        public decimal? @Loc_Light_Adress { get { return _Loc_Light_Adress; } set { @_Loc_Light_Adress = value; SetDirty(@Letter_Shelf.CN_LOC_LIGHT_ADRESS); } }
+        public decimal? @Loc_Light_Adress { get { return _Loc_Light_Adress; } set { @_Loc_Light_Adress = value; SetDirty(CN_LOC_LIGHT_ADRESS); } }
         public const string CN_LOC_LIGHT_ADRESS = "Loc_Light_Adress";
         public const string DT_LOC_LIGHT_ADRESS = "numeric(20.0)";
         private decimal? @_Loc_Light_Adress;
 
-        public decimal? @Loc_Light_Index { get { return _Loc_Light_Index; } set { @_Loc_Light_Index = value; SetDirty(@Letter_Shelf.CN_LOC_LIGHT_INDEX); } }
+        public decimal? @Loc_Light_Index { get { return _Loc_Light_Index; } set { @_Loc_Light_Index = value; SetDirty(CN_LOC_LIGHT_INDEX); } }
         public const string CN_LOC_LIGHT_INDEX = "Loc_Light_Index";
         public const string DT_LOC_LIGHT_INDEX = "numeric(20.0)";
         private decimal? @_Loc_Light_Index;
 
-        public decimal? @Loc_Sensor_Adress { get { return _Loc_Sensor_Adress; } set { @_Loc_Sensor_Adress = value; SetDirty(@Letter_Shelf.CN_LOC_SENSOR_ADRESS); } }
+        public decimal? @Loc_Sensor_Adress { get { return _Loc_Sensor_Adress; } set { @_Loc_Sensor_Adress = value; SetDirty(CN_LOC_SENSOR_ADRESS); } }
         public const string CN_LOC_SENSOR_ADRESS = "Loc_Sensor_Adress";
         public const string DT_LOC_SENSOR_ADRESS = "numeric(20.0)";
         private decimal? @_Loc_Sensor_Adress;
 
-        public decimal? @Loc_Sensor_Adress_Begin { get { return _Loc_Sensor_Adress_Begin; } set { @_Loc_Sensor_Adress_Begin = value; SetDirty(@Letter_Shelf.CN_LOC_SENSOR_ADRESS_BEGIN); } }
+        public decimal? @Loc_Sensor_Adress_Begin { get { return _Loc_Sensor_Adress_Begin; } set { @_Loc_Sensor_Adress_Begin = value; SetDirty(CN_LOC_SENSOR_ADRESS_BEGIN); } }
         public const string CN_LOC_SENSOR_ADRESS_BEGIN = "Loc_Sensor_Adress_Begin";
         public const string DT_LOC_SENSOR_ADRESS_BEGIN = "numeric(20.0)";
         private decimal? @_Loc_Sensor_Adress_Begin;
 
-        public decimal? @Loc_Sensor_Adress_End { get { return _Loc_Sensor_Adress_End; } set { @_Loc_Sensor_Adress_End = value; SetDirty(@Letter_Shelf.CN_LOC_SENSOR_ADRESS_END); } }
+        public decimal? @Loc_Sensor_Adress_End { get { return _Loc_Sensor_Adress_End; } set { @_Loc_Sensor_Adress_End = value; SetDirty(CN_LOC_SENSOR_ADRESS_END); } }
         public const string CN_LOC_SENSOR_ADRESS_END = "Loc_Sensor_Adress_End";
         public const string DT_LOC_SENSOR_ADRESS_END = "numeric(20.0)";
         private decimal? @_Loc_Sensor_Adress_End;
 
-        public string? @Loc_Sts { get { return _Loc_Sts; } set { @_Loc_Sts = value; SetDirty(@Letter_Shelf.CN_LOC_STS); } }
+        public string? @Loc_Sts { get { return _Loc_Sts; } set { @_Loc_Sts = value; SetDirty(CN_LOC_STS); } }
         public const string CN_LOC_STS = "Loc_Sts";
         public const string DT_LOC_STS = "char(1)";
         private string? @_Loc_Sts;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Letter_Shelf.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Letter_Shelf.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Process_Time { get { return _Process_Time; } set { @_Process_Time = value; SetDirty(@Letter_Shelf.CN_PROCESS_TIME); } }
+        public string? @Process_Time { get { return _Process_Time; } set { @_Process_Time = value; SetDirty(CN_PROCESS_TIME); } }
         public const string CN_PROCESS_TIME = "Process_Time";
         public const string DT_PROCESS_TIME = "varchar(30)";
         private string? @_Process_Time;
 
-        public string? @Shelf_ID { get { return _Shelf_ID; } set { @_Shelf_ID = value; SetDirty(@Letter_Shelf.CN_SHELF_ID); } }
+        public string? @Shelf_ID { get { return _Shelf_ID; } set { @_Shelf_ID = value; SetDirty(CN_SHELF_ID); } }
         public const string CN_SHELF_ID = "Shelf_ID";
         public const string DT_SHELF_ID = "varchar(64)";
         private string? @_Shelf_ID;
 
         public @Letter_Shelf() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_LOC_ID
             });
         }
@@ -1453,39 +1454,39 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Letter_Shelf_Log";
 
 
-        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(@Letter_Shelf_Log.CN_LOC_ID); } }
+        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(CN_LOC_ID); } }
         public const string CN_LOC_ID = "Loc_ID";
         public const string DT_LOC_ID = "varchar(64)";
         private string? @_Loc_ID;
 
-        public string? @Loc_Sts { get { return _Loc_Sts; } set { @_Loc_Sts = value; SetDirty(@Letter_Shelf_Log.CN_LOC_STS); } }
+        public string? @Loc_Sts { get { return _Loc_Sts; } set { @_Loc_Sts = value; SetDirty(CN_LOC_STS); } }
         public const string CN_LOC_STS = "Loc_Sts";
         public const string DT_LOC_STS = "varchar(64)";
         private string? @_Loc_Sts;
 
-        public string? @Log_Code { get { return _Log_Code; } set { @_Log_Code = value; SetDirty(@Letter_Shelf_Log.CN_LOG_CODE); } }
+        public string? @Log_Code { get { return _Log_Code; } set { @_Log_Code = value; SetDirty(CN_LOG_CODE); } }
         public const string CN_LOG_CODE = "Log_Code";
         public const string DT_LOG_CODE = "varchar(5)";
         private string? @_Log_Code;
 
-        public string? @Log_Date { get { return _Log_Date; } set { @_Log_Date = value; SetDirty(@Letter_Shelf_Log.CN_LOG_DATE); } }
+        public string? @Log_Date { get { return _Log_Date; } set { @_Log_Date = value; SetDirty(CN_LOG_DATE); } }
         public const string CN_LOG_DATE = "Log_Date";
         public const string DT_LOG_DATE = "varchar(30)";
         private string? @_Log_Date;
 
-        public int? @Quantity { get { return _Quantity; } set { @_Quantity = value; SetDirty(@Letter_Shelf_Log.CN_QUANTITY); } }
+        public int? @Quantity { get { return _Quantity; } set { @_Quantity = value; SetDirty(CN_QUANTITY); } }
         public const string CN_QUANTITY = "Quantity";
         public const string DT_QUANTITY = "int";
         private int? @_Quantity;
 
-        public string? @UID { get { return _UID; } set { @_UID = value; SetDirty(@Letter_Shelf_Log.CN_UID); } }
+        public string? @UID { get { return _UID; } set { @_UID = value; SetDirty(CN_UID); } }
         public const string CN_UID = "UID";
         public const string DT_UID = "varchar(100)";
         private string? @_UID;
 
         public @Letter_Shelf_Log() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_UID
             });
         }
@@ -1505,39 +1506,39 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Location_Types";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Location_Types.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Location_Types.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(@Location_Types.CN_LETTER_CLASS); } }
+        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(CN_LETTER_CLASS); } }
         public const string CN_LETTER_CLASS = "Letter_Class";
         public const string DT_LETTER_CLASS = "char(1)";
         private string? @_Letter_Class;
 
-        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(@Location_Types.CN_LOC_ID); } }
+        public string? @Loc_ID { get { return _Loc_ID; } set { @_Loc_ID = value; SetDirty(CN_LOC_ID); } }
         public const string CN_LOC_ID = "Loc_ID";
         public const string DT_LOC_ID = "varchar(64)";
         private string? @_Loc_ID;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Location_Types.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Location_Types.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
         public @Location_Types() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_LETTER_CLASS
                 ,CN_LOC_ID
             });
@@ -1560,49 +1561,49 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Modules";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Modules.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Modules.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Modules.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Modules.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Module_ID { get { return _Module_ID; } set { @_Module_ID = value; SetDirty(@Modules.CN_MODULE_ID); } }
+        public string? @Module_ID { get { return _Module_ID; } set { @_Module_ID = value; SetDirty(CN_MODULE_ID); } }
         public const string CN_MODULE_ID = "Module_ID";
         public const string DT_MODULE_ID = "varchar(50)";
         private string? @_Module_ID;
 
-        public string? @Module_Name { get { return _Module_Name; } set { @_Module_Name = value; SetDirty(@Modules.CN_MODULE_NAME); } }
+        public string? @Module_Name { get { return _Module_Name; } set { @_Module_Name = value; SetDirty(CN_MODULE_NAME); } }
         public const string CN_MODULE_NAME = "Module_Name";
         public const string DT_MODULE_NAME = "nvarchar(50)";
         private string? @_Module_Name;
 
-        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(@Modules.CN_ORDER_BY); } }
+        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(CN_ORDER_BY); } }
         public const string CN_ORDER_BY = "Order_By";
         public const string DT_ORDER_BY = "int";
         private int? @_Order_By;
 
-        public string? @Parent_Module_ID { get { return _Parent_Module_ID; } set { @_Parent_Module_ID = value; SetDirty(@Modules.CN_PARENT_MODULE_ID); } }
+        public string? @Parent_Module_ID { get { return _Parent_Module_ID; } set { @_Parent_Module_ID = value; SetDirty(CN_PARENT_MODULE_ID); } }
         public const string CN_PARENT_MODULE_ID = "Parent_Module_ID";
         public const string DT_PARENT_MODULE_ID = "varchar(50)";
         private string? @_Parent_Module_ID;
 
         public @Modules() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_MODULE_ID
             });
         }
@@ -1622,39 +1623,39 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@NFC_Info";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@NFC_Info.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@NFC_Info.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@NFC_Info.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@NFC_Info.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @NFC_ID { get { return _NFC_ID; } set { @_NFC_ID = value; SetDirty(@NFC_Info.CN_NFC_ID); } }
+        public string? @NFC_ID { get { return _NFC_ID; } set { @_NFC_ID = value; SetDirty(CN_NFC_ID); } }
         public const string CN_NFC_ID = "NFC_ID";
         public const string DT_NFC_ID = "varchar(100)";
         private string? @_NFC_ID;
 
-        public string? @User_Name { get { return _User_Name; } set { @_User_Name = value; SetDirty(@NFC_Info.CN_USER_NAME); } }
+        public string? @User_Name { get { return _User_Name; } set { @_User_Name = value; SetDirty(CN_USER_NAME); } }
         public const string CN_USER_NAME = "User_Name";
         public const string DT_USER_NAME = "nvarchar(50)";
         private string? @_User_Name;
 
         public @NFC_Info() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_NFC_ID
             });
         }
@@ -1675,44 +1676,44 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Operation_Item";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Operation_Item.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Operation_Item.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Operation_Item.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public string? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(@Operation_Item.CN_ITEM_ID); } }
+        public string? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(CN_ITEM_ID); } }
         public const string CN_ITEM_ID = "Item_ID";
         public const string DT_ITEM_ID = "varchar(50)";
         private string? @_Item_ID;
 
-        public string? @Item_Name { get { return _Item_Name; } set { @_Item_Name = value; SetDirty(@Operation_Item.CN_ITEM_NAME); } }
+        public string? @Item_Name { get { return _Item_Name; } set { @_Item_Name = value; SetDirty(CN_ITEM_NAME); } }
         public const string CN_ITEM_NAME = "Item_Name";
         public const string DT_ITEM_NAME = "nvarchar(50)";
         private string? @_Item_Name;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Operation_Item.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Operation_Item.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
         public @Operation_Item() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_ITEM_ID
             });
         }
@@ -1735,54 +1736,54 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Post_Cost";
 
 
-        public string? @Cost_ID { get { return _Cost_ID; } set { @_Cost_ID = value; SetDirty(@Post_Cost.CN_COST_ID); } }
+        public string? @Cost_ID { get { return _Cost_ID; } set { @_Cost_ID = value; SetDirty(CN_COST_ID); } }
         public const string CN_COST_ID = "Cost_ID";
         public const string DT_COST_ID = "varchar(50)";
         private string? @_Cost_ID;
 
-        public float? @Cost_Per_Gram { get { return _Cost_Per_Gram; } set { @_Cost_Per_Gram = value; SetDirty(@Post_Cost.CN_COST_PER_GRAM); } }
+        public float? @Cost_Per_Gram { get { return _Cost_Per_Gram; } set { @_Cost_Per_Gram = value; SetDirty(CN_COST_PER_GRAM); } }
         public const string CN_COST_PER_GRAM = "Cost_Per_Gram";
         public const string DT_COST_PER_GRAM = "float(53.0)";
         private float? @_Cost_Per_Gram;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Post_Cost.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Post_Cost.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(@Post_Cost.CN_LETTER_CLASS); } }
+        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(CN_LETTER_CLASS); } }
         public const string CN_LETTER_CLASS = "Letter_Class";
         public const string DT_LETTER_CLASS = "char(1)";
         private string? @_Letter_Class;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Post_Cost.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Post_Cost.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public float? @Weight_End { get { return _Weight_End; } set { @_Weight_End = value; SetDirty(@Post_Cost.CN_WEIGHT_END); } }
+        public float? @Weight_End { get { return _Weight_End; } set { @_Weight_End = value; SetDirty(CN_WEIGHT_END); } }
         public const string CN_WEIGHT_END = "Weight_End";
         public const string DT_WEIGHT_END = "float(53.0)";
         private float? @_Weight_End;
 
-        public float? @Weight_Start { get { return _Weight_Start; } set { @_Weight_Start = value; SetDirty(@Post_Cost.CN_WEIGHT_START); } }
+        public float? @Weight_Start { get { return _Weight_Start; } set { @_Weight_Start = value; SetDirty(CN_WEIGHT_START); } }
         public const string CN_WEIGHT_START = "Weight_Start";
         public const string DT_WEIGHT_START = "float(53.0)";
         private float? @_Weight_Start;
 
         public @Post_Cost() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_COST_ID
             });
         }
@@ -1808,69 +1809,69 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@PostageMeter_Info";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@PostageMeter_Info.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@PostageMeter_Info.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public decimal? @Decrease_Number { get { return _Decrease_Number; } set { @_Decrease_Number = value; SetDirty(@PostageMeter_Info.CN_DECREASE_NUMBER); } }
+        public decimal? @Decrease_Number { get { return _Decrease_Number; } set { @_Decrease_Number = value; SetDirty(CN_DECREASE_NUMBER); } }
         public const string CN_DECREASE_NUMBER = "Decrease_Number";
         public const string DT_DECREASE_NUMBER = "numeric(20.0)";
         private decimal? @_Decrease_Number;
 
-        public decimal? @Destroy_Number { get { return _Destroy_Number; } set { @_Destroy_Number = value; SetDirty(@PostageMeter_Info.CN_DESTROY_NUMBER); } }
+        public decimal? @Destroy_Number { get { return _Destroy_Number; } set { @_Destroy_Number = value; SetDirty(CN_DESTROY_NUMBER); } }
         public const string CN_DESTROY_NUMBER = "Destroy_Number";
         public const string DT_DESTROY_NUMBER = "numeric(20.0)";
         private decimal? @_Destroy_Number;
 
-        public string? @IO_Department_ID { get { return _IO_Department_ID; } set { @_IO_Department_ID = value; SetDirty(@PostageMeter_Info.CN_IO_DEPARTMENT_ID); } }
+        public string? @IO_Department_ID { get { return _IO_Department_ID; } set { @_IO_Department_ID = value; SetDirty(CN_IO_DEPARTMENT_ID); } }
         public const string CN_IO_DEPARTMENT_ID = "IO_Department_ID";
         public const string DT_IO_DEPARTMENT_ID = "varchar(10)";
         private string? @_IO_Department_ID;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@PostageMeter_Info.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@PostageMeter_Info.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Sign_Code { get { return _Sign_Code; } set { @_Sign_Code = value; SetDirty(@PostageMeter_Info.CN_SIGN_CODE); } }
+        public string? @Sign_Code { get { return _Sign_Code; } set { @_Sign_Code = value; SetDirty(CN_SIGN_CODE); } }
         public const string CN_SIGN_CODE = "Sign_Code";
         public const string DT_SIGN_CODE = "varchar(30)";
         private string? @_Sign_Code;
 
-        public string? @Temp_Code { get { return _Temp_Code; } set { @_Temp_Code = value; SetDirty(@PostageMeter_Info.CN_TEMP_CODE); } }
+        public string? @Temp_Code { get { return _Temp_Code; } set { @_Temp_Code = value; SetDirty(CN_TEMP_CODE); } }
         public const string CN_TEMP_CODE = "Temp_Code";
         public const string DT_TEMP_CODE = "varchar(30)";
         private string? @_Temp_Code;
 
-        public string? @Temp_Date { get { return _Temp_Date; } set { @_Temp_Date = value; SetDirty(@PostageMeter_Info.CN_TEMP_DATE); } }
+        public string? @Temp_Date { get { return _Temp_Date; } set { @_Temp_Date = value; SetDirty(CN_TEMP_DATE); } }
         public const string CN_TEMP_DATE = "Temp_Date";
         public const string DT_TEMP_DATE = "varchar(30)";
         private string? @_Temp_Date;
 
-        public string? @Temp_User { get { return _Temp_User; } set { @_Temp_User = value; SetDirty(@PostageMeter_Info.CN_TEMP_USER); } }
+        public string? @Temp_User { get { return _Temp_User; } set { @_Temp_User = value; SetDirty(CN_TEMP_USER); } }
         public const string CN_TEMP_USER = "Temp_User";
         public const string DT_TEMP_USER = "varchar(30)";
         private string? @_Temp_User;
 
-        public decimal? @Total_Number { get { return _Total_Number; } set { @_Total_Number = value; SetDirty(@PostageMeter_Info.CN_TOTAL_NUMBER); } }
+        public decimal? @Total_Number { get { return _Total_Number; } set { @_Total_Number = value; SetDirty(CN_TOTAL_NUMBER); } }
         public const string CN_TOTAL_NUMBER = "Total_Number";
         public const string DT_TOTAL_NUMBER = "numeric(20.0)";
         private decimal? @_Total_Number;
 
         public @PostageMeter_Info() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_IO_DEPARTMENT_ID
                 ,CN_TEMP_DATE
             });
@@ -1894,54 +1895,54 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@PostageMeter_Sequence";
 
 
-        public decimal? @Class_Cost { get { return _Class_Cost; } set { @_Class_Cost = value; SetDirty(@PostageMeter_Sequence.CN_CLASS_COST); } }
+        public decimal? @Class_Cost { get { return _Class_Cost; } set { @_Class_Cost = value; SetDirty(CN_CLASS_COST); } }
         public const string CN_CLASS_COST = "Class_Cost";
         public const string DT_CLASS_COST = "numeric(10.0)";
         private decimal? @_Class_Cost;
 
-        public decimal? @Class_Count { get { return _Class_Count; } set { @_Class_Count = value; SetDirty(@PostageMeter_Sequence.CN_CLASS_COUNT); } }
+        public decimal? @Class_Count { get { return _Class_Count; } set { @_Class_Count = value; SetDirty(CN_CLASS_COUNT); } }
         public const string CN_CLASS_COUNT = "Class_Count";
         public const string DT_CLASS_COUNT = "numeric(10.0)";
         private decimal? @_Class_Count;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@PostageMeter_Sequence.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@PostageMeter_Sequence.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @IO_Department_ID { get { return _IO_Department_ID; } set { @_IO_Department_ID = value; SetDirty(@PostageMeter_Sequence.CN_IO_DEPARTMENT_ID); } }
+        public string? @IO_Department_ID { get { return _IO_Department_ID; } set { @_IO_Department_ID = value; SetDirty(CN_IO_DEPARTMENT_ID); } }
         public const string CN_IO_DEPARTMENT_ID = "IO_Department_ID";
         public const string DT_IO_DEPARTMENT_ID = "varchar(10)";
         private string? @_IO_Department_ID;
 
-        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(@PostageMeter_Sequence.CN_LETTER_CLASS); } }
+        public string? @Letter_Class { get { return _Letter_Class; } set { @_Letter_Class = value; SetDirty(CN_LETTER_CLASS); } }
         public const string CN_LETTER_CLASS = "Letter_Class";
         public const string DT_LETTER_CLASS = "char(1)";
         private string? @_Letter_Class;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@PostageMeter_Sequence.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@PostageMeter_Sequence.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Temp_Date { get { return _Temp_Date; } set { @_Temp_Date = value; SetDirty(@PostageMeter_Sequence.CN_TEMP_DATE); } }
+        public string? @Temp_Date { get { return _Temp_Date; } set { @_Temp_Date = value; SetDirty(CN_TEMP_DATE); } }
         public const string CN_TEMP_DATE = "Temp_Date";
         public const string DT_TEMP_DATE = "varchar(50)";
         private string? @_Temp_Date;
 
         public @PostageMeter_Sequence() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_IO_DEPARTMENT_ID
                 ,CN_LETTER_CLASS
                 ,CN_TEMP_DATE
@@ -1968,64 +1969,64 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Programs";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Programs.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Programs.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @File_Path { get { return _File_Path; } set { @_File_Path = value; SetDirty(@Programs.CN_FILE_PATH); } }
+        public string? @File_Path { get { return _File_Path; } set { @_File_Path = value; SetDirty(CN_FILE_PATH); } }
         public const string CN_FILE_PATH = "File_Path";
         public const string DT_FILE_PATH = "nvarchar(100)";
         private string? @_File_Path;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Programs.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Programs.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Programs.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Module_ID { get { return _Module_ID; } set { @_Module_ID = value; SetDirty(@Programs.CN_MODULE_ID); } }
+        public string? @Module_ID { get { return _Module_ID; } set { @_Module_ID = value; SetDirty(CN_MODULE_ID); } }
         public const string CN_MODULE_ID = "Module_ID";
         public const string DT_MODULE_ID = "varchar(50)";
         private string? @_Module_ID;
 
-        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(@Programs.CN_ORDER_BY); } }
+        public int? @Order_By { get { return _Order_By; } set { @_Order_By = value; SetDirty(CN_ORDER_BY); } }
         public const string CN_ORDER_BY = "Order_By";
         public const string DT_ORDER_BY = "int";
         private int? @_Order_By;
 
-        public string? @Program_ID { get { return _Program_ID; } set { @_Program_ID = value; SetDirty(@Programs.CN_PROGRAM_ID); } }
+        public string? @Program_ID { get { return _Program_ID; } set { @_Program_ID = value; SetDirty(CN_PROGRAM_ID); } }
         public const string CN_PROGRAM_ID = "Program_ID";
         public const string DT_PROGRAM_ID = "varchar(50)";
         private string? @_Program_ID;
 
-        public string? @Program_Name { get { return _Program_Name; } set { @_Program_Name = value; SetDirty(@Programs.CN_PROGRAM_NAME); } }
+        public string? @Program_Name { get { return _Program_Name; } set { @_Program_Name = value; SetDirty(CN_PROGRAM_NAME); } }
         public const string CN_PROGRAM_NAME = "Program_Name";
         public const string DT_PROGRAM_NAME = "nvarchar(50)";
         private string? @_Program_Name;
 
-        public string? @Show_In_List { get { return _Show_In_List; } set { @_Show_In_List = value; SetDirty(@Programs.CN_SHOW_IN_LIST); } }
+        public string? @Show_In_List { get { return _Show_In_List; } set { @_Show_In_List = value; SetDirty(CN_SHOW_IN_LIST); } }
         public const string CN_SHOW_IN_LIST = "Show_In_List";
         public const string DT_SHOW_IN_LIST = "char(1)";
         private string? @_Show_In_List;
 
         public @Programs() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_PROGRAM_ID
             });
         }
@@ -2051,69 +2052,69 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Receiver_Info";
 
 
-        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(@Receiver_Info.CN_ADDRESS); } }
+        public string? @Address { get { return _Address; } set { @_Address = value; SetDirty(CN_ADDRESS); } }
         public const string CN_ADDRESS = "Address";
         public const string DT_ADDRESS = "nvarchar(100)";
         private string? @_Address;
 
-        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(@Receiver_Info.CN_COUNTY_ID); } }
+        public string? @County_ID { get { return _County_ID; } set { @_County_ID = value; SetDirty(CN_COUNTY_ID); } }
         public const string CN_COUNTY_ID = "County_ID";
         public const string DT_COUNTY_ID = "varchar(50)";
         private string? @_County_ID;
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Receiver_Info.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Receiver_Info.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Receiver_Info.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(@Receiver_Info.CN_DISTRICT_ID); } }
+        public string? @District_ID { get { return _District_ID; } set { @_District_ID = value; SetDirty(CN_DISTRICT_ID); } }
         public const string CN_DISTRICT_ID = "District_ID";
         public const string DT_DISTRICT_ID = "varchar(50)";
         private string? @_District_ID;
 
-        public string? @Info_Dep { get { return _Info_Dep; } set { @_Info_Dep = value; SetDirty(@Receiver_Info.CN_INFO_DEP); } }
+        public string? @Info_Dep { get { return _Info_Dep; } set { @_Info_Dep = value; SetDirty(CN_INFO_DEP); } }
         public const string CN_INFO_DEP = "Info_Dep";
         public const string DT_INFO_DEP = "varchar(10)";
         private string? @_Info_Dep;
 
-        public string? @Info_ID { get { return _Info_ID; } set { @_Info_ID = value; SetDirty(@Receiver_Info.CN_INFO_ID); } }
+        public string? @Info_ID { get { return _Info_ID; } set { @_Info_ID = value; SetDirty(CN_INFO_ID); } }
         public const string CN_INFO_ID = "Info_ID";
         public const string DT_INFO_ID = "varchar(40)";
         private string? @_Info_ID;
 
-        public string? @Info_Name { get { return _Info_Name; } set { @_Info_Name = value; SetDirty(@Receiver_Info.CN_INFO_NAME); } }
+        public string? @Info_Name { get { return _Info_Name; } set { @_Info_Name = value; SetDirty(CN_INFO_NAME); } }
         public const string CN_INFO_NAME = "Info_Name";
         public const string DT_INFO_NAME = "nvarchar(50)";
         private string? @_Info_Name;
 
-        public string? @Letter_IO { get { return _Letter_IO; } set { @_Letter_IO = value; SetDirty(@Receiver_Info.CN_LETTER_IO); } }
+        public string? @Letter_IO { get { return _Letter_IO; } set { @_Letter_IO = value; SetDirty(CN_LETTER_IO); } }
         public const string CN_LETTER_IO = "Letter_IO";
         public const string DT_LETTER_IO = "char(1)";
         private string? @_Letter_IO;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Receiver_Info.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Receiver_Info.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
         public @Receiver_Info() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_DEPARTMENT_ID
                 ,CN_INFO_ID
             });
@@ -2135,44 +2136,44 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Roles";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Roles.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Roles.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Effective { get { return _Effective; } set { @_Effective = value; SetDirty(@Roles.CN_EFFECTIVE); } }
+        public string? @Effective { get { return _Effective; } set { @_Effective = value; SetDirty(CN_EFFECTIVE); } }
         public const string CN_EFFECTIVE = "Effective";
         public const string DT_EFFECTIVE = "char(1)";
         private string? @_Effective;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Roles.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Roles.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Role_ID { get { return _Role_ID; } set { @_Role_ID = value; SetDirty(@Roles.CN_ROLE_ID); } }
+        public string? @Role_ID { get { return _Role_ID; } set { @_Role_ID = value; SetDirty(CN_ROLE_ID); } }
         public const string CN_ROLE_ID = "Role_ID";
         public const string DT_ROLE_ID = "varchar(20)";
         private string? @_Role_ID;
 
-        public string? @Role_Name { get { return _Role_Name; } set { @_Role_Name = value; SetDirty(@Roles.CN_ROLE_NAME); } }
+        public string? @Role_Name { get { return _Role_Name; } set { @_Role_Name = value; SetDirty(CN_ROLE_NAME); } }
         public const string CN_ROLE_NAME = "Role_Name";
         public const string DT_ROLE_NAME = "nvarchar(50)";
         private string? @_Role_Name;
 
         public @Roles() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_ROLE_ID
             });
         }
@@ -2194,49 +2195,49 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Setting";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Setting.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Setting.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(@Setting.CN_MEMO); } }
+        public string? @Memo { get { return _Memo; } set { @_Memo = value; SetDirty(CN_MEMO); } }
         public const string CN_MEMO = "Memo";
         public const string DT_MEMO = "varchar(50)";
         private string? @_Memo;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Setting.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Setting.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Setting_Description { get { return _Setting_Description; } set { @_Setting_Description = value; SetDirty(@Setting.CN_SETTING_DESCRIPTION); } }
+        public string? @Setting_Description { get { return _Setting_Description; } set { @_Setting_Description = value; SetDirty(CN_SETTING_DESCRIPTION); } }
         public const string CN_SETTING_DESCRIPTION = "Setting_Description";
         public const string DT_SETTING_DESCRIPTION = "nvarchar(200)";
         private string? @_Setting_Description;
 
-        public string? @Setting_ID { get { return _Setting_ID; } set { @_Setting_ID = value; SetDirty(@Setting.CN_SETTING_ID); } }
+        public string? @Setting_ID { get { return _Setting_ID; } set { @_Setting_ID = value; SetDirty(CN_SETTING_ID); } }
         public const string CN_SETTING_ID = "Setting_ID";
         public const string DT_SETTING_ID = "varchar(50)";
         private string? @_Setting_ID;
 
-        public string? @Setting_Value { get { return _Setting_Value; } set { @_Setting_Value = value; SetDirty(@Setting.CN_SETTING_VALUE); } }
+        public string? @Setting_Value { get { return _Setting_Value; } set { @_Setting_Value = value; SetDirty(CN_SETTING_VALUE); } }
         public const string CN_SETTING_VALUE = "Setting_Value";
         public const string DT_SETTING_VALUE = "nvarchar(50)";
         private string? @_Setting_Value;
 
         public @Setting() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_SETTING_ID
             });
         }
@@ -2256,39 +2257,39 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@User_To_Role";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@User_To_Role.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@User_To_Role.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@User_To_Role.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@User_To_Role.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Role_ID { get { return _Role_ID; } set { @_Role_ID = value; SetDirty(@User_To_Role.CN_ROLE_ID); } }
+        public string? @Role_ID { get { return _Role_ID; } set { @_Role_ID = value; SetDirty(CN_ROLE_ID); } }
         public const string CN_ROLE_ID = "Role_ID";
         public const string DT_ROLE_ID = "varchar(20)";
         private string? @_Role_ID;
 
-        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(@User_To_Role.CN_USER_ID); } }
+        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(CN_USER_ID); } }
         public const string CN_USER_ID = "User_ID";
         public const string DT_USER_ID = "varchar(50)";
         private string? @_User_ID;
 
         public @User_To_Role() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_ROLE_ID
                 ,CN_USER_ID
             });
@@ -2312,54 +2313,54 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Users";
 
 
-        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(@Users.CN_CREATE_DATE); } }
+        public string? @Create_Date { get { return _Create_Date; } set { @_Create_Date = value; SetDirty(CN_CREATE_DATE); } }
         public const string CN_CREATE_DATE = "Create_Date";
         public const string DT_CREATE_DATE = "varchar(30)";
         private string? @_Create_Date;
 
-        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(@Users.CN_CREATE_USER); } }
+        public string? @Create_User { get { return _Create_User; } set { @_Create_User = value; SetDirty(CN_CREATE_USER); } }
         public const string CN_CREATE_USER = "Create_User";
         public const string DT_CREATE_USER = "nvarchar(50)";
         private string? @_Create_User;
 
-        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(@Users.CN_DEPARTMENT_ID); } }
+        public string? @Department_ID { get { return _Department_ID; } set { @_Department_ID = value; SetDirty(CN_DEPARTMENT_ID); } }
         public const string CN_DEPARTMENT_ID = "Department_ID";
         public const string DT_DEPARTMENT_ID = "varchar(10)";
         private string? @_Department_ID;
 
-        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(@Users.CN_MODIFY_DATE); } }
+        public string? @Modify_Date { get { return _Modify_Date; } set { @_Modify_Date = value; SetDirty(CN_MODIFY_DATE); } }
         public const string CN_MODIFY_DATE = "Modify_Date";
         public const string DT_MODIFY_DATE = "varchar(30)";
         private string? @_Modify_Date;
 
-        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(@Users.CN_MODIFY_USER); } }
+        public string? @Modify_User { get { return _Modify_User; } set { @_Modify_User = value; SetDirty(CN_MODIFY_USER); } }
         public const string CN_MODIFY_USER = "Modify_User";
         public const string DT_MODIFY_USER = "nvarchar(50)";
         private string? @_Modify_User;
 
-        public string? @Printer { get { return _Printer; } set { @_Printer = value; SetDirty(@Users.CN_PRINTER); } }
+        public string? @Printer { get { return _Printer; } set { @_Printer = value; SetDirty(CN_PRINTER); } }
         public const string CN_PRINTER = "Printer";
         public const string DT_PRINTER = "nvarchar(100)";
         private string? @_Printer;
 
-        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(@Users.CN_USER_ID); } }
+        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(CN_USER_ID); } }
         public const string CN_USER_ID = "User_ID";
         public const string DT_USER_ID = "varchar(50)";
         private string? @_User_ID;
 
-        public string? @User_Name { get { return _User_Name; } set { @_User_Name = value; SetDirty(@Users.CN_USER_NAME); } }
+        public string? @User_Name { get { return _User_Name; } set { @_User_Name = value; SetDirty(CN_USER_NAME); } }
         public const string CN_USER_NAME = "User_Name";
         public const string DT_USER_NAME = "nvarchar(50)";
         private string? @_User_Name;
 
-        public string? @User_Password { get { return _User_Password; } set { @_User_Password = value; SetDirty(@Users.CN_USER_PASSWORD); } }
+        public string? @User_Password { get { return _User_Password; } set { @_User_Password = value; SetDirty(CN_USER_PASSWORD); } }
         public const string CN_USER_PASSWORD = "User_Password";
         public const string DT_USER_PASSWORD = "varchar(200)";
         private string? @_User_Password;
 
         public @Users() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>(){
+            PKColumnNames.UnionWith(new List<string>(){
                 CN_USER_ID
             });
         }
@@ -2376,24 +2377,24 @@
         public const string FULL_TABLENAME = "Models.DBEntity.@Users_Token";
 
 
-        public string? @ExpirationDate { get { return _ExpirationDate; } set { @_ExpirationDate = value; SetDirty(@Users_Token.CN_EXPIRATIONDATE); } }
+        public string? @ExpirationDate { get { return _ExpirationDate; } set { @_ExpirationDate = value; SetDirty(CN_EXPIRATIONDATE); } }
         public const string CN_EXPIRATIONDATE = "ExpirationDate";
         public const string DT_EXPIRATIONDATE = "nvarchar(20)";
         private string? @_ExpirationDate;
 
-        public string? @Token { get { return _Token; } set { @_Token = value; SetDirty(@Users_Token.CN_TOKEN); } }
+        public string? @Token { get { return _Token; } set { @_Token = value; SetDirty(CN_TOKEN); } }
         public const string CN_TOKEN = "Token";
         public const string DT_TOKEN = "nvarchar(1000)";
         private string? @_Token;
 
-        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(@Users_Token.CN_USER_ID); } }
+        public string? @User_ID { get { return _User_ID; } set { @_User_ID = value; SetDirty(CN_USER_ID); } }
         public const string CN_USER_ID = "User_ID";
         public const string DT_USER_ID = "nvarchar(20)";
         private string? @_User_ID;
 
         public @Users_Token() : base()
         {
-            this.PKColumnNames.UnionWith(new List<string>()
+            PKColumnNames.UnionWith(new List<string>()
             {
             });
         }

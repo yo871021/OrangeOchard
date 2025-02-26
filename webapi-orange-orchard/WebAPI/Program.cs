@@ -1,15 +1,15 @@
+using Dao.Implement;
 using Dao.Interface;
-using Model.ViewModel.CommonSettings;
+using Model.Common;
 using Service.Implement;
 using Service.Interface;
-using Tool.DataBase.Repository;
-using Tool.DataBase.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.Configure<CommonSettings>(builder.Configuration.GetSection("CommonSettings"));
+
 builder.Services
     .Scan(scan => scan
     .FromAssemblyOf<IService>()
@@ -23,6 +23,7 @@ builder.Services
     .AsImplementedInterfaces()
     .WithScopedLifetime());
 builder.Services.AddTransient<DBServiceBase>();
+//builder.Services.AddTransient<DBRepositoryBase>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

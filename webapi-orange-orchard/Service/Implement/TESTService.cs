@@ -1,29 +1,29 @@
 ﻿using Dao.Interface;
 using Microsoft.Extensions.Options;
 using Model.Common;
-using Model.ViewModel.CommonSettings;
+using Model.DataBase;
 using Service.Interface;
-using Tool.DataBase.Service;
 
 namespace Service.Implement
 {
     public class TESTService : DBServiceBase, ITESTService
     {
-        private readonly ITESTRepository bbb;
-        public TESTService(IOptions<CommonSettings> commonSettings, ITESTRepository bbbb) : base(commonSettings)
+        private readonly ITESTRepository _ITESTRepository;
+        public TESTService(IOptions<CommonSettings> commonSettings, ITESTRepository ITESTRepository) : base(commonSettings)
         {
-            bbb = bbbb;
+            _ITESTRepository = ITESTRepository;
         }
 
-        public void TEST()
+        public CommonResult TEST()
         {
             var db = GetDBInstance();
             //db.Begin();
-            bbb.SetDB(db);
-            //var a = bbb.SELECT("SELECT * FROM Letter_Info");
-            //var a = bbb.SELECT(new Letter_Info());
+            _ITESTRepository.SetDB(db);
+            var result = _ITESTRepository.SELECT(new Letter_Info() { Letter_ID = "1231231231" });
 
             db.Close();
+
+            return result;
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
-using Model.ViewModel.CommonSettings;
+using Model.Common;
+using Service.Interface;
 
-namespace Tool.DataBase.Service
+namespace Service.Implement
 {
     public class GenericService : DBServiceBase, IService
     {
