@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Model.Common;
 using Model.DataBase;
-using Model.Enum;
+using Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -24,18 +24,24 @@ namespace Dao.Implement
         {
             _dbInstance = dbInstance;
         }
+
         public CommonResult ExecuteSqlCommand(Query query) 
         {
-            var sqlResult = new SqlServerCompiler().Compile(query);
-            return ExecuteSqlCommand(sqlResult.Sql, sqlResult.NamedBindings);
+            return ExecuteSqlCommand(EDBCmdType.SELECT, query);
         }
 
-        public CommonResult ExecuteSqlCommand(string sql, Dictionary<string, object>? parameters = null)
+        public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, Query query)
+        {
+            var sqlResult = _dbInstance?.Compiler.Compile(query);
+            return ExecuteSqlCommand(cmdType, sqlResult?.Sql, sqlResult?.NamedBindings);
+        }
+
+        public CommonResult ExecuteSqlCommand(string? sql, Dictionary<string, object>? parameters = null)
         {
             return ExecuteSqlCommand(EDBCmdType.SELECT, sql, parameters);
         }
 
-        public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, string sql, Dictionary<string,object>? parameters = null)
+        public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, string? sql, Dictionary<string,object>? parameters = null)
         {
             var result = new CommonResult();
             try
@@ -52,6 +58,27 @@ namespace Dao.Implement
                         result.AffectCount = _dbInstance?.Conection?.Execute(sql, parameters, _dbInstance.Transaction) ?? 0;
                         break;
                 }
+            }
+            catch (Exception ex)
+            {
+                result.AssignException(ex);
+            }
+
+            return result;
+        }
+
+        public CommonResult ExecuteSqlCommand<T>(Query query) where T : EntityBase, new()
+        {
+            var sqlResult = _dbInstance?.Compiler.Compile(query);
+            return ExecuteSqlCommand<T>(sqlResult?.Sql, sqlResult?.NamedBindings);
+        }
+
+        public CommonResult ExecuteSqlCommand<T>(string? sql, Dictionary<string, object>? parameters = null) where T : EntityBase, new()
+        {
+            var result = new CommonResult();
+            try
+            {
+                result.ListData = _dbInstance?.Conection?.Query<T>(sql, parameters, _dbInstance.Transaction);
             }
             catch (Exception ex)
             {

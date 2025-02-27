@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Model.DataBase;
 using Service.Interface;
+using Tool;
 
 namespace WebAPI.Controllers
 {
@@ -19,16 +20,9 @@ namespace WebAPI.Controllers
         public IActionResult Test()
         {
             var result = _ITESTService.TEST();
-            var list = new List<Letter_Info>();
-            foreach (var i in result.ListData)
-            {
-                //var a = new Letter_Info();
-                //a.FillData(i);
-            }
-            var b = result.ListData.Select((dynamic x) => new Letter_Info().FillData(x));
-            var a = result.ListData.Select((dynamic x)=>new Letter_Info().FillData(x)).Cast<Letter_Info>();
+            var re = result.ListData.SetTo<IEnumerable<Letter_Info>>();
 
-            return Ok(result.ListData);
+            return Ok(re);
         }
     }
 }

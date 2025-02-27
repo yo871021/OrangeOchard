@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Model.DataBase
 {
@@ -153,11 +154,6 @@ namespace Model.DataBase
             }
         }
 
-        public void FillData(dynamic data)
-        {
-            FillData((IDictionary<string, object>)data);
-        }
-
         public Dictionary<string, string> GetDirtyDictionory()
         {
             var dictData = new Dictionary<string, string>();
@@ -169,6 +165,6 @@ namespace Model.DataBase
                 }
             }
             return dictData;
-        }
+        }        
     }
 }

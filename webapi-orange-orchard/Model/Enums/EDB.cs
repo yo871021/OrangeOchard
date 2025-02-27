@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Enum
+namespace Model.Enums
 {
-    public enum EDBCmdType
+    public enum EDB
     {
-        SELECT,
-        INSERT,
-        UPDATE,
-        DELETE
+        Main
     }
 }

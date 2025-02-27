@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using Model.Common;
 using Model.DataBase;
-using Model.Enum;
+using Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Implement
 {
-    public class DBServiceBase
+    public class DBServiceBase 
     {
         private readonly Dictionary<string, DBOptions>? _dbOptionsDict;
 

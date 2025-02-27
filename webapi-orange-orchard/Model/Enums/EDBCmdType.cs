@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Enum
+namespace Model.Enums
 {
-    public enum EDBLock_Type
+    public enum EDBCmdType
     {
-        EMPTY,
-        NOLOCK,
-        UPDLOCK
+        SELECT,
+        INSERT,
+        UPDATE,
+        DELETE
     }
 }

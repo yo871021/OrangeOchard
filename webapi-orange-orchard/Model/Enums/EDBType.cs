@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Enum
+namespace Model.Enums
 {
-    public enum EDB
+    public enum EDBType
     {
-        Main
+        SqlServer,
+        MySql,
+        PostgreSql,
+        Sqlite,
+        Oracle
     }
 }

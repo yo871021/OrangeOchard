@@ -1,13 +1,172 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Dao.Interface;
+using Microsoft.Extensions.Options;
 using Model.Common;
+using Model.DataBase;
 using Service.Interface;
 
 namespace Service.Implement
 {
     public class GenericService : DBServiceBase, IService
     {
-        public GenericService(IOptions<CommonSettings> commonSettings) : base(commonSettings)
+        IRepository _IRepository;
+        public GenericService(IRepository iRepository, IOptions<CommonSettings> commonSettings) : base(commonSettings)
         {
+            _IRepository = iRepository;
+        }
+
+        public CommonResult SELECT<T>(T condition, QueryOptions? options = null) where T : EntityBase, new()
+        {
+            var result = new CommonResult();
+
+            try
+            {
+                do
+                {
+                    using (var db = GetDBInstance())
+                    {
+                        _IRepository.SetDB(db);
+
+                        result = _IRepository.SELECT(condition, options);
+                        if (result.IsFail)
+                        {
+                            break;
+                        }
+                    }
+                } 
+                while (false);
+            }
+            catch (Exception ex)
+            {
+                result.AssignException(ex);
+            }
+
+            return result;
+        }
+
+        public CommonResult INSERT<T>(T condition) where T : EntityBase, new()
+        {
+            var result = new CommonResult();
+
+            try
+            {
+                do
+                {
+                    using (var db = GetDBInstance())
+                    {
+                        _IRepository.SetDB(db);
+
+                        result = _IRepository.INSERT(condition);
+                        if (result.IsFail)
+                        {
+                            break;
+                        }
+                    }
+                } 
+                while (false);
+            }
+            catch (Exception ex)
+            {
+                result.AssignException(ex);
+            }
+
+            return result;
+        }
+
+        public CommonResult UPDATE<T>(T updateData, T condition, bool isIgnoreDataAffect = false) where T : EntityBase, new()
+        {
+            var result = new CommonResult();
+
+            try
+            {
+                do
+                {
+                    using (var db = GetDBInstance())
+                    {
+                        _IRepository.SetDB(db);
+
+                        result = _IRepository.UPDATE(updateData, condition, isIgnoreDataAffect);
+                        if (result.IsFail)
+                        {
+                            break;
+                        }
+                    }
+                } 
+                while (false);
+            }
+            catch (Exception ex)
+            {
+                result.AssignException(ex);
+            }
+
+            return result;
+        }
+
+        public CommonResult DELETE<T>(T condition, bool isIgnoreDataAffect = false) where T : EntityBase, new()
+        {
+            var result = new CommonResult();
+
+            try
+            {
+                do
+                {
+                    using (var db = GetDBInstance())
+                    {
+                        _IRepository.SetDB(db);
+
+                        result = _IRepository.DELETE(condition, isIgnoreDataAffect);
+                        if (result.IsFail)
+                        {
+                            break;
+                        }
+                    }
+                } 
+                while (false);
+            }
+            catch (Exception ex)
+            {
+                result.AssignException(ex);
+            }
+
+            return result;
+        }
+
+        public CommonResult DELETE<T>(IEnumerable<T> conditionList, bool isIgnoreDataAffect = false) where T : EntityBase, new()
+        {
+            var result = new CommonResult();
+
+            try
+            {
+                do
+                {
+                    using (var db = GetDBInstance())
+                    {
+                        _IRepository.SetDB(db);
+                        db.Begin();
+
+                        foreach (var condition in conditionList)
+                        {
+                            result = _IRepository.DELETE(condition, isIgnoreDataAffect);
+                            if (result.IsFail)
+                            {
+                                break;
+                            }
+                        }
+                        if (result.IsFail)
+                        {
+                            break;
+                        }
+
+                        db.Commit();
+                    }
+                } 
+                while (false);
+            }
+            catch (Exception ex)
+            {
+                result.AssignException(ex);
+            }
+
+            return result;
         }
     }
 }
