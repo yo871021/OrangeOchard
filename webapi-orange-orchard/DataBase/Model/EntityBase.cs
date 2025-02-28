@@ -129,10 +129,8 @@ namespace DataBase.Model
             foreach (var keypair in dicData)
             {
                 var key = keypair.Key.ToLower();
-                if (properties.ContainsKey(key))
+                if (properties.TryGetValue(key, out PropertyInfo? property))
                 {
-                    var property = properties[key];
-
                     if (!string.IsNullOrEmpty(keypair.Value))
                     {
                         Type t = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
@@ -154,17 +152,19 @@ namespace DataBase.Model
             }
         }
 
-        public Dictionary<string, string> GetDirtyDictionory()
+        public Dictionary<string, object> GetDirtyDictionory(string? emptyValueFormat = null)
         {
-            var dictData = new Dictionary<string, string>();
-            foreach (var property in GetAllProperties())
-            {
-                if (this.Dirty.Contains(property.Name))
+            return GetAllProperties()
+                .Where(prop => Dirty.Contains(prop.Name))
+                .ToDictionary(
+                prop => prop.Name, 
+                prop =>
                 {
-                    dictData.Add(property.Name, property.GetValue(this, null)?.ToString() ?? "=");
-                }
-            }
-            return dictData;
-        }        
+                    var value = prop.GetValue(this, null);
+                    return value is DateTime dt
+                    ? (object)dt.ToString("yyyy-MM-dd HH:mm:ss")
+                    : (object)(value?.ToString() ?? emptyValueFormat ?? string.Empty);
+                });
+        }
     }
 }

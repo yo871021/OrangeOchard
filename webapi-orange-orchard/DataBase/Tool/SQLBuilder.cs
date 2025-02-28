@@ -5,14 +5,14 @@ using SqlKata;
 namespace DataBase.Tool
 {
     public static class SQLBuilder
-    {
+    {        
         public static Query GenSelectCmd(EntityBase condition, QueryOptions? options)
         {
             options ??= new QueryOptions();
 
             var query = new Query()
                 .BuildLockCategory(condition.GetType().Name, options?.DBLock_Type ?? EDBLock_Type.EMPTY)
-                .BuildWhereString(condition.GetDirtyDictionory(), options)
+                .BuildWhereString(condition.GetDirtyDictionory("="), options)
                 .BuildPaginationSql(options?.Pagination);
 
             return query;
@@ -21,20 +21,20 @@ namespace DataBase.Tool
         public static Query GenInsertCmd(EntityBase condition)
         {
             return new Query(condition.GetType().Name)
-                .AsInsert(condition);
+                .AsInsert(condition.GetDirtyDictionory());
         }
 
         public static Query GenUpdateCmd(EntityBase updatedata, EntityBase condition)
         {
             return new Query(condition.GetType().Name)
-                .BuildWhereString(condition.GetDirtyDictionory())
+                .BuildWhereString(condition.GetDirtyDictionory("="))
                 .AsUpdate(updatedata.GetDirtyDictionory());
         }
 
         public static Query GenDeleteCmd(EntityBase condition)
         {
             return new Query(condition.GetType().Name)
-                .BuildWhereString(condition.GetDirtyDictionory())
+                .BuildWhereString(condition.GetDirtyDictionory("="))
                 .AsDelete();
         }
 
@@ -79,12 +79,12 @@ namespace DataBase.Tool
             return query;
         }
 
-        public static Query BuildWhereString(this Query query, IEnumerable<KeyValuePair<string, string>> condition, ConditionOptions? options = null)
+        public static Query BuildWhereString(this Query query, IEnumerable<KeyValuePair<string, object>> condition, ConditionOptions? options = null)
         {
             options ??= new ConditionOptions();
             var operatorList = new[] { ">=", "<=", ">", "<", "!=", "<>", "=" };
 
-            foreach (var (key, value) in condition.Select(c => (c.Key.Trim(), c.Value.Trim())))
+            foreach (var (key, value) in condition.Select(c => (c.Key.Trim(), c.Value?.ToString()?.Trim())))
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -98,7 +98,7 @@ namespace DataBase.Tool
                     var separator = value.Contains('|') ? '|' : '&';
                     var subConditions = value
                         .Split(separator, StringSplitOptions.RemoveEmptyEntries)
-                        .Select(v => new KeyValuePair<string, string>(key, v));
+                        .Select(v => new KeyValuePair<string, object>(key, v));
                     var condOptions = new ConditionOptions() { IsOR = separator == '|', IsLike = options.IsLike, Alias = options.Alias };
 
                     var subquery = (Query q) => q.BuildWhereString(subConditions, condOptions);

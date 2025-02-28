@@ -6,7 +6,7 @@ namespace DataBase.Repository
 {
     public class DBRepositoryBase : IDBRepository
     {
-        protected DBFactory? db;
+        protected DBFactory db;
 
         #region Interface
         void IDBRepository.SetDB(DBInstance dbInstance)

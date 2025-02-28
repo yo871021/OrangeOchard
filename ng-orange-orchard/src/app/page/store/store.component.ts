@@ -27,7 +27,7 @@ export class StoreComponent {
       description: 'Product Description',
       image: 'bamboo-watch.jpg',
       price: 30,
-      size: '23 ~ 25',
+      size: '23 ~ 25 cm',
       quantity: 0,
       inventoryStatus: 'INSTOCK',
       rating: 5
@@ -40,7 +40,7 @@ export class StoreComponent {
       description: 'Product Description',
       image: 'black-watch.jpg',
       price: 35,
-      size: '27 ~ 29',
+      size: '27 ~ 29 cm',
       quantity: 0,
       inventoryStatus: 'OUTOFSTOCK',
       rating: 4
@@ -53,7 +53,7 @@ export class StoreComponent {
       description: 'Product Description',
       image: 'bamboo-watch.jpg',
       price: 30,
-      size: '23 ~ 25',
+      size: '23 ~ 25 cm',
       quantity: 0,
       inventoryStatus: 'INSTOCK',
       rating: 5
@@ -66,7 +66,7 @@ export class StoreComponent {
       description: 'Product Description',
       image: 'black-watch.jpg',
       price: 35,
-      size: '27 ~ 29',
+      size: '27 ~ 29 cm',
       quantity: 0,
       inventoryStatus: 'OUTOFSTOCK',
       rating: 4

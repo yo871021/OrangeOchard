@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         {
             var result = _ITESTService.TEST();
 
-            var re = result.ListData.SetTo<IEnumerable<Letter_Info>>();
+            var re = result.ListData.SetTo<IEnumerable<Products>>();
 
             return Ok(re);
         }

@@ -27,13 +27,25 @@ namespace Service.Implement
                     db.Begin();
                     _ITESTRepository.SetDB(db);
 
-                    result = _ITESTRepository.SELECT(new Letter_Info() { Letter_ID = "1231231231" });
-                    if (result.IsFail)
-                    {
-                        break;
-                    }
+                    //result = _ITESTRepository.SELECT(new Products() { });
+                    //if (result.IsFail)
+                    //{
+                    //    break;
+                    //}
 
-                    result = _ITESTRepository.INSERT(new Letter_Info() { Letter_ID = "1231231231" });
+                    result = _ITESTRepository.INSERT(new Products()
+                    {
+                        Item_Name = "椪柑",
+                        Item_SubName = "(中)",
+                        Item_SubTitle = "23 ~ 25 cm",
+                        Item_Sts = "S",
+                        Unit_Price = 30,
+                        Unit = "每斤",
+                        Item_Desc = "經典",
+                        Sort_No = 0,
+                        Created_Date = DateTime.Now,
+                        Updated_Date = DateTime.Now
+                    });
                     if (result.IsFail)
                     {
                         break;
