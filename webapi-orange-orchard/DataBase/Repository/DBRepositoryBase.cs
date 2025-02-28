@@ -1,39 +1,35 @@
-﻿using DataBase;
-using Common.Model;
-using Database.Model.Enums;
-using Common.Model.DataBase;
-using Common.Tool;
+﻿using Database.Model.Enums;
 using DataBase.Model;
-using Repository.Interface;
+using DataBase.Tool;
 
-namespace Repository.Implement
+namespace DataBase.Repository
 {
-    public class DBRepositoryBase : IRepository
+    public class DBRepositoryBase : IDBRepository
     {
         protected DBFactory? db;
 
         #region Interface
-        void IRepository.SetDB(DBInstance dbInstance)
+        void IDBRepository.SetDB(DBInstance dbInstance)
         {
             SetDB(dbInstance);
         }
 
-        CommonResult IRepository.SELECT<T>(T condition, QueryOptions? options)
+        CommonResult IDBRepository.SELECT<T>(T condition, QueryOptions? options)
         {
             return SELECT(condition, options);
         }
 
-        CommonResult IRepository.INSERT<T>(T condition)
+        CommonResult IDBRepository.INSERT<T>(T condition)
         {
             return INSERT(condition);
         }
 
-        CommonResult IRepository.UPDATE<T>(T updateData, T condition, bool isIgnoreDataAffect)
+        CommonResult IDBRepository.UPDATE<T>(T updateData, T condition, bool isIgnoreDataAffect)
         {
             return UPDATE(updateData, condition, isIgnoreDataAffect);
         }
 
-        CommonResult IRepository.DELETE<T>(T condition, bool isIgnoreDataAffect)
+        CommonResult IDBRepository.DELETE<T>(T condition, bool isIgnoreDataAffect)
         {
             return DELETE(condition, isIgnoreDataAffect);
         }
@@ -51,7 +47,7 @@ namespace Repository.Implement
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(SQLBuilder.GenSelectCmd(condition, options)).ToCommon();
+                    result = db.ExecuteSqlCommand(SQLBuilder.GenSelectCmd(condition, options));
                     if (result.IsFail)
                     {
                         break;
@@ -74,7 +70,7 @@ namespace Repository.Implement
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(EDBCmdType.INSERT, SQLBuilder.GenInsertCmd(condition)).ToCommon();
+                    result = db.ExecuteSqlCommand(EDBCmdType.INSERT, SQLBuilder.GenInsertCmd(condition));
                     if (result.IsFail)
                     {
                         break;
@@ -97,7 +93,7 @@ namespace Repository.Implement
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(EDBCmdType.UPDATE, SQLBuilder.GenUpdateCmd(updateData, condition)).ToCommon();
+                    result = db.ExecuteSqlCommand(EDBCmdType.UPDATE, SQLBuilder.GenUpdateCmd(updateData, condition));
                     if (result.IsFail)
                     {
                         break;
@@ -126,7 +122,7 @@ namespace Repository.Implement
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(EDBCmdType.DELETE, SQLBuilder.GenDeleteCmd(condition)).ToCommon();
+                    result = db.ExecuteSqlCommand(EDBCmdType.DELETE, SQLBuilder.GenDeleteCmd(condition));
                     if (result.IsFail)
                     {
                         break;

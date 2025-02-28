@@ -1,6 +1,4 @@
-﻿using Common.Model;
-using Common.Model.DataBase;
-using DataBase.Model;
+﻿using DataBase.Model;
 
 namespace Service.Interface
 {

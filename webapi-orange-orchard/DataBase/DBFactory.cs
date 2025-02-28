@@ -19,25 +19,25 @@ namespace DataBase
             _dbInstance = dbInstance;
         }
 
-        public DBResult ExecuteSqlCommand(Query query)
+        public CommonResult ExecuteSqlCommand(Query query)
         {
             return ExecuteSqlCommand(EDBCmdType.SELECT, query);
         }
 
-        public DBResult ExecuteSqlCommand(EDBCmdType cmdType, Query query)
+        public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, Query query)
         {
             var sqlResult = _dbInstance?.Compiler.Compile(query);
             return ExecuteSqlCommand(cmdType, sqlResult?.Sql, sqlResult?.NamedBindings);
         }
 
-        public DBResult ExecuteSqlCommand(string? sql, Dictionary<string, object>? parameters = null)
+        public CommonResult ExecuteSqlCommand(string? sql, Dictionary<string, object>? parameters = null)
         {
             return ExecuteSqlCommand(EDBCmdType.SELECT, sql, parameters);
         }
 
-        public DBResult ExecuteSqlCommand(EDBCmdType cmdType, string? sql, Dictionary<string, object>? parameters = null)
+        public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, string? sql, Dictionary<string, object>? parameters = null)
         {
-            var result = new DBResult();
+            var result = new CommonResult();
             try
             {
                 switch (cmdType)
@@ -60,15 +60,15 @@ namespace DataBase
             return result;
         }
 
-        public DBResult ExecuteSqlCommand<T>(Query query) where T : EntityBase, new()
+        public CommonResult ExecuteSqlCommand<T>(Query query) where T : EntityBase, new()
         {
             var sqlResult = _dbInstance?.Compiler.Compile(query);
             return ExecuteSqlCommand<T>(sqlResult?.Sql, sqlResult?.NamedBindings);
         }
 
-        public DBResult ExecuteSqlCommand<T>(string? sql, Dictionary<string, object>? parameters = null) where T : EntityBase, new()
+        public CommonResult ExecuteSqlCommand<T>(string? sql, Dictionary<string, object>? parameters = null) where T : EntityBase, new()
         {
-            var result = new DBResult();
+            var result = new CommonResult();
             try
             {
                 result.ListData = _dbInstance?.Conection?.Query<T>(sql, parameters, _dbInstance.Transaction);

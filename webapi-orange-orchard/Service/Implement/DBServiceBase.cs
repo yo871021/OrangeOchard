@@ -1,5 +1,5 @@
 ﻿using Common.Model;
-using Common.Model.Enums;
+using Database.Model.Enums;
 using DataBase;
 using DataBase.Model;
 using Microsoft.Extensions.Options;

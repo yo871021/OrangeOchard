@@ -2,11 +2,10 @@
 
 namespace Repository.Implement
 {
-    public class TESTRepository : DBRepositoryBase, ITESTRepository
+    public class TESTRepository : RepositoryBase, ITESTRepository
     {
         public void TEST()
         {
-            //不要可以 SELECT(...)
         }
     }
 }

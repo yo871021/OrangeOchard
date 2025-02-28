@@ -1,6 +1,6 @@
 ﻿using DataBase.Model;
 
-namespace Common.Model.DataBase.DBEntity
+namespace Common.Model.DBEntity
 {
     ///////////////////////// API_Request_Log BEGIN /////////////////////////
     // API_NAME varchar(100)

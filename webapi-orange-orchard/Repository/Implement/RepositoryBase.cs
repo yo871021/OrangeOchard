@@ -1,13 +1,14 @@
 ﻿using DataBase.Repository;
+using Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.Interface
+namespace Repository.Implement
 {
-    public interface IRepository : IDBRepository
+    public class RepositoryBase : DBRepositoryBase, IRepository
     {
     }
 }

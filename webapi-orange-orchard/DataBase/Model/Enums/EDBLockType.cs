@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Model.Enums
+namespace Database.Model.Enums
 {
     public enum EDBLock_Type
     {

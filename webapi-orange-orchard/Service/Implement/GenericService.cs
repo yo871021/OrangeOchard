@@ -1,5 +1,4 @@
 ﻿using Common.Model;
-using Common.Model.DataBase;
 using Repository.Interface;
 using DataBase.Model;
 using Microsoft.Extensions.Options;

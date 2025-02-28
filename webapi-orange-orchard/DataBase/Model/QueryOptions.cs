@@ -1,6 +1,6 @@
-﻿using Common.Model.Enums;
+﻿using Database.Model.Enums;
 
-namespace Common.Model.DataBase
+namespace DataBase.Model
 {
     public class QueryOptions : ConditionOptions
     {

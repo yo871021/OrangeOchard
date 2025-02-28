@@ -15,16 +15,5 @@ namespace Common.Tool
         {
             return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj));
         }
-
-        public static CommonResult ToCommon(this DBResult result)
-        {
-            return new CommonResult()
-            {
-                Message = result?.Message,
-                Code = result?.Code,
-                AffectCount = result?.AffectCount ?? -1,
-                ListData = result?.ListData
-            };
-        }
     }
 }

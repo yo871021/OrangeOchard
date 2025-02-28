@@ -1,14 +1,8 @@
-﻿using Common.Model.DataBase;
-using Common.Model.Enums;
+﻿using Database.Model.Enums;
 using DataBase.Model;
 using SqlKata;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Common.Tool
+namespace DataBase.Tool
 {
     public static class SQLBuilder
     {

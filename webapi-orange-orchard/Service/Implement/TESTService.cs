@@ -1,8 +1,9 @@
 ﻿using Common.Model;
-using Common.Model.DataBase.DBEntity;
 using Repository.Interface;
 using Microsoft.Extensions.Options;
 using Service.Interface;
+using DataBase.Model;
+using Common.Model.DBEntity;
 
 namespace Service.Implement
 {

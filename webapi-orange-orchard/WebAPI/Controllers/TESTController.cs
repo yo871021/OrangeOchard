@@ -1,4 +1,4 @@
-﻿using Common.Model.DataBase.DBEntity;
+﻿using Common.Model.DBEntity;
 using Common.Tool;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
