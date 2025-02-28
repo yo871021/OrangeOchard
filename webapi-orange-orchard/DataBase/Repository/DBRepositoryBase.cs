@@ -47,7 +47,7 @@ namespace DataBase.Repository
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(SQLBuilder.GenSelectCmd(condition, options));
+                    result = db.ExecuteSqlCommand<T>(SQLBuilder.GenSelectCmd(condition, options));
                     if (result.IsFail)
                     {
                         break;
