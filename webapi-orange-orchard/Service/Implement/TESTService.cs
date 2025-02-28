@@ -1,7 +1,7 @@
-﻿using Dao.Interface;
+﻿using Common.Model;
+using Common.Model.DataBase.DBEntity;
+using Repository.Interface;
 using Microsoft.Extensions.Options;
-using Model.Common;
-using Model.DataBase;
 using Service.Interface;
 
 namespace Service.Implement
@@ -16,12 +16,44 @@ namespace Service.Implement
 
         public CommonResult TEST()
         {
+            var result = new CommonResult();
             var db = GetDBInstance();
-            //db.Begin();
-            _ITESTRepository.SetDB(db);
-            var result = _ITESTRepository.SELECT(new Letter_Info() { Letter_ID = "1231231231" });
 
-            db.Close();
+            try
+            {
+                do
+                {
+                    db.Begin();
+                    _ITESTRepository.SetDB(db);
+
+                    result = _ITESTRepository.SELECT(new Letter_Info() { Letter_ID = "1231231231" });
+                    if (result.IsFail)
+                    {
+                        break;
+                    }
+
+                    result = _ITESTRepository.INSERT(new Letter_Info() { Letter_ID = "1231231231" });
+                    if (result.IsFail)
+                    {
+                        break;
+                    }
+
+                    db.Commit();
+                }
+                while (false);
+            }
+            catch (Exception ex)
+            {
+                result.AssignException(ex);
+            }
+            finally
+            {
+                if (result.IsFail)
+                {
+                    db.Rollback();
+                }
+                db.Close();
+            }
 
             return result;
         }

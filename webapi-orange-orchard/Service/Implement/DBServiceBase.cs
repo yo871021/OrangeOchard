@@ -1,13 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Common.Model;
+using Common.Model.Enums;
+using DataBase;
+using DataBase.Model;
 using Microsoft.Extensions.Options;
-using Model.Common;
-using Model.DataBase;
-using Model.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Implement
 {

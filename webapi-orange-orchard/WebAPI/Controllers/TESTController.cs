@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Model.DataBase;
+﻿using Common.Model.DataBase.DBEntity;
+using Common.Tool;
+using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
-using Tool;
 
 namespace WebAPI.Controllers
 {
@@ -20,6 +20,7 @@ namespace WebAPI.Controllers
         public IActionResult Test()
         {
             var result = _ITESTService.TEST();
+
             var re = result.ListData.SetTo<IEnumerable<Letter_Info>>();
 
             return Ok(re);

@@ -1,6 +1,5 @@
-using Dao.Implement;
-using Dao.Interface;
-using Model.Common;
+using Common.Model;
+using Repository.Interface;
 using Service.Implement;
 using Service.Interface;
 
@@ -22,8 +21,7 @@ builder.Services
     .AddClasses()
     .AsImplementedInterfaces()
     .WithScopedLifetime());
-builder.Services.AddTransient<DBServiceBase>();
-//builder.Services.AddTransient<DBRepositoryBase>();
+builder.Services.AddScoped<DBServiceBase>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

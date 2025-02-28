@@ -1,7 +1,8 @@
-﻿using Dao.Interface;
+﻿using Common.Model;
+using Common.Model.DataBase;
+using Repository.Interface;
+using DataBase.Model;
 using Microsoft.Extensions.Options;
-using Model.Common;
-using Model.DataBase;
 using Service.Interface;
 
 namespace Service.Implement

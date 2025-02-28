@@ -1,10 +1,18 @@
-﻿using SqlKata;
+﻿using Common.Model.DataBase;
+using Common.Model.Enums;
+using DataBase.Model;
+using SqlKata;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Tool.DataBase
+namespace Common.Tool
 {
     public static class SQLBuilder
     {
-        public static Query GenSelectCmd(EntityBase condition, QueryOptions? options) 
+        public static Query GenSelectCmd(EntityBase condition, QueryOptions? options)
         {
             options ??= new QueryOptions();
 
@@ -16,13 +24,13 @@ namespace Tool.DataBase
             return query;
         }
 
-        public static Query GenInsertCmd(EntityBase condition) 
+        public static Query GenInsertCmd(EntityBase condition)
         {
             return new Query(condition.GetType().Name)
                 .AsInsert(condition);
         }
 
-        public static Query GenUpdateCmd(EntityBase updatedata, EntityBase condition) 
+        public static Query GenUpdateCmd(EntityBase updatedata, EntityBase condition)
         {
             return new Query(condition.GetType().Name)
                 .BuildWhereString(condition.GetDirtyDictionory())
@@ -48,7 +56,7 @@ namespace Tool.DataBase
                 case EDBLock_Type.UPDLOCK:
                     tableName += " With (UPDLOCK)";
                     break;
-            }            
+            }
 
             return query.FromRaw($"{tableName}");
         }
@@ -71,13 +79,13 @@ namespace Tool.DataBase
                 if (int.TryParse(options.PageSize?.ToString(), out var pageSize))
                 {
                     query.Offset(options.PageNum).Limit(pageSize);
-                } 
+                }
             }
 
             return query;
         }
 
-        public static Query BuildWhereString(this Query query, IEnumerable<KeyValuePair<string, string>> condition, ConditionOptions? options = null) 
+        public static Query BuildWhereString(this Query query, IEnumerable<KeyValuePair<string, string>> condition, ConditionOptions? options = null)
         {
             options ??= new ConditionOptions();
             var operatorList = new[] { ">=", "<=", ">", "<", "!=", "<>", "=" };
