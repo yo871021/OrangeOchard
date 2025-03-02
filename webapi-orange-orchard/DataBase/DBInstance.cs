@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using Database.Model.Enums;
 using DataBase.Model;
+using DataBase.Tool;
 using Microsoft.Data.SqlClient;
 using SqlKata.Compilers;
 
@@ -38,35 +39,39 @@ namespace DataBase
         public DBInstance(DBOptions? dbOptions)
         {
             _dbtype = Enum.TryParse<EDBType>(dbOptions?.DBType, out var dbtype) ? dbtype : EDBType.SqlServer;
-            _connection = new SqlConnection(
+
+            var connectionstring = 
                 $"Server={dbOptions?.DBServer};" +
                 $"Database={dbOptions?.DBName};" +
                 $"User Id={dbOptions?.DBUser};" +
                 $"Password={dbOptions?.DBPassword};" +
                 $"Connection Timeout={dbOptions?.ConnectTimeOut};" +
-                $"TrustServerCertificate=True;"
-                );
+                $"TrustServerCertificate=True;";
+
+            DBLogger.WriteLog($"Initial DBConnection: {connectionstring}");
+
+            _connection = new SqlConnection(connectionstring);
             _connection.Open();
         }
 
         public void Begin()
         {
-            _transaction = _connection?.BeginTransaction();
+            _transaction = _connection?.WriteLog("BEGIN()")?.BeginTransaction();
         }
 
         public void Commit()
         {
-            _transaction?.Commit();
+            _transaction?.WriteLog("COMMIT()")?.Commit();
         }
 
         public void Rollback()
         {
-            _transaction?.Rollback();
+            _transaction?.WriteLog("ROLLBACK()")?.Rollback();
         }
 
         public void Close()
         {
-            _connection?.Close();
+            _connection?.WriteLog("CLOSE()")?.Close();
         }
 
         protected virtual void Dispose(bool disposing)

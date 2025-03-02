@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Database.Model.Enums;
 using DataBase.Model;
+using DataBase.Tool;
 using SqlKata;
 using System;
 using System.Collections;
@@ -27,29 +28,31 @@ namespace DataBase
         public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, Query query)
         {
             var sqlResult = _dbInstance?.Compiler.Compile(query);
-            return ExecuteSqlCommand(cmdType, sqlResult?.Sql, sqlResult?.NamedBindings);
+            return ExecuteSqlCommand(cmdType, sqlResult?.Sql ?? string.Empty, sqlResult?.NamedBindings);
         }
 
-        public CommonResult ExecuteSqlCommand(string? sql, Dictionary<string, object>? parameters = null)
+        public CommonResult ExecuteSqlCommand(string sql, Dictionary<string, object>? parameters = null)
         {
             return ExecuteSqlCommand(EDBCmdType.SELECT, sql, parameters);
         }
 
-        public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, string? sql, Dictionary<string, object>? parameters = null)
+        public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, string sql, Dictionary<string, object>? parameters = null)
         {
             var result = new CommonResult();
             try
             {
+                var connection = _dbInstance?.Conection?.WriteSqlLog(sql, parameters);
+
                 switch (cmdType)
                 {
                     case EDBCmdType.SELECT:
-                        result.ListData = _dbInstance?.Conection?.Query(sql, parameters, _dbInstance.Transaction);
+                        result.ListData = connection?.Query(sql, parameters, _dbInstance?.Transaction);
                         break;
 
                     case EDBCmdType.INSERT:
                     case EDBCmdType.UPDATE:
                     case EDBCmdType.DELETE:
-                        result.AffectCount = _dbInstance?.Conection?.Execute(sql, parameters, _dbInstance.Transaction) ?? 0;
+                        result.AffectCount = connection?.Execute(sql, parameters, _dbInstance?.Transaction) ?? 0;
                         break;
                 }
             }
@@ -57,21 +60,22 @@ namespace DataBase
             {
                 result.AssignException(ex);
             }
+
             return result;
         }
 
         public CommonResult ExecuteSqlCommand<T>(Query query) where T : EntityBase, new()
         {
             var sqlResult = _dbInstance?.Compiler.Compile(query);
-            return ExecuteSqlCommand<T>(sqlResult?.Sql, sqlResult?.NamedBindings);
+            return ExecuteSqlCommand<T>(sqlResult?.Sql ?? string.Empty, sqlResult?.NamedBindings);
         }
 
-        public CommonResult ExecuteSqlCommand<T>(string? sql, Dictionary<string, object>? parameters = null) where T : EntityBase, new()
+        public CommonResult ExecuteSqlCommand<T>(string sql, Dictionary<string, object>? parameters = null) where T : EntityBase, new()
         {
             var result = new CommonResult();
             try
             {
-                result.ListData = _dbInstance?.Conection?.Query<T>(sql, parameters, _dbInstance.Transaction);
+                result.ListData = _dbInstance?.Conection?.WriteSqlLog(sql, parameters).Query<T>(sql, parameters, _dbInstance.Transaction);
             }
             catch (Exception ex)
             {

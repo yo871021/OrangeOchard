@@ -27,14 +27,15 @@ namespace Service.Implement
                     db.Begin();
                     _ITESTRepository.SetDB(db);
 
-                    //result = _ITESTRepository.SELECT(new Products() { });
-                    //if (result.IsFail)
-                    //{
-                    //    break;
-                    //}
+                    result = _ITESTRepository.SELECT(new Products());
+                    if (result.IsFail)
+                    {
+                        break;
+                    }
 
                     result = _ITESTRepository.INSERT(new Products()
                     {
+                        Item_No = 5,
                         Item_Name = "椪柑",
                         Item_SubName = "(中)",
                         Item_SubTitle = "23 ~ 25 cm",

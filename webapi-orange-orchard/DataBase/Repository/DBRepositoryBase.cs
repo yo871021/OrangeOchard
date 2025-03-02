@@ -47,7 +47,7 @@ namespace DataBase.Repository
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand<T>(SQLBuilder.GenSelectCmd(condition, options));
+                    result = db.ExecuteSqlCommand<T>(SqlBuilder.GenSelectCmd(condition, options));
                     if (result.IsFail)
                     {
                         break;
@@ -70,7 +70,7 @@ namespace DataBase.Repository
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(EDBCmdType.INSERT, SQLBuilder.GenInsertCmd(condition));
+                    result = db.ExecuteSqlCommand(EDBCmdType.INSERT, SqlBuilder.GenInsertCmd(condition));
                     if (result.IsFail)
                     {
                         break;
@@ -93,7 +93,7 @@ namespace DataBase.Repository
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(EDBCmdType.UPDATE, SQLBuilder.GenUpdateCmd(updateData, condition));
+                    result = db.ExecuteSqlCommand(EDBCmdType.UPDATE, SqlBuilder.GenUpdateCmd(updateData, condition));
                     if (result.IsFail)
                     {
                         break;
@@ -122,7 +122,7 @@ namespace DataBase.Repository
             {
                 do
                 {
-                    result = db.ExecuteSqlCommand(EDBCmdType.DELETE, SQLBuilder.GenDeleteCmd(condition));
+                    result = db.ExecuteSqlCommand(EDBCmdType.DELETE, SqlBuilder.GenDeleteCmd(condition));
                     if (result.IsFail)
                     {
                         break;

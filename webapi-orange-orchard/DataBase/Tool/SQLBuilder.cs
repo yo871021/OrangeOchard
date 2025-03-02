@@ -4,7 +4,7 @@ using SqlKata;
 
 namespace DataBase.Tool
 {
-    public static class SQLBuilder
+    public static class SqlBuilder
     {        
         public static Query GenSelectCmd(EntityBase condition, QueryOptions? options)
         {

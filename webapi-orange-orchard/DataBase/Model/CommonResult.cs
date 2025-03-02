@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using DataBase.Tool;
+using System.Data;
 
 namespace DataBase.Model
 {
@@ -25,7 +26,7 @@ namespace DataBase.Model
 
         public CommonResult AssignMessage(string msg, string? code = null)
         {
-            _message = msg;
+            _message = msg.WriteErroMsgLog();
             _code = code;
 
             ClearData();
@@ -35,7 +36,7 @@ namespace DataBase.Model
 
         public CommonResult AssignException(Exception ex)
         {
-            AssignMessage(ex.Message);
+            AssignMessage(ex.WriteExceptionLog().Message);
 
             return this;
         }

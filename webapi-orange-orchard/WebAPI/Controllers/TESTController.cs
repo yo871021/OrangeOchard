@@ -25,5 +25,12 @@ namespace WebAPI.Controllers
 
             return Ok(re);
         }
+
+        [HttpPost]
+        public IActionResult TestLog()
+        {
+            _logger.LogInformation("TEST");
+            return Ok();
+        }
     }
 }
