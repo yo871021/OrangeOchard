@@ -15,5 +15,10 @@ namespace DataBase.Model
         public string? DBPassword { get; set; }
         public int? ConnectTimeOut { get; set; }
         public int? CommandTimeOut { get; set; }
+
+        /// <summary>
+        /// Sqlite Only
+        /// </summary>
+        public int? DBFilePath { get; set; }
     }
 }

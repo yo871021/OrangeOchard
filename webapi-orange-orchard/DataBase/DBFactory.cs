@@ -27,7 +27,7 @@ namespace DataBase
 
         public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, Query query)
         {
-            var sqlResult = _dbInstance?.Compiler.Compile(query);
+            var sqlResult = _dbInstance?.Compiler?.Compile(query);
             return ExecuteSqlCommand(cmdType, sqlResult?.Sql ?? string.Empty, sqlResult?.NamedBindings);
         }
 
@@ -38,10 +38,10 @@ namespace DataBase
 
         public CommonResult ExecuteSqlCommand(EDBCmdType cmdType, string sql, Dictionary<string, object>? parameters = null)
         {
-            var result = new CommonResult();
+            var result = new CommonResult() { ConnectionId = _dbInstance?.ConnectionId };
             try
             {
-                var connection = _dbInstance?.Conection?.WriteSqlLog(sql, parameters);
+                var connection = _dbInstance?.Connection?.WriteSqlLog(sql, parameters);
 
                 switch (cmdType)
                 {
@@ -66,16 +66,16 @@ namespace DataBase
 
         public CommonResult ExecuteSqlCommand<T>(Query query) where T : EntityBase, new()
         {
-            var sqlResult = _dbInstance?.Compiler.Compile(query);
+            var sqlResult = _dbInstance?.Compiler?.Compile(query);
             return ExecuteSqlCommand<T>(sqlResult?.Sql ?? string.Empty, sqlResult?.NamedBindings);
         }
 
         public CommonResult ExecuteSqlCommand<T>(string sql, Dictionary<string, object>? parameters = null) where T : EntityBase, new()
         {
-            var result = new CommonResult();
+            var result = new CommonResult() { ConnectionId = _dbInstance?.ConnectionId };
             try
             {
-                result.ListData = _dbInstance?.Conection?.WriteSqlLog(sql, parameters).Query<T>(sql, parameters, _dbInstance.Transaction);
+                result.ListData = _dbInstance?.Connection?.WriteSqlLog(sql, parameters).Query<T>(sql, parameters, _dbInstance.Transaction);
             }
             catch (Exception ex)
             {

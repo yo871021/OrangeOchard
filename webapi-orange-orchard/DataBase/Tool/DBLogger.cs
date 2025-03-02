@@ -42,22 +42,22 @@ namespace DataBase.Tool
                     ))
                 .CreateLogger();
         }
+               
+        private static string GetConnectionIdTag(this string? connectionId)
+        {
+            return string.IsNullOrEmpty(connectionId) ? string.Empty : $"  [id:{connectionId}]";
+        }
 
-        public static string WriteLog(this string msg)
+        public static string WriteLog(string msg)
         {
             ActionLogger.Information(msg);
 
             return msg;
         }
 
-        private static string GetConnectionIdString(this IDbConnection? connection)
-        {
-            return connection is SqlConnection sqlconnection ? $"  [id:{sqlconnection.ClientConnectionId}]" : string.Empty;
-        }
-
         public static IDbConnection? WriteLog(this IDbConnection? connection, string msg)
         {
-            WriteLog($"{msg}{connection?.GetConnectionIdString()}");
+            WriteLog($"{msg}{connection.GetConnectionId().GetConnectionIdTag()}");
             return connection;
         }
 
@@ -77,22 +77,22 @@ namespace DataBase.Tool
                 }
             }
 
-            WriteLog($"Executing SQL: {sql}{connection.GetConnectionIdString()}");
+            WriteLog($"Executing SQL: {sql}{connection.GetConnectionId().GetConnectionIdTag()}");
 
             return connection;
         }
 
-        public static string WriteErroMsgLog(this string errMsg)
+        public static string WriteErroMsgLog(this string errMsg, string? connectionId = null)
         {
-            ActionLogger.Error(errMsg);
+            ActionLogger.Error(errMsg + connectionId.GetConnectionIdTag());
 
             return errMsg;
         }
 
-        public static Exception WriteExceptionLog(this Exception ex)
+        public static Exception WriteExceptionLog(this Exception ex, string? connectionId = null)
         {
-            ActionLogger.Fatal("Database exception occurred");
-            ExceptionLogger.Fatal(ex, "Database exception occurred");
+            ActionLogger.Fatal("Database exception occurred" + connectionId.GetConnectionIdTag());
+            ExceptionLogger.Fatal(ex, "Database exception occurred" + connectionId.GetConnectionIdTag());
 
             return ex;
         }

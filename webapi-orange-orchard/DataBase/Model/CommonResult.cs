@@ -8,10 +8,11 @@ namespace DataBase.Model
         private string? _message;
         private string? _code;
         public string? Message { get => _message; }
-        public string? Code { get => _code;  }
+        public string? Code { get => _code; }
         public bool IsSuccess { get => string.IsNullOrEmpty(_message); }
         public bool IsFail { get => !IsSuccess; }
         public int AffectCount { get; set; } = -1;
+        public string? ConnectionId { get; set; }
         public IEnumerable<object>? ListData { get; set; }
         public DataTable? DataTableData { get; set; }
         public Dictionary<string, object> ExternalData { get; set; } = [];
@@ -26,7 +27,7 @@ namespace DataBase.Model
 
         public CommonResult AssignMessage(string msg, string? code = null)
         {
-            _message = msg.WriteErroMsgLog();
+            _message = msg.WriteErroMsgLog(ConnectionId);
             _code = code;
 
             ClearData();
@@ -36,7 +37,7 @@ namespace DataBase.Model
 
         public CommonResult AssignException(Exception ex)
         {
-            AssignMessage(ex.WriteExceptionLog().Message);
+            AssignMessage(ex.WriteExceptionLog(ConnectionId).Message);
 
             return this;
         }

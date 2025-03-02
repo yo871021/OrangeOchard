@@ -1,6 +1,7 @@
 ﻿using Database.Model.Enums;
 using DataBase.Model;
 using SqlKata;
+using SqlKata.Compilers;
 
 namespace DataBase.Tool
 {
