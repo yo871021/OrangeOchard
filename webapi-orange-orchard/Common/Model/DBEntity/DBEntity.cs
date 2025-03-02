@@ -1,7 +1,70 @@
 ﻿namespace Common.Model.DBEntity
 {
     using DataBase.Model;
-    using System.Collections.Generic;
+    ///////////////////////// Arguments BEGIN /////////////////////////
+    // ARGUMENT_CLASS_ID varchar(20)
+    // ARGUMENT_ID int
+    // ARGUMENT_VALUE nvarchar(50)
+    // CREATED_DATE datetime
+    // CREATED_USER datetime
+    // SORT_NO int
+    // UPDATED_DATE datetime
+    // UPDATED_USER datetime
+    public class @Arguments : EntityBase
+    {
+        public const string TABLENAME = "Arguments";
+        public const string FULL_TABLENAME = "Models.DBEntity.@Arguments";
+
+
+        public string? @Argument_Class_ID { get { return _Argument_Class_ID; } set { @_Argument_Class_ID = value; SetDirty(@Arguments.CN_ARGUMENT_CLASS_ID); } }
+        public const string CN_ARGUMENT_CLASS_ID = "Argument_Class_ID";
+        public const string DT_ARGUMENT_CLASS_ID = "varchar(20)";
+        private string? @_Argument_Class_ID;
+
+        public int? @Argument_ID { get { return _Argument_ID; } set { @_Argument_ID = value; SetDirty(@Arguments.CN_ARGUMENT_ID); } }
+        public const string CN_ARGUMENT_ID = "Argument_ID";
+        public const string DT_ARGUMENT_ID = "int";
+        private int? @_Argument_ID;
+
+        public string? @Argument_Value { get { return _Argument_Value; } set { @_Argument_Value = value; SetDirty(@Arguments.CN_ARGUMENT_VALUE); } }
+        public const string CN_ARGUMENT_VALUE = "Argument_Value";
+        public const string DT_ARGUMENT_VALUE = "nvarchar(50)";
+        private string? @_Argument_Value;
+
+        public DateTime? @Created_Date { get { return _Created_Date; } set { @_Created_Date = value; SetDirty(@Arguments.CN_CREATED_DATE); } }
+        public const string CN_CREATED_DATE = "Created_Date";
+        public const string DT_CREATED_DATE = "datetime";
+        private DateTime? @_Created_Date;
+
+        public DateTime? @Created_User { get { return _Created_User; } set { @_Created_User = value; SetDirty(@Arguments.CN_CREATED_USER); } }
+        public const string CN_CREATED_USER = "Created_User";
+        public const string DT_CREATED_USER = "datetime";
+        private DateTime? @_Created_User;
+
+        public int? @Sort_No { get { return _Sort_No; } set { @_Sort_No = value; SetDirty(@Arguments.CN_SORT_NO); } }
+        public const string CN_SORT_NO = "Sort_No";
+        public const string DT_SORT_NO = "int";
+        private int? @_Sort_No;
+
+        public DateTime? @Updated_Date { get { return _Updated_Date; } set { @_Updated_Date = value; SetDirty(@Arguments.CN_UPDATED_DATE); } }
+        public const string CN_UPDATED_DATE = "Updated_Date";
+        public const string DT_UPDATED_DATE = "datetime";
+        private DateTime? @_Updated_Date;
+
+        public DateTime? @Updated_User { get { return _Updated_User; } set { @_Updated_User = value; SetDirty(@Arguments.CN_UPDATED_USER); } }
+        public const string CN_UPDATED_USER = "Updated_User";
+        public const string DT_UPDATED_USER = "datetime";
+        private DateTime? @_Updated_User;
+
+        public @Arguments() : base()
+        {
+            this.PKColumnNames.UnionWith(new List<string>(){
+                CN_ARGUMENT_ID
+            });
+        }
+    }
+    ///////////////////////// Arguments END /////////////////////////
+
     ///////////////////////// Counties BEGIN /////////////////////////
     // COUNTY_ID varchar(20)
     // COUNTY_NAME nvarchar(10)
@@ -174,7 +237,7 @@
     ///////////////////////// Orders_Sequence BEGIN /////////////////////////
     // CREATED_DATE datetime
     // CREATED_USER datetime
-    // ITEM_NO int
+    // ITEM_ID int
     // ORDER_ID int
     // ORDER_SEQ_ID int
     // QUANTITY int
@@ -197,10 +260,10 @@
         public const string DT_CREATED_USER = "datetime";
         private DateTime? @_Created_User;
 
-        public int? @Item_No { get { return _Item_No; } set { @_Item_No = value; SetDirty(@Orders_Sequence.CN_ITEM_NO); } }
-        public const string CN_ITEM_NO = "Item_No";
-        public const string DT_ITEM_NO = "int";
-        private int? @_Item_No;
+        public int? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(@Orders_Sequence.CN_ITEM_ID); } }
+        public const string CN_ITEM_ID = "Item_ID";
+        public const string DT_ITEM_ID = "int";
+        private int? @_Item_ID;
 
         public int? @Order_ID { get { return _Order_ID; } set { @_Order_ID = value; SetDirty(@Orders_Sequence.CN_ORDER_ID); } }
         public const string CN_ORDER_ID = "Order_ID";
@@ -327,8 +390,8 @@
     // CREATED_DATE datetime
     // CREATED_USER datetime
     // ITEM_DESC nvarchar(500)
+    // ITEM_ID int
     // ITEM_NAME nvarchar(30)
-    // ITEM_NO int
     // ITEM_STS varchar(10)
     // ITEM_SUBNAME nvarchar(10)
     // ITEM_SUBTITLE nvarchar(30)
@@ -359,15 +422,15 @@
         public const string DT_ITEM_DESC = "nvarchar(500)";
         private string? @_Item_Desc;
 
+        public int? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(@Products.CN_ITEM_ID); } }
+        public const string CN_ITEM_ID = "Item_ID";
+        public const string DT_ITEM_ID = "int";
+        private int? @_Item_ID;
+
         public string? @Item_Name { get { return _Item_Name; } set { @_Item_Name = value; SetDirty(@Products.CN_ITEM_NAME); } }
         public const string CN_ITEM_NAME = "Item_Name";
         public const string DT_ITEM_NAME = "nvarchar(30)";
         private string? @_Item_Name;
-
-        public int? @Item_No { get { return _Item_No; } set { @_Item_No = value; SetDirty(@Products.CN_ITEM_NO); } }
-        public const string CN_ITEM_NO = "Item_No";
-        public const string DT_ITEM_NO = "int";
-        private int? @_Item_No;
 
         public string? @Item_Sts { get { return _Item_Sts; } set { @_Item_Sts = value; SetDirty(@Products.CN_ITEM_STS); } }
         public const string CN_ITEM_STS = "Item_Sts";
@@ -417,7 +480,7 @@
         public @Products() : base()
         {
             this.PKColumnNames.UnionWith(new List<string>(){
-                CN_ITEM_NO
+                CN_ITEM_ID
             });
         }
     }
@@ -429,7 +492,7 @@
     // IMAGE_ID int
     // IMAGE_SRC varchar(-1)
     // IMAGE_TYPE varchar(10)
-    // ITEM_NO int
+    // ITEM_ID int
     // UPDATED_DATE datetime
     // UPDATED_USER datetime
     public class @Products_Images : EntityBase
@@ -463,10 +526,10 @@
         public const string DT_IMAGE_TYPE = "varchar(10)";
         private string? @_Image_Type;
 
-        public int? @Item_No { get { return _Item_No; } set { @_Item_No = value; SetDirty(@Products_Images.CN_ITEM_NO); } }
-        public const string CN_ITEM_NO = "Item_No";
-        public const string DT_ITEM_NO = "int";
-        private int? @_Item_No;
+        public int? @Item_ID { get { return _Item_ID; } set { @_Item_ID = value; SetDirty(@Products_Images.CN_ITEM_ID); } }
+        public const string CN_ITEM_ID = "Item_ID";
+        public const string DT_ITEM_ID = "int";
+        private int? @_Item_ID;
 
         public DateTime? @Updated_Date { get { return _Updated_Date; } set { @_Updated_Date = value; SetDirty(@Products_Images.CN_UPDATED_DATE); } }
         public const string CN_UPDATED_DATE = "Updated_Date";

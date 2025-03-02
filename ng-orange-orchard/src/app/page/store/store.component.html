@@ -15,9 +15,9 @@
                         <ng-template #header>
                             <div class="relative">
                                 <img class="w-full"
-                                    [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
+                                    [src]="'https://primefaces.org/cdn/primeng/images/demo/product/bamboo-watch.jpg'"
                                     alt="Card" />
-                                <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)"
+                                <p-tag [value]="product.Item_Sts" [severity]="getSeverity(product)"
                                     class="absolute" styleClass="dark:!bg-surface-900" [style.left.px]="4"
                                     [style.top.px]="4" />
 
@@ -30,16 +30,16 @@
 
                         <ng-template #title>
                             <div class="flex justify-content-end">
-                                <label class="text-xl sm:text-2xl font-semibold">{{ product.name }}</label>
+                                <label class="text-xl sm:text-2xl font-semibold">{{ product.Item_Name }}</label>
                                 <label class="flex align-items-end text-base sm:text-lg font-semibold">
-                                    {{ product.subname }}
+                                    {{ product.Item_SubName }}
                                 </label>
                             </div>
                         </ng-template>
 
                         <ng-template #subtitle>
                             <div class="flex justify-content-end gap-2">
-                                <label class="text-xs sm:text-sm font-light">{{ product.size }}</label>
+                                <label class="text-xs sm:text-sm font-light">{{ product.Item_SubTitle }}</label>
                             </div>
                         </ng-template>
 
@@ -51,11 +51,11 @@
                                     $
                                 </label>
                                 <label class="flex justify-content-start text-xl sm:text-6xl font-bold">
-                                    {{ product.price }}
+                                    {{ product.Unit_Price }}
                                 </label>
                                 <label
                                     class="flex justify-content-start align-items-end text-sm sm:text-base font-semibold sm:font-bold">
-                                    /每斤
+                                    /{{ product.Unit }}
                                 </label>
                             </div>
 
@@ -78,22 +78,22 @@
 <ng-template #shoppingcartBtn let-product>
     <div class="absolute bottom-0 right-0 flex align-items-end justify-content-end justify-content-end">
 
-        <p-button *ngIf="!product.isModify && !product.quantity" class="mr-3 sm:mr-2" icon="pi pi-cart-arrow-down"
+        <p-button *ngIf="!product.isModify && !product.ShopCart_Qty" class="mr-3 sm:mr-2" icon="pi pi-cart-arrow-down"
             [rounded]="true" severity="success" (onClick)="shopCartClick(product)" />
 
-        <p-overlaybadge *ngIf="!product.isModify && !!product.quantity" class="flipleft mr-3 sm:mr-2"
-            [value]="product.quantity/10">
+        <p-overlaybadge *ngIf="!product.isModify && !!product.ShopCart_Qty" class="flipleft mr-3 sm:mr-2"
+            [value]="product.ShopCart_Qty/10">
             <p-button icon="pi pi-shopping-cart" [rounded]="true" severity="warn" (onClick)="shopCartClick(product)" />
         </p-overlaybadge>
 
         <div *ngIf="product.isModify" class="flipright flex border-round-3xl bg-white border-1 border-0 h-2rem "
             [style]="{ overflow: 'hidden' }">
-            <p-button *ngIf="product.quantity === 10" class="flipright flex align-items-center" icon="pi pi-trash"
+            <p-button *ngIf="product.ShopCart_Qty === 10" class="flipright flex align-items-center" icon="pi pi-trash"
                 [rounded]="true" size="small" [text]="true" severity="contrast" (onClick)="qtyChange(product,-10)" />
-            <p-button *ngIf="product.quantity !== 10" class="flipright flex align-items-center" icon="pi pi-minus"
+            <p-button *ngIf="product.ShopCart_Qty !== 10" class="flipright flex align-items-center" icon="pi pi-minus"
                 [rounded]="true" size="small" [text]="true" severity="contrast" (onClick)="qtyChange(product,-10)" />
             <input class="border-none max-w-3rem text-xl text-center" type="text" inputmode="numeric"
-                [(ngModel)]="product.quantity" (input)="qtyInput(product,$event)" />
+                [(ngModel)]="product.ShopCart_Qty" (input)="qtyInput(product,$event)" />
             <p-button class="flipright flex align-items-center" icon="pi pi-plus" [rounded]="true" size="small"
                 [text]="true" severity="contrast" (onClick)="qtyChange(product,10)" />
         </div>

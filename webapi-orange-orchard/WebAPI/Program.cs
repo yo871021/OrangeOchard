@@ -28,7 +28,13 @@ public class Program
 
             //builder.Host.UseSerilog();
 
-            // Add services to the container.
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AngularFrontend",
+                    policy => policy.WithOrigins(builder.Configuration["CommonSettings:ApiUrl:AngularFrontend"] ?? string.Empty)
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod());
+            });
 
             builder.Services.Configure<CommonSettings>(builder.Configuration.GetSection("CommonSettings"));
 
@@ -46,7 +52,12 @@ public class Program
                 .WithScopedLifetime());
             builder.Services.AddScoped<DBServiceBase>();
 
-            builder.Services.AddControllers();
+            builder.Services
+                .AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                }); ;
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -59,11 +70,9 @@ public class Program
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("AngularFrontend");
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
             app.MapControllers();
 
             app.Run();

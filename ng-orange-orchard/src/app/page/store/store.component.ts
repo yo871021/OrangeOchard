@@ -8,6 +8,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
+import { StoreService } from './service/store.service';
 
 @Component({
   selector: 'app-store',
@@ -18,134 +19,14 @@ import { OverlayBadgeModule } from 'primeng/overlaybadge';
 })
 export class StoreComponent {
 
-  products: any[] = [
-    {
-      id: '1000',
-      code: 'f230fh0g3',
-      name: '椪柑',
-      subname: '(中)',
-      description: 'Product Description',
-      image: 'bamboo-watch.jpg',
-      price: 30,
-      size: '23 ~ 25 cm',
-      quantity: 0,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    },
-    {
-      id: '1001',
-      code: 'nvklal433',
-      name: '椪柑',
-      subname: '(大)',
-      description: 'Product Description',
-      image: 'black-watch.jpg',
-      price: 35,
-      size: '27 ~ 29 cm',
-      quantity: 0,
-      inventoryStatus: 'OUTOFSTOCK',
-      rating: 4
-    },
-    {
-      id: '1000',
-      code: 'f230fh0g3',
-      name: '桶柑',
-      subname: '(中)',
-      description: 'Product Description',
-      image: 'bamboo-watch.jpg',
-      price: 30,
-      size: '23 ~ 25 cm',
-      quantity: 0,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    },
-    {
-      id: '1001',
-      code: 'nvklal433',
-      name: '桶柑',
-      subname: '(大)',
-      description: 'Product Description',
-      image: 'black-watch.jpg',
-      price: 35,
-      size: '27 ~ 29 cm',
-      quantity: 0,
-      inventoryStatus: 'OUTOFSTOCK',
-      rating: 4
-    },
-    {
-      id: '1002',
-      code: 'zz21cz3c1',
-      name: '茂谷',
-      description: 'Product Description',
-      image: 'blue-band.jpg',
-      price: 50,
-      size: 'Fitness',
-      quantity: 0,
-      inventoryStatus: 'LOWSTOCK',
-      rating: 3
-    },
-    {
-      id: '1003',
-      code: '244wgerg2',
-      name: '帝王柑',
-      description: 'Product Description',
-      image: 'blue-t-shirt.jpg',
-      price: 50,
-      size: 'Clothing',
-      quantity: 0,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    },
-    {
-      id: '1004',
-      code: 'h456wer53',
-      name: '砂糖橘',
-      description: 'Product Description',
-      image: 'bracelet.jpg',
-      price: 50,
-      size: 'Accessories',
-      quantity: 0,
-      inventoryStatus: 'INSTOCK',
-      rating: 4
-    },
-    {
-      id: '1005',
-      code: 'av2231fwg',
-      name: '佛利蒙',
-      description: 'Product Description',
-      image: 'brown-purse.jpg',
-      price: 50,
-      size: 'Accessories',
-      quantity: 0,
-      inventoryStatus: 'OUTOFSTOCK',
-      rating: 4
-    },
-    {
-      id: '1006',
-      code: 'bib36pfvm',
-      name: '紅肉柳丁',
-      description: 'Product Description',
-      image: 'chakra-bracelet.jpg',
-      price: 50,
-      size: 'Accessories',
-      quantity: 0,
-      inventoryStatus: 'LOWSTOCK',
-      rating: 3
-    },
-    {
-      id: '1007',
-      code: 'mbvjkgip5',
-      name: '黃肉柳丁',
-      description: 'Product Description',
-      image: 'galaxy-earrings.jpg',
-      price: 50,
-      size: 'Accessories',
-      quantity: 0,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    }
-  ]
+  products: any[] = [];
+
+  constructor(private storeService: StoreService) { }
 
   ngOnInit() {
+    this.storeService.GetProducts().subscribe(_products => {
+      this.products = _products.map((product: any) => ({ ...product, ShopCart_Qty: 0 }));
+    })
   }
 
   getSeverity(product: any) {
@@ -165,9 +46,9 @@ export class StoreComponent {
   };
 
   shopCartClick(product: any) {
-    // 如果 quantity 是 falsy（undefined、0 等），先加 10
-    if (!product.quantity) {
-      product.quantity += 10;
+    // 如果 ShopCart_Qty 是 falsy（undefined、0 等），先加 10
+    if (!product.ShopCart_Qty) {
+      product.ShopCart_Qty += 10;
     }
     product.isModify = true;
 
@@ -184,9 +65,9 @@ export class StoreComponent {
 
   qtyChange(product: any, qty: number) {
 
-    product.quantity += qty;
+    product.ShopCart_Qty += qty;
 
-    if (product.quantity >= 10) {
+    if (product.ShopCart_Qty >= 10) {
 
       product.isModify = true;
       this.resetTimer(product);
@@ -205,7 +86,7 @@ export class StoreComponent {
     }
 
     product._changeTimer = setTimeout(() => {
-      product.quantity = Math.floor(product.quantity / 10) * 10;
+      product.ShopCart_Qty = Math.floor(product.ShopCart_Qty / 10) * 10;
       product.isModify = false;
     }, 2000);
   }

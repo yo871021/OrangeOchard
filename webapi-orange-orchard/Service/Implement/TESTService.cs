@@ -35,7 +35,6 @@ namespace Service.Implement
 
                     result = _ITESTRepository.INSERT(new Products()
                     {
-                        Item_No = 5,
                         Item_Name = "椪柑",
                         Item_SubName = "(中)",
                         Item_SubTitle = "23 ~ 25 cm",
