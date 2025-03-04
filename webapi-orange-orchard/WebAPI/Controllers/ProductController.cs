@@ -34,6 +34,7 @@ namespace WebAPI.Controllers
 
             return Ok(result.ListData);
         }
+
         [HttpPost]
         public IActionResult Insert([FromBody] Dictionary<string, string> data)
         {
@@ -48,6 +49,7 @@ namespace WebAPI.Controllers
 
             return Ok();
         }
+
         [HttpPut]
         public IActionResult Update([FromQuery] Dictionary<string, string> condition, [FromBody] Dictionary<string, string> data)
         {
@@ -57,6 +59,7 @@ namespace WebAPI.Controllers
             var _data = new Products();
             _data.FillData(data);
             _data.SetFullDirty();
+            _data.Dirty.Remove(Products.CN_ITEM_ID);
 
             var result = _IService.UPDATE(_data, _condition);
             if (result.IsFail)
@@ -66,6 +69,7 @@ namespace WebAPI.Controllers
 
             return Ok();
         }
+
         [HttpPatch]
         public IActionResult Modify([FromQuery] Dictionary<string, string> condition, [FromBody] Dictionary<string, string> data)
         {
@@ -83,6 +87,7 @@ namespace WebAPI.Controllers
 
             return Ok();
         }
+
         [HttpDelete]
         public IActionResult Delete([FromQuery] Dictionary<string, string> condition)
         {
