@@ -3,6 +3,7 @@ using Repository.Interface;
 using DataBase.Model;
 using Microsoft.Extensions.Options;
 using Service.Interface;
+using Common.Model.DBEntity.Base;
 
 namespace Service.Implement
 {

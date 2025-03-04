@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DataBase.Model
+namespace Common.Model.DBEntity.Base
 {
     public class EntityBase
     {

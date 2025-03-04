@@ -1,5 +1,6 @@
 ﻿namespace Common.Model.DBEntity
 {
+    using Common.Model.DBEntity.Base;
     using DataBase.Model;
     ///////////////////////// Arguments BEGIN /////////////////////////
     // ARGUMENT_CLASS_ID varchar(20)

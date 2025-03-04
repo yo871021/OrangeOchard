@@ -1,4 +1,5 @@
-﻿using DataBase.Model;
+﻿using Common.Model.DBEntity.Base;
+using DataBase.Model;
 
 namespace Service.Interface
 {

@@ -46,7 +46,7 @@ namespace DataBase
                 switch (cmdType)
                 {
                     case EDBCmdType.SELECT:
-                        result.ListData = connection?.Query(sql, parameters, _dbInstance?.Transaction);
+                        result.ListData = connection?.Query(sql, parameters, _dbInstance?.Transaction).Cast<object>();
                         break;
 
                     case EDBCmdType.INSERT:
@@ -64,18 +64,18 @@ namespace DataBase
             return result;
         }
 
-        public CommonResult ExecuteSqlCommand<T>(Query query) where T : EntityBase, new()
+        public CommonResult ExecuteSqlCommand<T>(Query query) 
         {
             var sqlResult = _dbInstance?.Compiler?.Compile(query);
             return ExecuteSqlCommand<T>(sqlResult?.Sql ?? string.Empty, sqlResult?.NamedBindings);
         }
 
-        public CommonResult ExecuteSqlCommand<T>(string sql, Dictionary<string, object>? parameters = null) where T : EntityBase, new()
+        public CommonResult ExecuteSqlCommand<T>(string sql, Dictionary<string, object>? parameters = null) 
         {
             var result = new CommonResult() { ConnectionId = _dbInstance?.ConnectionId };
             try
             {
-                result.ListData = _dbInstance?.Connection?.WriteSqlLog(sql, parameters).Query<T>(sql, parameters, _dbInstance.Transaction);
+                result.ListData = _dbInstance?.Connection?.WriteSqlLog(sql, parameters).Query<T>(sql, parameters, _dbInstance.Transaction).Cast<object>();
             }
             catch (Exception ex)
             {

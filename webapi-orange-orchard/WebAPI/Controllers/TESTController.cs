@@ -2,6 +2,7 @@
 using Common.Tool;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
+using WebAPI.Controllers.Base;
 
 namespace WebAPI.Controllers
 {
@@ -34,11 +35,18 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult TestLog()
         {
-            _logger.LogInformation("TEST");
-            return Ok();
+            var result = _IService.SELECT(new Products());
+            if (result.IsFail)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, result.Message);
+            }
+
+            var a = result.ListData?.Cast<Products>();
+
+            return Ok(a);
         }
     }
 }

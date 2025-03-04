@@ -7,35 +7,35 @@ namespace DataBase.Tool
 {
     public static class SqlBuilder
     {        
-        public static Query GenSelectCmd(EntityBase condition, QueryOptions? options)
+        public static Query GenSelectCmd(string tableName, Dictionary<string, object> condition, QueryOptions? options)
         {
             options ??= new QueryOptions();
 
             var query = new Query()
-                .BuildLockCategory(condition.GetType().Name, options?.DBLock_Type ?? EDBLock_Type.EMPTY)
-                .BuildWhereString(condition.GetDirtyDictionory("="), options)
+                .BuildLockCategory(tableName, options?.DBLock_Type ?? EDBLock_Type.EMPTY)
+                .BuildWhereString(condition, options)
                 .BuildPaginationSql(options?.Pagination);
 
             return query;
         }
 
-        public static Query GenInsertCmd(EntityBase condition)
+        public static Query GenInsertCmd(string tableName, Dictionary<string, object> condition)
         {
-            return new Query(condition.GetType().Name)
-                .AsInsert(condition.GetDirtyDictionory());
+            return new Query(tableName)
+                .AsInsert(condition);
         }
 
-        public static Query GenUpdateCmd(EntityBase updatedata, EntityBase condition)
+        public static Query GenUpdateCmd(string tableName, Dictionary<string, object> updatedata, Dictionary<string, object> condition)
         {
-            return new Query(condition.GetType().Name)
-                .BuildWhereString(condition.GetDirtyDictionory("="))
-                .AsUpdate(updatedata.GetDirtyDictionory());
+            return new Query(tableName)
+                .BuildWhereString(condition)
+                .AsUpdate(updatedata);
         }
 
-        public static Query GenDeleteCmd(EntityBase condition)
+        public static Query GenDeleteCmd(string tableName, Dictionary<string, object> condition)
         {
-            return new Query(condition.GetType().Name)
-                .BuildWhereString(condition.GetDirtyDictionory("="))
+            return new Query(tableName)
+                .BuildWhereString(condition)
                 .AsDelete();
         }
 

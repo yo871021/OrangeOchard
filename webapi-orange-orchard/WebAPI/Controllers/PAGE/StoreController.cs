@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
+using WebAPI.Controllers.Base;
 
 namespace WebAPI.Controllers.PAGE
 {
