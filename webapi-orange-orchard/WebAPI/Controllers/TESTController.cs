@@ -1,6 +1,9 @@
 ﻿using Common.Model.DBEntity;
 using Common.Tool;
+using DataBase.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Service.Implement;
 using Service.Interface;
 using WebAPI.Controllers.Base;
 
@@ -22,31 +25,15 @@ namespace WebAPI.Controllers
         [HttpPost]
         public IActionResult Test([FromBody] List<Products> productsList)
         {
-            foreach (var products in productsList)
-            {
-                var result = _IService.INSERT(products);
-                if (result.IsFail)
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, result.Message);
-                }
-
-            }
 
             return Ok();
         }
 
         [HttpGet]
-        public IActionResult TestLog()
+        public IActionResult Test()
         {
-            var result = _IService.SELECT(new Products());
-            if (result.IsFail)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, result.Message);
-            }
 
-            var a = result.ListData?.Cast<Products>();
-
-            return Ok(a);
+            return Ok();
         }
     }
 }

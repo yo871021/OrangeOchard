@@ -10,7 +10,7 @@ namespace Service.Implement
     public class TESTService : DBServiceBase, ITESTService
     {
         private readonly ITESTRepository _ITESTRepository;
-        public TESTService(IOptions<CommonSettings> commonSettings, ITESTRepository ITESTRepository) : base(commonSettings)
+        public TESTService(ITESTRepository ITESTRepository) 
         {
             _ITESTRepository = ITESTRepository;
         }

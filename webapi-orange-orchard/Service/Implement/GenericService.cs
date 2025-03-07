@@ -10,7 +10,7 @@ namespace Service.Implement
     public class GenericService : DBServiceBase, IService
     {
         IRepository _IRepository;
-        public GenericService(IRepository iRepository, IOptions<CommonSettings> commonSettings) : base(commonSettings)
+        public GenericService(IRepository iRepository) 
         {
             _IRepository = iRepository;
         }

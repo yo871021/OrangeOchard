@@ -1,4 +1,5 @@
 using Common.Model;
+using DataBase.Model;
 using DataBase.Repository;
 using Repository.Interface;
 using Serilog;
@@ -31,9 +32,10 @@ public class Program
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AngularFrontend",
-                    policy => policy.WithOrigins(builder.Configuration["CommonSettings:ApiUrl:AngularFrontend"] ?? string.Empty)
-                                    .AllowAnyHeader()
-                                    .AllowAnyMethod());
+                    policy => policy
+                    .WithOrigins(builder.Configuration["CommonSettings:ApiUrl:AngularFrontend"] ?? string.Empty)
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
             });
 
             builder.Services.Configure<CommonSettings>(builder.Configuration.GetSection("CommonSettings"));
@@ -50,7 +52,10 @@ public class Program
                 .AddClasses()
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
-            builder.Services.AddScoped<DBServiceBase>();
+
+            DBServiceBase.ConfigureDBOptions(
+                builder.Configuration.GetSection("CommonSettings:Database")
+                .Get<Dictionary<string, DBOptions>>() ?? []);
 
             builder.Services
                 .AddControllers()

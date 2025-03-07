@@ -10,6 +10,6 @@ export class StoreService {
   constructor(private http: HttpClient) { }
 
   GetProducts() {
-    return this.http.post<any>(`${environment.apiUrl}/Store/GetProducts`, {});
+    return this.http.get<any>(`${environment.apiUrl}/Product`);
   }
 }

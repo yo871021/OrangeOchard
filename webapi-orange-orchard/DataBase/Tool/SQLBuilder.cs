@@ -82,8 +82,8 @@ namespace DataBase.Tool
 
         public static Query BuildWhereString(this Query query, IEnumerable<KeyValuePair<string, object>> condition, ConditionOptions? options = null)
         {
-            options ??= new ConditionOptions();
             var operatorList = new[] { ">=", "<=", ">", "<", "!=", "<>", "=" };
+            var isAND = !options?.IsOR ?? true;
 
             foreach (var (key, value) in condition.Select(c => (c.Key.Trim(), c.Value?.ToString()?.Trim())))
             {
@@ -100,29 +100,29 @@ namespace DataBase.Tool
                     var subConditions = value
                         .Split(separator, StringSplitOptions.RemoveEmptyEntries)
                         .Select(v => new KeyValuePair<string, object>(key, v));
-                    var condOptions = new ConditionOptions() { IsOR = separator == '|', IsLike = options.IsLike, Alias = options.Alias };
+                    var condOptions = new ConditionOptions() { IsOR = separator == '|', IsLike = options?.IsLike ?? false, Alias = options?.Alias };
 
-                    var subquery = (Query q) => q.BuildWhereString(subConditions, condOptions);
+                    Query subquery(Query q) => q.BuildWhereString(subConditions, condOptions);
 
-                    query = options.IsOR ? query.Where(subquery) : query.OrWhere(subquery);
+                    query = isAND ? query.Where(subquery) : query.OrWhere(subquery);
                 }
                 else if (value == "=")
                 {
-                    var subquery = (Query q) => q.Where(column, value, string.Empty).OrWhereNull(column);
+                    Query subquery(Query q) => q.Where(column, value, string.Empty).OrWhereNull(column);
 
-                    query = options.IsOR ? query.Where(subquery) : query.OrWhere(subquery);
+                    query = isAND ? query.Where(subquery) : query.OrWhere(subquery);
                 }
                 else if (value == "!=")
                 {
-                    var subquery = (Query q) => q.Where(column, value, string.Empty).WhereNotNull(column);
+                    Query subquery(Query q) => q.Where(column, value, string.Empty).WhereNotNull(column);
 
-                    query = options.IsOR ? query.Where(subquery) : query.OrWhere(subquery);
+                    query = isAND ? query.Where(subquery) : query.OrWhere(subquery);
                 }
                 else if (operatorList.Any(x => value.StartsWith(x)))
                 {
                     var op = value[..(operatorList.Any(x => x.Length >= 2 && value.StartsWith(x)) ? 2 : 1)];
 
-                    query = options.IsOR ? query.Where(column, op, value[op.Length..]) : query.OrWhere(column, op, value[op.Length..]);
+                    query = isAND ? query.Where(column, op, value[op.Length..]) : query.OrWhere(column, op, value[op.Length..]);
                 }
                 else if (value.Contains(".."))
                 {
@@ -138,7 +138,14 @@ namespace DataBase.Tool
                 }
                 else
                 {
-                    query = options.IsLike ? query.WhereLike(column, value) : query.Where(column, value);
+                    if (options?.IsLike ?? false)
+                    {
+                        query = isAND ? query.WhereLike(column, value) : query.OrWhereLike(column, value);
+                    }
+                    else
+                    {
+                        query = isAND ? query.Where(column, value) : query.OrWhere(column, value);
+                    }
                 }
 
             }
