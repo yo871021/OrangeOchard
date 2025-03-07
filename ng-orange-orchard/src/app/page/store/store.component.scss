@@ -32,3 +32,12 @@
     padding-left: 0.5em !important;
     padding-right: 0.5em !important;
 }
+
+::ng-deep .p-dataview-header {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+::ng-deep .p-dataview-content {
+    background-color: transparent !important;
+}
